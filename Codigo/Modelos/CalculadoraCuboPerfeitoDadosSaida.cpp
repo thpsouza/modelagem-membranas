@@ -3,12 +3,12 @@
 //
 
 #include "CalculadoraCuboPerfeitoDadosSaida.h"
-#include "DadosSaidaModelo.h"
+#include "../Saida/DadosSaidaModelo.h"
 
-DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calculadora() {
+DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     DadosSaidaModelo *dados;
 
-    /// TODO calculos
+    /// TODO: Realizar os calculos/operacoes
     dados->setPorosidade(10);
     ///
 

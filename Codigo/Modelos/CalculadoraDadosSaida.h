@@ -2,15 +2,15 @@
 // Created by LABCFD on 7/5/2024.
 //
 
-#ifndef NEW_FOLDER_CALCULADORADADOSSAIDA_H
-#define NEW_FOLDER_CALCULADORADADOSSAIDA_H
+#ifndef CALCULADORADADOSSAIDA_H
+#define CALCULADORADADOSSAIDA_H
 
 class DadosSaidaModelo;
 
 class CalculadoraDadosSaida {
 protected:
-    virtual DadosSaidaModelo* calculadora();
+    virtual DadosSaidaModelo* calcular();
 };
 
 
-#endif //NEW_FOLDER_CALCULADORADADOSSAIDA_H
+#endif //CALCULADORADADOSSAIDA_H

@@ -2,14 +2,15 @@
 // Created by LABCFD on 7/5/2024.
 //
 
-#ifndef NEW_FOLDER_CALCULADORACUBOPERFEITODADOSSAIDA_H
-#define NEW_FOLDER_CALCULADORACUBOPERFEITODADOSSAIDA_H
+#ifndef CALCULADORACUBOPERFEITODADOSSAIDA_H
+#define CALCULADORACUBOPERFEITODADOSSAIDA_H
 
 #include "CalculadoraDadosSaida.h"
 
 class CalculadoraCuboPerfeitoDadosSaida : CalculadoraDadosSaida {
-    virtual DadosSaidaModelo* calculadora();
+public:
+    virtual DadosSaidaModelo* calcular();
 };
 
 
-#endif //NEW_FOLDER_CALCULADORACUBOPERFEITODADOSSAIDA_H
+#endif //CALCULADORACUBOPERFEITODADOSSAIDA_H
