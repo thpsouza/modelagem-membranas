@@ -9,7 +9,6 @@ DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, double empacotam
     empacotamento(empacotamento),
     volumeControle(volumeControle)
 {
-
 }
 
 DadosEntradaModelo::TipoGeometria DadosEntradaModelo::getGeometria() const {

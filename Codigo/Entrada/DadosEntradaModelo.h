@@ -2,8 +2,8 @@
 // Created by LABCFD on 7/5/2024.
 //
 
-#ifndef NEW_FOLDER_DADOSENTRADAMODELO_H
-#define NEW_FOLDER_DADOSENTRADAMODELO_H
+#ifndef DADOSENTRADAMODELO_H
+#define DADOSENTRADAMODELO_H
 
 
 class DadosEntradaModelo{
@@ -28,4 +28,4 @@ private:
 };
 
 
-#endif //NEW_FOLDER_DADOSENTRADAMODELO_H
+#endif //DADOSENTRADAMODELO_H
