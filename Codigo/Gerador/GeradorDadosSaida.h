@@ -14,7 +14,7 @@ private:
     DadosSaidaModelo *saida;
 public:
     explicit GeradorDadosSaida(const DadosEntradaModelo *entrada);
-    void gerador();
+    void gerar();
     DadosSaidaModelo *getDadosSaida();
 };
 

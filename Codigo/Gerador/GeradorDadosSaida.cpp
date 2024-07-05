@@ -14,7 +14,7 @@ GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
 {
 }
 
-void GeradorDadosSaida::gerador() {
+void GeradorDadosSaida::gerar() {
 
     // Pesquisar para entender pq não estava funcionando:
     // std::unique_ptr<CalculadoraDadosSaida> calculadora;
