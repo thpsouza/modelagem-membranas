@@ -1,0 +1,3 @@
+C:/Programacao/Github/modelagem-membranas/Codigo/cmake-build-debug/CMakeFiles/New_folder.dir
+C:/Programacao/Github/modelagem-membranas/Codigo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Programacao/Github/modelagem-membranas/Codigo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
