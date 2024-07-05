@@ -2,8 +2,8 @@
 // Created by LABCFD on 7/5/2024.
 //
 
-#ifndef NEW_FOLDER_GERADORDADOSSAIDA_H
-#define NEW_FOLDER_GERADORDADOSSAIDA_H
+#ifndef GERADORDADOSSAIDA_H
+#define GERADORDADOSSAIDA_H
 
 class DadosEntradaModelo;
 class DadosSaidaModelo;
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif //NEW_FOLDER_GERADORDADOSSAIDA_H
+#endif //GERADORDADOSSAIDA_H

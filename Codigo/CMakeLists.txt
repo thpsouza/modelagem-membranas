@@ -12,8 +12,8 @@ add_executable(modelagem_membranas main.cpp
         Saida/DadosSaidaModelo.cpp
         Saida/DadosSaidaModelo.h
         Gerador/GeradorDadosSaida.h
-        CalculadoraDadosSaida.h
+        Modelos/CalculadoraDadosSaida.h
         Gerador/GeradorDadosSaida.cpp
-        CalculadoraDadosSaida.cpp
-        CalculadoraCuboPerfeitoDadosSaida.h
-        CalculadoraCuboPerfeitoDadosSaida.cpp)
+        Modelos/CalculadoraDadosSaida.cpp
+        Modelos/CalculadoraCuboPerfeitoDadosSaida.h
+        Modelos/CalculadoraCuboPerfeitoDadosSaida.cpp)

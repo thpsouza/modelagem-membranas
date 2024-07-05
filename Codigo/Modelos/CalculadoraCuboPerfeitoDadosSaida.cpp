@@ -3,7 +3,7 @@
 //
 
 #include "CalculadoraCuboPerfeitoDadosSaida.h"
-#include "Saida/DadosSaidaModelo.h"
+#include "DadosSaidaModelo.h"
 
 DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calculadora() {
     DadosSaidaModelo *dados;
