@@ -1,0 +1,3 @@
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-refeita/cmake-build-debug/CMakeFiles/New_folder.dir
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-refeita/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-refeita/cmake-build-debug/CMakeFiles/rebuild_cache.dir
