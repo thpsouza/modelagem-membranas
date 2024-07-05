@@ -2,8 +2,8 @@
 // Created by LABCFD on 7/5/2024.
 //
 
-#ifndef NEW_FOLDER_DADOSSAIDAMODELO_H
-#define NEW_FOLDER_DADOSSAIDAMODELO_H
+#ifndef DADOSSAIDAMODELO_H
+#define DADOSSAIDAMODELO_H
 
 
 class DadosSaidaModelo {
@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif //NEW_FOLDER_DADOSSAIDAMODELO_H
+#endif //DADOSSAIDAMODELO_H
