@@ -8,7 +8,7 @@
 class DadosSaidaModelo;
 
 class CalculadoraDadosSaida {
-protected:
+public:
     virtual DadosSaidaModelo* calcular();
 };
 

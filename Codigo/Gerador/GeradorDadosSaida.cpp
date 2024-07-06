@@ -16,9 +16,8 @@ GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
 
 void GeradorDadosSaida::gerar() {
 
-    // Pesquisar para entender pq não estava funcionando:
-    // std::unique_ptr<CalculadoraDadosSaida> calculadora;
-    std::unique_ptr<CalculadoraCuboPerfeitoDadosSaida> calculadora;
+    std::unique_ptr<CalculadoraDadosSaida> calculadora;
+    //std::unique_ptr<CalculadoraCuboPerfeitoDadosSaida> calculadora;
 
     // TODO: Criar novos modelos para as demais geometrias
     switch (entrada->getGeometria()) {

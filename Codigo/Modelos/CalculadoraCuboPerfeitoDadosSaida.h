@@ -7,7 +7,7 @@
 
 #include "CalculadoraDadosSaida.h"
 
-class CalculadoraCuboPerfeitoDadosSaida : CalculadoraDadosSaida {
+class CalculadoraCuboPerfeitoDadosSaida : public CalculadoraDadosSaida {
 public:
     virtual DadosSaidaModelo* calcular();
 };
