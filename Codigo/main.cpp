@@ -11,7 +11,7 @@ int main() {
     double porosidade;
     DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito, 0.8, 1};
     DadosSaidaModelo dadosSaida;
-    GeradorDadosSaida gerador {&dadosEntrada};
+    GeradorDadosSaida gerador {&dadosEntrada, &dadosSaida};
 
     /**
      *
@@ -25,7 +25,6 @@ int main() {
      *      modificá-la "in-place" não necessitando do metodo getDadosSaida.
      */
     gerador.gerar();
-    dadosSaida = *gerador.getDadosSaida();
     porosidade = dadosSaida.getPorosidade();
 
     // Output

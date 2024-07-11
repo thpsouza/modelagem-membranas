@@ -9,8 +9,9 @@
 #include "../Modelos/CalculadoraDadosSaida.h"
 #include "../Modelos/CalculadoraCuboPerfeitoDadosSaida.h"
 
-GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
-    entrada(entrada)
+GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada, DadosSaidaModelo *saida) :
+    entrada(entrada),
+    saida(saida)
 {
 }
 
@@ -32,9 +33,9 @@ void GeradorDadosSaida::gerar() {
             ;
     }
 
-    saida = calculadora->calcular();
+    calculadora->calcular(saida);
 }
 
-DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
-    return saida;
-}
+//DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
+//    return saida;
+//}

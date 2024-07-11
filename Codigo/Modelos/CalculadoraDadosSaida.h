@@ -9,7 +9,7 @@ class DadosSaidaModelo;
 
 class CalculadoraDadosSaida {
 public:
-    virtual DadosSaidaModelo* calcular();
+    virtual void calcular(DadosSaidaModelo *dados);
 };
 
 

@@ -4,6 +4,5 @@
 
 #include "CalculadoraDadosSaida.h"
 
-DadosSaidaModelo *CalculadoraDadosSaida::calcular() {
-    return nullptr;
+void CalculadoraDadosSaida::calcular(DadosSaidaModelo *dados) {
 }
