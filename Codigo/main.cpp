@@ -6,8 +6,10 @@
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
+#include "Geometrias/CuboPerfeito.h"
 
-int main() {
+
+int testeEntradaSaidaDados() {
     double porosidade;
     DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito, 0.8, 1};
     DadosSaidaModelo dadosSaida;
@@ -30,6 +32,17 @@ int main() {
 
     // Output
     std::cout << "Porosidade: " << porosidade << std::endl;
+
+    return 0;
+}
+
+
+int main() {
+    double aresta = 5.0;
+
+    CuboPerfeito cubo {aresta};
+    cubo.calcularAreaFace();
+    cubo.calcularVolume();
 
     return 0;
 }

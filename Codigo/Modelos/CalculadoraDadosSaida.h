@@ -17,7 +17,6 @@ public:
     CalculadoraDadosSaida();
 
     virtual DadosSaidaModelo* calcular();
-
 };
 
 
