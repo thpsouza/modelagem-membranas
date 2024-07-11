@@ -13,11 +13,19 @@ int main() {
     DadosSaidaModelo dados;
     GeradorDadosSaida gerador {&dadosEntrada};
 
-    /// SEGFAULT NO GETTER E NO SETTER DOS DADOS DE SAIDA
+    /**
+     * ERRO ENCONTRADO:
+     *     SEGFAULT NO SETTER DOS DADOS DE SAIDA NA FUNÇÃO 'CALCULAR' DA CLASSE 'CalculadoraCuboPerfeitoDadosSaida'
+     * SOLUÇÃO ENCONTRADA:
+     *     Declarei uma variável da classe, para poder setar o valor, e então retornei um ponteiro que
+     *     aponta para essa variável.
+     */
     gerador.gerar();
     dados = *gerador.getDadosSaida();
     porosidade = dados.getPorosidade();
 
     // Output
     std::cout << "Porosidade: " << porosidade << std::endl;
+
+    return 0;
 }
