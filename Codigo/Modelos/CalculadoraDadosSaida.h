@@ -5,11 +5,19 @@
 #ifndef CALCULADORADADOSSAIDA_H
 #define CALCULADORADADOSSAIDA_H
 
+#include <memory>
+
 class DadosSaidaModelo;
 
 class CalculadoraDadosSaida {
+protected:
+    std::unique_ptr<DadosSaidaModelo> dadosPtr;
+
 public:
+    CalculadoraDadosSaida();
+
     virtual DadosSaidaModelo* calcular();
+
 };
 
 

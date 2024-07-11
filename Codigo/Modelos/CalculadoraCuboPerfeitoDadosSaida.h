@@ -9,7 +9,9 @@
 
 class CalculadoraCuboPerfeitoDadosSaida : public CalculadoraDadosSaida {
 public:
-    virtual DadosSaidaModelo* calcular();
+    CalculadoraCuboPerfeitoDadosSaida();
+
+    DadosSaidaModelo* calcular() override;
 };
 
 

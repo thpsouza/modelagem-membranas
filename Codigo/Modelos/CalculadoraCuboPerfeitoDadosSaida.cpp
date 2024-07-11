@@ -5,13 +5,18 @@
 #include "CalculadoraCuboPerfeitoDadosSaida.h"
 #include "../Saida/DadosSaidaModelo.h"
 
+CalculadoraCuboPerfeitoDadosSaida::CalculadoraCuboPerfeitoDadosSaida() : CalculadoraDadosSaida() {
+
+}
+
 DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
-    DadosSaidaModelo dados;
-    DadosSaidaModelo *dadosPtr = &dados;
+
+    double teste = 10.;
 
     /// TODO: Realizar os calculos/operacoes
-    dados.setPorosidade(10);
+    dadosPtr->setPorosidade(teste);
     ///
 
-    return dadosPtr;
+    return dadosPtr.release();
 }
+

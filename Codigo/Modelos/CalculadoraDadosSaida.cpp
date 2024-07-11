@@ -3,6 +3,13 @@
 //
 
 #include "CalculadoraDadosSaida.h"
+#include "DadosSaidaModelo.h"
+
+CalculadoraDadosSaida::CalculadoraDadosSaida() :
+dadosPtr(std::make_unique<DadosSaidaModelo>())
+{
+
+}
 
 DadosSaidaModelo *CalculadoraDadosSaida::calcular() {
     return nullptr;
