@@ -9,6 +9,7 @@
 #include "../Modelos/CalculadoraDadosSaida.h"
 #include "../Modelos/CalculadoraCuboPerfeitoDadosSaida.h"
 
+
 GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
     entrada(entrada)
 {
