@@ -4,6 +4,11 @@
 
 #include "DadosSaidaModelo.h"
 
+
+DadosSaidaModelo::DadosSaidaModelo() {
+
+}
+
 void DadosSaidaModelo::setPorosidade(double value) {
     porosidade = value;
 }

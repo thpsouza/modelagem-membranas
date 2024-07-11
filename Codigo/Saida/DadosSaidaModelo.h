@@ -10,6 +10,8 @@ class DadosSaidaModelo {
 private:
     double porosidade;
 public:
+    DadosSaidaModelo();
+
     void setPorosidade(double value);
     double getPorosidade() const;
 };
