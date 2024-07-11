@@ -4,14 +4,17 @@
 
 #include "CuboPerfeito.h"
 
+/// Construtor
 CuboPerfeito::CuboPerfeito(double aresta) :
 aresta(aresta)
 {
 
 }
 
+
+/// Calculadoras
 void CuboPerfeito::calcularAreaFace() {
-    areaFace = aresta * aresta;
+    setAreaFace(aresta * aresta);
 }
 
 void CuboPerfeito::calcularVolume() {
@@ -24,14 +27,7 @@ void CuboPerfeito::setAresta(double valor) {
     aresta = valor;
 }
 
-void CuboPerfeito::setAreaFace(double valor) {
-    areaFace = valor;
-}
-
 double CuboPerfeito::getAresta() const {
     return aresta;
 }
 
-double CuboPerfeito::getAreaFace() const {
-    return areaFace;
-}

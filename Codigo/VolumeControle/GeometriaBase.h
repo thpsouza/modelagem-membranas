@@ -9,14 +9,19 @@
 class GeometriaBase {
 private:
     double volume;
+    double areaFace;
+    bool temFace;
 
 public:
     GeometriaBase();
     //GeometriaBase(double volume);
 
     virtual void calcularVolume();
+    virtual void calcularAreaFace();
     void setVolume(double valor);
+    void setAreaFace(double valor);
     double getVolume() const;
+    double getAreaFace() const;
 };
 
 

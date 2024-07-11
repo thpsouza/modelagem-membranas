@@ -13,13 +13,28 @@ GeometriaBase::GeometriaBase() {
 //{
 //}
 
+
+/// Calculadoras
+void GeometriaBase::calcularAreaFace() {
+}
+
 void GeometriaBase::calcularVolume() {
 }
 
+
+/// Setters and Getters
 void GeometriaBase::setVolume(double valor) {
     volume = valor;
 }
 
+void GeometriaBase::setAreaFace(double valor) {
+    areaFace = valor;
+}
+
 double GeometriaBase::getVolume() const {
     return volume;
+}
+
+double GeometriaBase::getAreaFace() const {
+    return areaFace;
 }
