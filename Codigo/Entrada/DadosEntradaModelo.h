@@ -22,7 +22,7 @@ public:
     DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao, double empacotamento, double volume);
 
     TipoGeometria getGeometria() const;
-    TipoDistribuicao getDistribuocao() const;
+    TipoDistribuicao getDistribuicao() const;
     double getEmpacotamento() const;
     double getVolume() const;
 

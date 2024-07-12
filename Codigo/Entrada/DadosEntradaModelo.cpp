@@ -16,7 +16,7 @@ DadosEntradaModelo::TipoGeometria DadosEntradaModelo::getGeometria() const {
     return geometria;
 }
 
-DadosEntradaModelo::TipoDistribuicao DadosEntradaModelo::getDistribuocao() const {
+DadosEntradaModelo::TipoDistribuicao DadosEntradaModelo::getDistribuicao() const {
     return distribuicao;
 }
 
