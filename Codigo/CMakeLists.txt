@@ -30,4 +30,8 @@ add_executable(modelagem_membranas main.cpp
         VolumeControle/Fibras/FibraBase.h
         VolumeControle/Fibras/FibraBase.cpp
         VolumeControle/Fibras/FibraCilindrica.h
-        VolumeControle/Fibras/FibraCilindrica.cpp)
+        VolumeControle/Fibras/FibraCilindrica.cpp
+        VolumeControle/Distribuicoes/DistribuicaoBase.h
+        VolumeControle/Distribuicoes/DistribuicaoBase.cpp
+        VolumeControle/Distribuicoes/DistribuicaoUniforme.h
+        VolumeControle/Distribuicoes/DistribuicaoUniforme.cpp)
