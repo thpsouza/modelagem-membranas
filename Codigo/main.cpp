@@ -9,7 +9,7 @@
 #include "VolumeControle/CuboPerfeito.h"
 
 
-int testeEntradaSaidaDados() {
+void testeEntradaSaidaDados() {
     double porosidade;
     DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito, 0.8, 1};
     DadosSaidaModelo dadosSaida;
@@ -32,12 +32,10 @@ int testeEntradaSaidaDados() {
 
     // Output
     std::cout << "Porosidade: " << porosidade << std::endl;
-
-    return 0;
 }
 
 
-int main() {
+void testeGeometria() {
     double aresta = 5.0;
     double vol;
 
@@ -46,7 +44,14 @@ int main() {
     cubo.calcularVolume();
     vol = cubo.getVolume();
 
-    std::cout << vol << std::endl;
+    std::cout << "Volume cubo: " << vol << std::endl;
+}
+
+
+int main() {
+    testeEntradaSaidaDados();
+    testeGeometria();
+
 
     return 0;
 }
