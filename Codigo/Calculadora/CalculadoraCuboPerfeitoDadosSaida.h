@@ -9,7 +9,7 @@
 
 class CalculadoraCuboPerfeitoDadosSaida : public CalculadoraDadosSaida {
 public:
-    CalculadoraCuboPerfeitoDadosSaida();
+    explicit CalculadoraCuboPerfeitoDadosSaida(DadosEntradaModelo::TipoDistribuicao distribuicao);
 
     DadosSaidaModelo* calcular() override;
 };

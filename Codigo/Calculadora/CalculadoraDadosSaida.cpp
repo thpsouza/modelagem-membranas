@@ -5,8 +5,9 @@
 #include "CalculadoraDadosSaida.h"
 #include "../Saida/DadosSaidaModelo.h"
 
-CalculadoraDadosSaida::CalculadoraDadosSaida() :
-dadosPtr(std::make_unique<DadosSaidaModelo>())
+CalculadoraDadosSaida::CalculadoraDadosSaida(DadosEntradaModelo::TipoDistribuicao distribuicao) :
+dadosPtr(std::make_unique<DadosSaidaModelo>()),
+distribuicao(distribuicao)
 {
 
 }
@@ -14,3 +15,4 @@ dadosPtr(std::make_unique<DadosSaidaModelo>())
 DadosSaidaModelo *CalculadoraDadosSaida::calcular() {
     return nullptr;
 }
+
