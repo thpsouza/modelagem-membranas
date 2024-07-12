@@ -14,17 +14,23 @@ public:
         Esfera,
         Cilindro
     };
+    enum TipoDistribuicao
+    {
+        UniformeUmaDirecao
+    };
 
-    DadosEntradaModelo(TipoGeometria geometria, double empacotamento, double volumeControle);
+    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao, double empacotamento, double volume);
 
     TipoGeometria getGeometria() const;
+    TipoDistribuicao getDistribuocao() const;
     double getEmpacotamento() const;
-    double getVolumeControle() const;
+    double getVolume() const;
 
 private:
     TipoGeometria geometria;
+    TipoDistribuicao distribuicao;
     double empacotamento;
-    double volumeControle;
+    double volume;
 };
 
 
