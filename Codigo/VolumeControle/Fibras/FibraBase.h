@@ -11,10 +11,13 @@ private:
     double comprimento;
     double diametroMedio;
     double areaSuperficial;
+    double volume;
 
 public:
     FibraBase();
-
+    // Calculadoras
+    virtual void calcularAreaSuperficial();
+    // Setters e Getters
     void setComprimento(double valor);
     void setDiametro(double valor);
     void setAreaSuperficial(double valor);

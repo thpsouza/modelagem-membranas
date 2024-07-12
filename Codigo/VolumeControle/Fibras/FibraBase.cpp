@@ -3,12 +3,17 @@
 //
 
 #include "FibraBase.h"
+#include <cmath>
 
 /// Construtor
 FibraBase::FibraBase() {
 
 }
 
+/// Calculos
+void FibraBase::calcularAreaSuperficial() {
+    setAreaSuperficial(M_PI * diametroMedio * comprimento);
+}
 
 /// Setters and Getters
 void FibraBase::setComprimento(double valor) {
@@ -34,3 +39,5 @@ double FibraBase::getDiametro() const {
 double FibraBase::getAreaSuperficial() const {
     return areaSuperficial;
 }
+
+
