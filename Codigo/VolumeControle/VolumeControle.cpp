@@ -5,10 +5,9 @@
 #include "VolumeControle.h"
 
 
+/// Construtor
 VolumeControle::VolumeControle() {
-
 }
-
 
 
 /// Calculadoras
@@ -19,7 +18,6 @@ void VolumeControle::calcularPorosidade() {
 }
 
 
-
 /// Setters and Getters
 void VolumeControle::setAreaTransferenciaTotal(double valor) {
     areaTransferenciaTotal = valor;
@@ -28,7 +26,6 @@ void VolumeControle::setAreaTransferenciaTotal(double valor) {
 void VolumeControle::setPorosidade(double valor) {
     porosidade = valor;
 }
-
 
 
 double VolumeControle::getAreaTransferenciaTotal() const {

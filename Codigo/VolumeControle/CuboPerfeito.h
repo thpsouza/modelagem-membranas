@@ -10,9 +10,11 @@
 class CuboPerfeito : public GeometriaBase {
 private:
     double aresta;
-public:
-    CuboPerfeito(double aresta);
 
+public:
+    // Construtor
+    CuboPerfeito(double aresta);
+    // Demais métodos
     void calcularAreaFace() override;
     void calcularVolume() override;
     void setAresta(double valor);

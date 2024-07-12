@@ -10,6 +10,8 @@ class GeometriaBase {
 private:
     double volume;
     double areaFace;
+
+protected:
     bool temFace;
 
 public:
