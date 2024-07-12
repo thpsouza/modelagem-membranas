@@ -5,6 +5,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(Entrada)
 include_directories(Saida)
+include_directories(Gerador)
+include_directories(Calculadora)
+include_directories(VolumeControle)
+include_directories(Mistura)
 
 add_executable(modelagem_membranas main.cpp
         Entrada/DadosEntradaModelo.h
@@ -13,15 +17,15 @@ add_executable(modelagem_membranas main.cpp
         Saida/DadosSaidaModelo.cpp
         Gerador/GeradorDadosSaida.h
         Gerador/GeradorDadosSaida.cpp
-        Modelos/CalculadoraDadosSaida.h
-        Modelos/CalculadoraDadosSaida.cpp
-        Modelos/CalculadoraCuboPerfeitoDadosSaida.h
-        Modelos/CalculadoraCuboPerfeitoDadosSaida.cpp
-        VolumeControle/GeometriaBase.h
-        VolumeControle/GeometriaBase.cpp
-        VolumeControle/CuboPerfeito.h
-        VolumeControle/CuboPerfeito.cpp
-        VolumeControle/FibraBase.h
-        VolumeControle/FibraBase.cpp
+        Calculadora/CalculadoraDadosSaida.h
+        Calculadora/CalculadoraDadosSaida.cpp
+        Calculadora/CalculadoraCuboPerfeitoDadosSaida.h
+        Calculadora/CalculadoraCuboPerfeitoDadosSaida.cpp
+        VolumeControle/Geometrias/GeometriaBase.h
+        VolumeControle/Geometrias/GeometriaBase.cpp
+        VolumeControle/Geometrias/CuboPerfeito.h
+        VolumeControle/Geometrias/CuboPerfeito.cpp
+        VolumeControle/Fibras/FibraBase.h
+        VolumeControle/Fibras/FibraBase.cpp
         VolumeControle/VolumeControle.h
         VolumeControle/VolumeControle.cpp)
