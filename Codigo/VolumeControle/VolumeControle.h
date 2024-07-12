@@ -6,21 +6,35 @@
 #ifndef MODELAGEM_MEMBRANAS_VOLUMECONTROLE_H
 #define MODELAGEM_MEMBRANAS_VOLUMECONTROLE_H
 
+#include "../Entrada/DadosEntradaModelo.h"
+
+class FibraBase;
+class GeometriaBase;
 
 class VolumeControle {
 private:
-    double areaTransferenciaTotal;
     double porosidade;
+    int numFibras;
+    double areaTransferenciaTotal;
+    FibraBase *fibra;
+    GeometriaBase *geometria;
+
 public:
-    VolumeControle();
+    VolumeControle(GeometriaBase *geometria, FibraBase *fibra);
 
-    virtual void calcularAreaTotalTransferencia();
-    virtual void calcularPorosidade();
+    void construirModelo(DadosEntradaModelo::TipoDistribuicao tipoDistribuicao);
 
-    void setAreaTransferenciaTotal(double valor);
+    void calcularPorosidade();
+    void calcularNumFibras();
+    void calcularAreaTotalTransferencia();
+
     void setPorosidade(double valor);
-    double getAreaTransferenciaTotal() const;
+    void setNumFibras(int valor);
+    void setAreaTransferenciaTotal(double valor);
+
     double getPorosidade() const;
+    int getNumFibras() const;
+    double getAreaTransferenciaTotal() const;
 };
 
 

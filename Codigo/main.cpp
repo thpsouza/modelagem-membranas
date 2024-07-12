@@ -11,7 +11,11 @@
 
 void testeEntradaSaidaDados() {
     double porosidade;
-    DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito, 0.8, 1};
+    int numFibras;
+    double areaTotalTransferencia;
+    DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito,
+                                     DadosEntradaModelo::UniformeUmaDirecao,
+                                     0.8, 1};
     DadosSaidaModelo dadosSaida;
     GeradorDadosSaida gerador {&dadosEntrada};
 
@@ -29,9 +33,13 @@ void testeEntradaSaidaDados() {
     gerador.gerar();
     dadosSaida = *gerador.getDadosSaida();
     porosidade = dadosSaida.getPorosidade();
+    numFibras = dadosSaida.getNumFibras();
+    areaTotalTransferencia = dadosSaida.getAreaTotalTransferencia();
 
     // Output
     std::cout << "Porosidade: " << porosidade << std::endl;
+    std::cout << "Num Fibras: " << numFibras << std::endl;
+    std::cout << "Area Total de Transferencia: " << areaTotalTransferencia << std::endl;
 }
 
 

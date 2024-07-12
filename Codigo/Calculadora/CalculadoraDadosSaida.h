@@ -15,6 +15,7 @@ protected:
     DadosEntradaModelo::TipoDistribuicao distribuicao;
     std::unique_ptr<DadosSaidaModelo> dadosPtr;
 
+
 public:
     CalculadoraDadosSaida(DadosEntradaModelo::TipoDistribuicao distribuicao);
 
