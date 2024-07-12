@@ -6,8 +6,8 @@
 #include "GeradorDadosSaida.h"
 #include "../Entrada/DadosEntradaModelo.h"
 #include "../Saida/DadosSaidaModelo.h"
-#include "../Modelos/CalculadoraDadosSaida.h"
-#include "../Modelos/CalculadoraCuboPerfeitoDadosSaida.h"
+#include "../Calculadora/CalculadoraDadosSaida.h"
+#include "../Calculadora/CalculadoraCuboPerfeitoDadosSaida.h"
 
 
 GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :

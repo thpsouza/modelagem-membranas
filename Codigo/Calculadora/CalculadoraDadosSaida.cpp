@@ -3,7 +3,7 @@
 //
 
 #include "CalculadoraDadosSaida.h"
-#include "DadosSaidaModelo.h"
+#include "../Saida/DadosSaidaModelo.h"
 
 CalculadoraDadosSaida::CalculadoraDadosSaida() :
 dadosPtr(std::make_unique<DadosSaidaModelo>())
