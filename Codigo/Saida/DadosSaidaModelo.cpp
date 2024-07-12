@@ -13,6 +13,14 @@ void DadosSaidaModelo::setPorosidade(double value) {
     porosidade = value;
 }
 
+void DadosSaidaModelo::setAreaTotalTransferencia(double value) {
+    areaTransferenciaTotal = value;
+}
+
 double DadosSaidaModelo::getPorosidade() const {
     return porosidade;
+}
+
+double DadosSaidaModelo::getAreaTotalTransferencia() const {
+    return areaTransferenciaTotal;
 }

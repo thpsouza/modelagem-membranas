@@ -9,11 +9,14 @@
 class DadosSaidaModelo {
 private:
     double porosidade;
+    double areaTransferenciaTotal;
 public:
     DadosSaidaModelo();
 
     void setPorosidade(double value);
+    void setAreaTotalTransferencia(double value);
     double getPorosidade() const;
+    double getAreaTotalTransferencia() const;
 };
 
 
