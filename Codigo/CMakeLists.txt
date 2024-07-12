@@ -21,11 +21,13 @@ add_executable(modelagem_membranas main.cpp
         Calculadora/CalculadoraDadosSaida.cpp
         Calculadora/CalculadoraCuboPerfeitoDadosSaida.h
         Calculadora/CalculadoraCuboPerfeitoDadosSaida.cpp
+        VolumeControle/VolumeControle.h
+        VolumeControle/VolumeControle.cpp
         VolumeControle/Geometrias/GeometriaBase.h
         VolumeControle/Geometrias/GeometriaBase.cpp
         VolumeControle/Geometrias/CuboPerfeito.h
         VolumeControle/Geometrias/CuboPerfeito.cpp
         VolumeControle/Fibras/FibraBase.h
         VolumeControle/Fibras/FibraBase.cpp
-        VolumeControle/VolumeControle.h
-        VolumeControle/VolumeControle.cpp)
+        VolumeControle/Fibras/FibraCilindrica.h
+        VolumeControle/Fibras/FibraCilindrica.cpp)

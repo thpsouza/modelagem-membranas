@@ -6,7 +6,7 @@
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
-#include "VolumeControle/CuboPerfeito.h"
+#include "VolumeControle/Geometrias/CuboPerfeito.h"
 
 
 void testeEntradaSaidaDados() {
