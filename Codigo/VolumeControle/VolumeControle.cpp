@@ -15,7 +15,7 @@ VolumeControle::VolumeControle() {
 void VolumeControle::calcularAreaTotalTransferencia() {
 }
 
-void VolumeControle:::calcularPorosidade() {
+void VolumeControle::calcularPorosidade() {
 }
 
 

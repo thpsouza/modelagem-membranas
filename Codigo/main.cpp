@@ -6,7 +6,7 @@
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
-#include "Geometrias/CuboPerfeito.h"
+#include "VolumeControle/CuboPerfeito.h"
 
 
 int testeEntradaSaidaDados() {
@@ -39,10 +39,14 @@ int testeEntradaSaidaDados() {
 
 int main() {
     double aresta = 5.0;
+    double vol;
 
     CuboPerfeito cubo {aresta};
     cubo.calcularAreaFace();
     cubo.calcularVolume();
+    vol = cubo.getVolume();
+
+    std::cout << vol << std::endl;
 
     return 0;
 }
