@@ -7,7 +7,7 @@
 
 #include "FibraBase.h"
 
-class FibraCilindrica : FibraBase {
+class FibraCilindrica : public FibraBase {
 private:
     double areaTransversal;
 public:

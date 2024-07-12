@@ -13,6 +13,7 @@ FibraBase::FibraBase() {
 /// Calculos
 void FibraBase::calcularAreaSuperficial() {
 }
+
 void FibraBase::calcularVolume() {
 }
 
@@ -33,6 +34,7 @@ void FibraBase::setAreaSuperficial(double valor) {
 void FibraBase::setVolume(double valor) {
     volume = valor;
 }
+
 
 double FibraBase::getComprimento() const {
     return comprimento;
