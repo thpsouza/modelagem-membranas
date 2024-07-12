@@ -25239,7 +25239,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -226.857421875,
+									"left": -314.857421875,
 									"top": -128,
 									"width": 10,
 									"height": 10
@@ -25255,7 +25255,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -226.857421875,
+									"left": -314.857421875,
 									"top": -128,
 									"width": 10,
 									"height": 10
@@ -28575,7 +28575,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -96,
+									"left": -216,
 									"top": -32,
 									"width": 10,
 									"height": 10
@@ -28591,7 +28591,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -96,
+									"left": -216,
 									"top": -32,
 									"width": 10,
 									"height": 10
