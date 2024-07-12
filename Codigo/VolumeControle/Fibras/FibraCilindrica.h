@@ -5,9 +5,21 @@
 #ifndef MODELAGEM_MEMBRANAS_FIBRACILINDRICA_H
 #define MODELAGEM_MEMBRANAS_FIBRACILINDRICA_H
 
+#include "FibraBase.h"
 
-class FibraCilindrica {
-
+class FibraCilindrica : FibraBase {
+private:
+    double areaTransversal;
+public:
+    // Construtor
+    FibraCilindrica();
+    // Calculadoras
+    void calcularAreaTransversal();
+    void calcularAreaSuperficial() override;
+    void calcularVolume() override;
+    // Set e Get
+    void setAreaTransversal(double valor);
+    double getAreaTransversal() const;
 };
 
 
