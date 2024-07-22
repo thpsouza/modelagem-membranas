@@ -34,4 +34,7 @@ add_executable(modelagem_membranas main.cpp
         VolumeControle/Distribuicoes/DistribuicaoBase.h
         VolumeControle/Distribuicoes/DistribuicaoBase.cpp
         VolumeControle/Distribuicoes/DistribuicaoUniforme.h
-        VolumeControle/Distribuicoes/DistribuicaoUniforme.cpp)
+        VolumeControle/Distribuicoes/DistribuicaoUniforme.cpp
+        AnaliseGrafica/gerais.h
+        AnaliseGrafica/gerais.cpp
+)
