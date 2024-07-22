@@ -20288,7 +20288,7 @@
 											"top": 154,
 											"width": 410.79833984375,
 											"height": 13,
-											"text": "+fibra: FibraBase",
+											"text": "+distribuicao: DistribuicaoBaseFibras",
 											"horizontalAlignment": 0
 										}
 									],
@@ -23170,9 +23170,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGQokGsQqo9cvc="
 							},
-							"name": "fibra",
+							"name": "distribuicao",
 							"type": {
-								"$ref": "AAAAAAGQojWmjJ9VcMY="
+								"$ref": "AAAAAAGQppehIQBqfC0="
 							}
 						}
 					],
@@ -23191,7 +23191,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGQpvu0mVbk+t4="
 									},
-									"name": "TipoGeometria"
+									"name": "TipoGeometria",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -23199,7 +23200,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGQpvu0mVbk+t4="
 									},
-									"name": "TipoDistribuicao"
+									"name": "TipoDistribuicao",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -23207,7 +23209,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGQpvu0mVbk+t4="
 									},
-									"name": "Propriedades"
+									"name": "Propriedades",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
