@@ -30,6 +30,8 @@ def main():
     with open("cmake_path.txt") as f:
         cmake_path = f.read()
     # cmake_path = "E:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe"
+
+    # Paths relativos
     build_dir_path = "..\\cmake-build-debug"
     csv_file_path = "dados.csv"
     run_path = build_dir_path+"\\modelagem_membranas.exe"
