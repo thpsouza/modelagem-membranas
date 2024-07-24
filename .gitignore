@@ -7,6 +7,9 @@ Codigo/cmake-build-debug-event-trace
 # PDFs
 UML/uml pdf.pdf
 
+# Arquivo com o path do cmake do Clion
+Codigo/AnaliseGrafica/cmake_path.txt
+
 
 ## TEMPLATE Github:
 # Prerequisites

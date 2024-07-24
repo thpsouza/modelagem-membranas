@@ -26,13 +26,16 @@ def plotar_dados(dados: pd.DataFrame):
 
 
 def main():
-    # Path absoluto - Necessário mudar
-    cmake_path = "E:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe"
+    # Importar path absoluto do cmake:
+    with open("cmake_path.txt") as f:
+        cmake_path = f.read()
+    # cmake_path = "E:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe"
     build_dir_path = "..\\cmake-build-debug"
     csv_file_path = "dados.csv"
+    run_path = build_dir_path+"\\modelagem_membranas.exe"
 
     build_command = f'"{cmake_path}" --build "{build_dir_path}" --target modelagem_membranas -- -j 10'
-    run_command = f'"{build_dir_path+"\\modelagem_membranas.exe"}" "{csv_file_path}"'
+    run_command = f'"{run_path}" "{csv_file_path}"'
 
     executar_cpp(build_command, run_command)
     dados = ler_dados(csv_file_path)
