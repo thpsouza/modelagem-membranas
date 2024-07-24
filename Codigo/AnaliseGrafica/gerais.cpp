@@ -1,9 +1,11 @@
 #include "gerais.h"
 #include <stdexcept>
 #include <utility>
+#include <fstream>
+
 
 /**
- * Retorna um vetor com n numeros igualmente distribuidos no intervalo [start, stop
+ * @brief Retorna um vetor com n numeros igualmente distribuidos no intervalo [start, stop
  *
  * @param start inicio do intervalo
  * @param stop fim do intervalo
@@ -38,7 +40,7 @@ std::vector<double> linspace(double start, double stop, int n) {
 
 
 /**
- * Recebe um vetor e retorna uma copia com os elementos modificados por uma dada transformacao.
+ * @brief Recebe um vetor e retorna uma copia com os elementos modificados por uma dada transformacao.
  *
  * @param x vetor de referencia
  * @param f operacao a se realizar
@@ -48,4 +50,40 @@ std::vector<double> transform(std::vector<double> x, std::function<double(double
     std::vector<double> ret(x.size());
     std::transform(x.begin(), x.end(), ret.begin(), std::move(f));
     return ret;
+}
+
+
+/**
+ * @brief Exporta os dados para uma arquivo .csv. Cada série de propriedade será inserida ao longo de uma coluna.
+ * A primeira linha contém os headers.
+ *
+ * @param path caminho para salvar o arquivo .csv
+ * @param propriedades vetor de strings com os headers das propriedades a serem salvas
+ * @param X vetor de dados do eixo x
+ * @param Y matriz de séries do eixo y
+ */
+void exportarDados(const std::string& path, const std::vector<std::string>& propriedades,
+                   const std::vector<double>& X, const std::vector<std::vector<double>>& Y) {
+    std::ofstream file;
+    file.open(path);
+
+    // Headers
+    for (const auto& p : propriedades) {
+        if (p != propriedades[0]) {
+            file << ";";
+        }
+        file << p;
+    } file << std::endl;
+
+    // Dados
+    for (int j = 0; j < X.size(); j++) {
+        file << X[j] << ";";
+        for (const auto& y : Y) {
+            if (y != Y[0]) {
+                file << ";";
+            }
+            file << y[j];
+        } file << std::endl;
+    }
+    file.close();
 }

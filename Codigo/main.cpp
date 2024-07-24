@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include "AnaliseGrafica/gerais.h"
 #include "Entrada/DadosEntradaModelo.h"
@@ -59,41 +58,8 @@ void testeGeometria() {
 }
 
 
-void exportarDados(const std::string& path, const std::vector<std::string>& propriedades,
-                   const std::vector<double>& X, const std::vector<std::vector<double>>& Y) {
-    std::ofstream file;
-    file.open(path);
 
-
-    // Vetor x contém os dados do eixo X para plotar. Enquanto a matriz Y contém os dados a serem plotados no eixo Y.
-    // Cada série de propriedade será inserida ao longo de uma coluna. A primeira linha contém os headers.
-
-    // Headers
-    for (const auto& p : propriedades) {
-        if (p != propriedades[0]) {
-            file << ";";
-        }
-        file << p;
-    } file << std::endl;
-
-    // Dados
-    for (int j = 0; j < X.size(); j++) {
-        file << X[j] << ";";
-        for (const auto& y : Y) {
-            if (y != Y[0]) {
-                file << ";";
-            }
-            file << y[j];
-        } file << std::endl;
-    }
-    file.close();
-}
-
-
-int main(int argc, char* argv[]) {
-    //testeEntradaSaidaDados();
-    //testeGeometria();
-
+void analisarDados(int argc, char*argv[]) {
     // Script a partir da análise
     if (argc > 1) {
         std::vector<std::string> propriedades {"Empacotamento", "Porosidade", "Numero de Fibras","Area Total de trasferencia"};
@@ -105,6 +71,14 @@ int main(int argc, char* argv[]) {
         }
         exportarDados(argv[1], propriedades, X, Y);
     }
+}
+
+
+int main(int argc, char* argv[]) {
+    testeEntradaSaidaDados();
+    //testeGeometria();
+    //analisarDados(argc, argv);
+
 
 
     return 0;
