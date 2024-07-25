@@ -4,82 +4,70 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include "AnaliseGrafica/gerais.h"
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
-#include "VolumeControle/Geometrias/CuboPerfeito.h"
+
+
+DadosSaidaModelo realizarCalculos(
+        double empacotamento,
+        double volume = 1,
+        DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito,
+        DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao
+){
+    /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
+    const DadosEntradaModelo dadosEntrada {geometria, distribuicao, empacotamento, volume};
+    GeradorDadosSaida gerador {&dadosEntrada};
+    gerador.gerar();
+    return *gerador.getDadosSaida();
+}
 
 
 void testeEntradaSaidaDados() {
-    double porosidade;
-    int numFibras;
-    double areaTotalTransferencia;
-    DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito,
-                                     DadosEntradaModelo::UniformeUmaDirecao,
-                                     0.8, 1};
-    DadosSaidaModelo dadosSaida;
-    GeradorDadosSaida gerador {&dadosEntrada};
-
-    /**
-     *
-     * ERRO ENCONTRADO:
-     *      SEGFAULT NO SETTER DOS DADOS DE SAIDA NA FUNÇÃO 'CALCULAR' DA CLASSE 'CalculadoraCuboPerfeitoDadosSaida'
-     * SOLUÇÃO ENCONTRADA:
-     *      Declarei uma variável da classe, para poder setar o valor, e então retornei um ponteiro que
-     *      aponta para essa variável.
-     * SOLUÇÃO ALTERNATIVA (feito na branch 'home'):
-     *      Modificar a classe geradora para receber a referência de uma instância classe de saida, de forma a
-     *      modificá-la "in-place" não necessitando do metodo getDadosSaida.
-     */
-    gerador.gerar();
-    dadosSaida = *gerador.getDadosSaida();
-    porosidade = dadosSaida.getPorosidade();
-    numFibras = dadosSaida.getNumFibras();
-    areaTotalTransferencia = dadosSaida.getAreaTotalTransferencia();
+    DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
 
     // Output
-    std::cout << "Porosidade: " << porosidade << std::endl;
-    std::cout << "Num Fibras: " << numFibras << std::endl;
-    std::cout << "Area Total de Transferencia: " << areaTotalTransferencia << std::endl;
+    print("Porosidade: ", dadosSaida.getPorosidade(), "\n"
+          "Num Fibras: ", dadosSaida.getNumFibras(), "\n"
+          "Area Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia(), "\n");
 }
 
 
-void testeGeometria() {
-    double aresta = 5.0;
-    double vol;
+void analisarDados(const char* path) {
+    std::vector<std::string> propriedades {
+            "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
+    };
 
-    CuboPerfeito cubo {aresta};
-    cubo.calcularAreaFace();
-    cubo.calcularVolume();
-    vol = cubo.getVolume();
+    int N = 100;
+    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6;
+    std::vector<double> empacotamentos = linspace(0, porosidadeMaximaTeorica, N);
+    std::vector<double> porosidades(N);
+    std::vector<double> numFibras(N);
+    std::vector<double> AreaTotal(N);
 
-    std::cout << "Volume cubo: " << vol << std::endl;
-}
-
-
-
-void analisarDados(int argc, char*argv[]) {
-    // Script a partir da análise
-    if (argc > 1) {
-        std::vector<std::string> propriedades {"Empacotamento", "Porosidade", "Numero de Fibras","Area Total de trasferencia"};
-        auto X = linspace(1, 10, 50);
-        std::vector<std::vector<double>> Y;
-        for (int i = 1; i<4; i++) {
-            auto y = transform(X, [&](double k) {return k*i;});
-            Y.push_back(y);
-        }
-        exportarDados(argv[1], propriedades, X, Y);
+    DadosSaidaModelo saida;
+    for (int i = 0; i<N; i++) {
+        saida = realizarCalculos(empacotamentos[i]);
+        porosidades[i] = saida.getPorosidade();
+        numFibras[i] = (double) saida.getNumFibras();
+        AreaTotal[i] = saida.getAreaTotalTransferencia();
     }
+
+    std::vector<std::vector<double>> Y {porosidades, numFibras, AreaTotal};
+    ///
+
+    exportarDados(path, propriedades, empacotamentos, Y);
 }
 
 
 int main(int argc, char* argv[]) {
     testeEntradaSaidaDados();
-    //testeGeometria();
-    //analisarDados(argc, argv);
 
-
-
+    //
+    if (argc>1) {
+        analisarDados(argv[1]);
+    }
     return 0;
 }
