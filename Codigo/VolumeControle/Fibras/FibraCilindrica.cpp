@@ -6,8 +6,11 @@
 #include "FibraCilindrica.h"
 
 
-/// Construtor
-FibraCilindrica::FibraCilindrica() {
+/// Construtores
+FibraCilindrica::FibraCilindrica() : FibraBase() {
+}
+
+FibraCilindrica::FibraCilindrica(double comprimento, double diametro) : FibraBase(comprimento, diametro) {
 }
 
 

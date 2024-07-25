@@ -7,8 +7,14 @@
 
 /// Construtor
 FibraBase::FibraBase() {
-
 }
+
+FibraBase::FibraBase(double comprimento, double diametro) :
+    comprimento(comprimento),
+    diametroMedio(diametro)
+{
+}
+
 
 /// Calculos
 void FibraBase::calcularAreaSuperficial() {
@@ -51,3 +57,4 @@ double FibraBase::getAreaSuperficial() const {
 double FibraBase::getVolume() const {
     return volume;
 }
+
