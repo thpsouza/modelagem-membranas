@@ -4,8 +4,8 @@
 
 #include <cmath>
 #include <memory>
+#include "../Entrada/DadosEntradaModelo.h"
 #include "VolumeControle.h"
-#include "Geometrias/CuboPerfeito.h"
 #include "Geometrias/GeometriaBase.h"
 #include "Fibras/FibraBase.h"
 #include "Distribuicoes/DistribuicaoBase.h"
@@ -13,32 +13,37 @@
 
 
 /// Construtor
-VolumeControle::VolumeControle(GeometriaBase *geometria, FibraBase *fibra) :
-geometria(geometria),
-fibra(fibra)
+VolumeControle::VolumeControle(const GeometriaBase *geometria,
+                               const FibraBase *fibra,
+                               const DadosEntradaModelo *entrada) :
+    geometria(geometria),
+    fibra(fibra),
+    entrada(entrada)
 {
 }
 
 
-void VolumeControle::construirModelo(DadosEntradaModelo::TipoDistribuicao tipoDistribuicao) {
-    /// TODO: Aplicar a distribuicao no calculo
-//    std::unique_ptr<DistribuicaoBase> modelo;
-//    // TODO: Criar as demais distribuicoes
-//    switch (tipoDistribuicao) {
-//        case DadosEntradaModelo::TipoDistribuicao::UniformeUmaDirecao:
-//            modelo = std::make_unique<DistribuicaoUniforme>();
-//            break;
-//        default:
-//            ;
-//    }
-//    modelo->calcular();
+void VolumeControle::construirModelo() {
+    std::unique_ptr<DistribuicaoBase> modelo;
+    /// TODO: Criar as demais distribuicoes
+    switch (entrada->getDistribuicao()) {
+        case DadosEntradaModelo::TipoDistribuicao::UniformeUmaDirecao:
+            modelo = std::make_unique<DistribuicaoUniforme>();
+            break;
+        default:
+            ;
+    }
+    /// TODO: Implementar os cálculos para diferentes distribuições
+    // Na prática, o modelo de cálculo adotado já assume uma distribuição uniforme unidimensional; portanto, não serão
+    // implementadas, por enquanto, as alterações necessárias para uma distribuição qualquer.
+    //modelo->aplicar();
+    ///
 }
 
 
-/// Calculadoras
+/// Calculadoras - TODO: Implementar os cálculos para diferentes distribuições
 void VolumeControle::calcularPorosidade() {
-    /// TODO: Implementar o calculo da porosidade
-    setPorosidade(0.907);
+    setPorosidade(1 - entrada->getEmpacotamento());
 }
 
 void VolumeControle::calcularNumFibras() {
@@ -48,6 +53,7 @@ void VolumeControle::calcularNumFibras() {
 void VolumeControle::calcularAreaTotalTransferencia() {
     setAreaTransferenciaTotal(numFibras * fibra->getAreaSuperficial());
 }
+///
 
 
 /// Setters and Getters
@@ -62,7 +68,6 @@ void VolumeControle::setNumFibras(int valor) {
 void VolumeControle::setAreaTransferenciaTotal(double valor) {
     areaTransferenciaTotal = valor;
 }
-
 
 double VolumeControle::getPorosidade() const {
     return porosidade;
