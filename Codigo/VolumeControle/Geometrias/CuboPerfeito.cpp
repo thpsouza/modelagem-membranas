@@ -5,10 +5,16 @@
 #include "CuboPerfeito.h"
 
 /// Construtor
-CuboPerfeito::CuboPerfeito(double aresta) :
-aresta(aresta)
+CuboPerfeito::CuboPerfeito() : GeometriaBase()
 {
+    temFace = true;
+}
 
+CuboPerfeito::CuboPerfeito(double aresta) :
+    GeometriaBase(),
+    aresta(aresta)
+{
+    temFace = true;
 }
 
 
@@ -30,4 +36,5 @@ void CuboPerfeito::setAresta(double valor) {
 double CuboPerfeito::getAresta() const {
     return aresta;
 }
+
 

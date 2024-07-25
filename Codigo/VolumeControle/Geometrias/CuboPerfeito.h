@@ -13,13 +13,13 @@ private:
 
 public:
     // Construtor
-    CuboPerfeito(double aresta);
+    CuboPerfeito();
+    explicit CuboPerfeito(double aresta);
     // Demais métodos
     void calcularAreaFace() override;
     void calcularVolume() override;
     void setAresta(double valor);
     double getAresta() const;
-
 };
 
 
