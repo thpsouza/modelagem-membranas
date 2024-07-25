@@ -10,7 +10,8 @@
 
 class DistribuicaoUniforme : public DistribuicaoBase {
     /// Supondo fibras cilindricas, que não se sobrepoem, em uma geometria cúbica.
-    double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6;
+private:
+    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6;
 };
 
 
