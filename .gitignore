@@ -10,6 +10,9 @@ UML/uml pdf.pdf
 # Arquivo com o path do cmake do Clion
 Codigo/AnaliseGrafica/cmake_path.txt
 
+# Arquivos de dados (pode ser gerado a qualquer momento)
+Codigo/AnaliseGrafica/dados.csv
+
 
 ## TEMPLATE Github:
 # Prerequisites
