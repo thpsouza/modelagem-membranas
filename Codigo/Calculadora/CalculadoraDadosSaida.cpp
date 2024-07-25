@@ -3,11 +3,12 @@
 //
 
 #include "CalculadoraDadosSaida.h"
+#include "../Entrada/DadosEntradaModelo.h"
 #include "../Saida/DadosSaidaModelo.h"
 
-CalculadoraDadosSaida::CalculadoraDadosSaida(DadosEntradaModelo::TipoDistribuicao distribuicao) :
-dadosPtr(std::make_unique<DadosSaidaModelo>()),
-distribuicao(distribuicao)
+CalculadoraDadosSaida::CalculadoraDadosSaida(const DadosEntradaModelo* entrada) :
+    dadosPtr(std::make_unique<DadosSaidaModelo>()),
+    entrada(entrada)
 {
 
 }

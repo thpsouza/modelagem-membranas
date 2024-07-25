@@ -6,19 +6,17 @@
 #define CALCULADORADADOSSAIDA_H
 
 #include <memory>
-#include "../Entrada/DadosEntradaModelo.h"
 
 class DadosSaidaModelo;
+class DadosEntradaModelo;
 
 class CalculadoraDadosSaida {
 protected:
-    DadosEntradaModelo::TipoDistribuicao distribuicao;
+    const DadosEntradaModelo* entrada;
     std::unique_ptr<DadosSaidaModelo> dadosPtr;
 
-
 public:
-    CalculadoraDadosSaida(DadosEntradaModelo::TipoDistribuicao distribuicao);
-
+    explicit CalculadoraDadosSaida(const DadosEntradaModelo* entrada);
     virtual DadosSaidaModelo* calcular();
 };
 
