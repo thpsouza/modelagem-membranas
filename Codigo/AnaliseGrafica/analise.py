@@ -21,8 +21,7 @@ def ler_dados(path: str):
 
 
 def plotar_dados(dados: pd.DataFrame):
-    dados.plot(x=0, title="Variação das propriedades para um volume unitário", subplots=True)
-    plt.grid()
+    dados.plot(x=0, title="Variação das propriedades para um volume unitário", subplots=True, figsize=(10, 6))
     plt.show()
 
 
@@ -34,7 +33,7 @@ def main():
     # Paths relativos
     build_dir_path = "..\\cmake-build-debug"
     csv_file_path = "dados.csv"
-    run_path = build_dir_path+"\\modelagem_membranas.exe"
+    run_path = build_dir_path + "\\modelagem_membranas.exe"
 
     build_command = f'"{cmake_path}" --build "{build_dir_path}" --target modelagem_membranas -- -j 10'
     run_command = f'"{run_path}" "{csv_file_path}"'

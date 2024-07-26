@@ -41,7 +41,7 @@ void analisarDados(const char* path) {
     };
 
     int N = 100;
-    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6; // Distribuicao uniforme
+    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6; // Geometria cúbica / Distribuicao uniforme
     std::vector<double> empacotamentos = linspace(0, porosidadeMaximaTeorica, N);
     std::vector<double> porosidades(N);
     std::vector<double> numFibras(N);
@@ -61,11 +61,10 @@ void analisarDados(const char* path) {
 
 
 int main(int argc, char* argv[]) {
-    testeEntradaSaidaDados();
-
-    //
-    if (argc>1) {
+    if (argc == 2) {
         analisarDados(argv[1]);
+    } else {
+        testeEntradaSaidaDados();
     }
     return 0;
 }
