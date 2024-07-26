@@ -1,6 +1,6 @@
 # Pastas
-.idea
-.vscode
+/.idea
+/.vscode
 Codigo/cmake-build-debug
 Codigo/cmake-build-debug-event-trace
 
