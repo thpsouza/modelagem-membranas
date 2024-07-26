@@ -58,18 +58,18 @@ std::vector<double> transform(std::vector<double> x, std::function<double(double
  * A primeira linha contém os headers.
  *
  * @param path caminho para salvar o arquivo .csv
- * @param propriedades vetor de strings com os headers das propriedades a serem salvas
+ * @param cabecalhos vetor de strings com os headers das cabecalhos a serem salvas
  * @param X vetor de dados do eixo x
  * @param Y matriz de séries do eixo y
  */
-void exportarDados(const std::string& path, const std::vector<std::string>& propriedades,
+void exportarDados(const std::string& path, const std::vector<std::string>& cabecalhos,
                    const std::vector<double>& X, const std::vector<std::vector<double>>& Y) {
     std::ofstream file;
     file.open(path);
 
     // Headers
-    for (const auto& p : propriedades) {
-        if (p != propriedades[0]) {
+    for (const auto& p : cabecalhos) {
+        if (p != cabecalhos[0]) {
             file << ";";
         }
         file << p;

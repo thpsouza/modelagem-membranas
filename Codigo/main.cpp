@@ -36,7 +36,7 @@ void testeEntradaSaidaDados() {
 
 
 void analisarDados(const char* path) {
-    std::vector<std::string> propriedades {
+    std::vector<std::string> cabecalhos {
             "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
     };
 
@@ -54,11 +54,9 @@ void analisarDados(const char* path) {
         numFibras[i] = (double) saida.getNumFibras();
         AreaTotal[i] = saida.getAreaTotalTransferencia();
     }
+    std::vector<std::vector<double>> propriedades {porosidades, numFibras, AreaTotal};
 
-    std::vector<std::vector<double>> Y {porosidades, numFibras, AreaTotal};
-    ///
-
-    exportarDados(path, propriedades, empacotamentos, Y);
+    exportarDados(path, cabecalhos, empacotamentos, propriedades);
 }
 
 
