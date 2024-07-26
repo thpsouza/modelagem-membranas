@@ -36,12 +36,12 @@ void testeEntradaSaidaDados() {
 
 
 void analisarDados(const char* path) {
-    std::vector<std::string> propriedades {
+    std::vector<std::string> cabecalhos {
             "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
     };
 
     int N = 100;
-    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6;
+    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6; // Distribuicao uniforme
     std::vector<double> empacotamentos = linspace(0, porosidadeMaximaTeorica, N);
     std::vector<double> porosidades(N);
     std::vector<double> numFibras(N);
@@ -54,11 +54,9 @@ void analisarDados(const char* path) {
         numFibras[i] = (double) saida.getNumFibras();
         AreaTotal[i] = saida.getAreaTotalTransferencia();
     }
+    std::vector<std::vector<double>> propriedades {porosidades, numFibras, AreaTotal};
 
-    std::vector<std::vector<double>> Y {porosidades, numFibras, AreaTotal};
-    ///
-
-    exportarDados(path, propriedades, empacotamentos, Y);
+    exportarDados(path, cabecalhos, empacotamentos, propriedades);
 }
 
 
