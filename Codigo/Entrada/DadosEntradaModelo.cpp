@@ -4,11 +4,13 @@
 
 #include "DadosEntradaModelo.h"
 
-DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao, double empacotamento, double volume):
+DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
+                                       double empacotamento, double volume, double razaoComprimentoDiametroFibra):
         geometria(geometria),
         distribuicao(distribuicao),
         empacotamento(empacotamento),
-        volume(volume)
+        volume(volume),
+        razaoComprimentoDiametroFibra(razaoComprimentoDiametroFibra)
 {
 }
 

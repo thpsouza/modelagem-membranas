@@ -23,9 +23,9 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // raiz cúbica do volume.
     // - O diâmetro da fibra poderia ser obtido a partir do empacotamento, pois para essa geometria, este equivale
     // à densidade de fibras na face; porém, isso requere já saber previamente o número de fibras no VC...
-    // - Assim, será assumido um diâmetro arbitrário temporáriamente, 10x menor que o comprimento.
+    // - Assim, será assumido um diâmetro arbitrário temporariamente.
     double l = cbrt(entrada->getVolume());
-    double d = l/10;
+    double d = l/entrada->razaoComprimentoDiametroFibra;
     ///
 
     /// TODO: Inicializar as classes

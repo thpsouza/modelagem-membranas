@@ -19,12 +19,14 @@ public:
         UniformeUmaDirecao
     };
 
-    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao, double empacotamento, double volume);
+    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
+                       double empacotamento, double volume, double razaoComprimentoDiametroFibra);
 
     TipoGeometria getGeometria() const;
     TipoDistribuicao getDistribuicao() const;
     double getEmpacotamento() const;
     double getVolume() const;
+    double razaoComprimentoDiametroFibra;
 
 private:
     TipoGeometria geometria;

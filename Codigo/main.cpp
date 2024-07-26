@@ -13,12 +13,15 @@
 
 DadosSaidaModelo realizarCalculos(
         double empacotamento,
+        double razaoComprimentoDiametroFibra = 10,
         double volume = 1,
         DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito,
         DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao
 ){
     /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
-    const DadosEntradaModelo dadosEntrada {geometria, distribuicao, empacotamento, volume};
+    const DadosEntradaModelo dadosEntrada {
+        geometria, distribuicao, empacotamento, volume, razaoComprimentoDiametroFibra
+    };
     GeradorDadosSaida gerador {&dadosEntrada};
     gerador.gerar();
     return *gerador.getDadosSaida();
@@ -35,7 +38,7 @@ void testeEntradaSaidaDados() {
 }
 
 
-void analisarDados(const char* path) {
+void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
     std::vector<std::string> cabecalhos {
             "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
     };
@@ -49,7 +52,7 @@ void analisarDados(const char* path) {
 
     DadosSaidaModelo saida;
     for (int i = 0; i<N; i++) {
-        saida = realizarCalculos(empacotamentos[i]);
+        saida = realizarCalculos(empacotamentos[i], razaoComprimentoDiametroFibra);
         porosidades[i] = saida.getPorosidade();
         numFibras[i] = (double) saida.getNumFibras();
         AreaTotal[i] = saida.getAreaTotalTransferencia();
@@ -61,8 +64,8 @@ void analisarDados(const char* path) {
 
 
 int main(int argc, char* argv[]) {
-    if (argc == 2) {
-        analisarDados(argv[1]);
+    if (argc == 3) {
+        analisarDados(argv[1], atof(argv[2]));
     } else {
         testeEntradaSaidaDados();
     }
