@@ -21,7 +21,7 @@ def ler_dados(path: str):
 
 
 def plotar_dados(dados: pd.DataFrame):
-    dados.plot(x=0, title="Variação das propriedades para um volume unitário", subplots=True, figsize=(10, 6))
+    dados.plot(x=0, title="Variação das propriedades para um volume unitário, com cf = 10df", subplots=True, figsize=(10, 6))
     plt.show()
 
 
