@@ -11,7 +11,7 @@ UML/uml pdf.pdf
 Codigo/AnaliseGrafica/cmake_path.txt
 
 # Arquivos de dados (pode ser gerado a qualquer momento)
-*.csv
+Codigo/AnaliseGrafica/dados.csv
 
 
 ## TEMPLATE Github:
