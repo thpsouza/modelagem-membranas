@@ -59,10 +59,15 @@ def plotar_dados(dados: pd.DataFrame, razao_cf_df: float, interativo=False):
     fig.suptitle("Variação das propriedades para um volume unitário")
 
     lines = []
+    scatters = []
+    X = np.linspace(dados[0,0], dados[-1,0], 100)
     for i, ax in enumerate(axes):
-        [line] = ax.plot(dados[:, 0], dados[:, i + 1], color=colors[i],
-                         label=[construir_legendas(regredir_dados(dados))[i]])
+        sctr = ax.scatter(dados[:, 0], dados[:, i + 1], color=colors[i], s=15,
+                          label=construir_legendas(regredir_dados(dados))[i])
+        [line] = ax.plot(X, np.poly1d(regredir_dados(dados)[i])(X), color="grey")
+
         lines.append(line)
+        scatters.append(sctr)
         ax.legend()
 
     if interativo:
@@ -72,10 +77,14 @@ def plotar_dados(dados: pd.DataFrame, razao_cf_df: float, interativo=False):
 
         def update_slider(val):
             novos_dados = obter_dados(slider.val, build=False).to_numpy()
+            regressoes = regredir_dados(novos_dados)
             novo_Y = novos_dados[:, 1:]
             for i, ax in enumerate(axes):
-                lines[i].set_ydata(novo_Y[:, i])
-                ax.legend([construir_legendas(regredir_dados(novos_dados))[i]])
+                lines[i].set_ydata(np.poly1d(regressoes[i])(X))
+                scatters[i].remove()
+                scatters[i] = ax.scatter(novos_dados[:, 0], novos_dados[:, i + 1], color=colors[i], s=15,
+                                      label=construir_legendas(regressoes)[i])
+                ax.legend()
                 ax.relim()
                 ax.autoscale_view()
             fig.canvas.draw_idle()
