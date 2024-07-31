@@ -1,0 +1,36 @@
+\doxysection{Geometria\+Base.\+h}
+\hypertarget{_geometria_base_8h_source}{}\label{_geometria_base_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/VolumeControle/Geometrias/GeometriaBase.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/VolumeControle/Geometrias/GeometriaBase.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ LABCFD\ on\ 7/11/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MODELAGEM\_MEMBRANAS\_GEOMETRIABASE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MODELAGEM\_MEMBRANAS\_GEOMETRIABASE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometria_base}{GeometriaBase}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{double}\ volume;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{double}\ areaFace;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ temFace;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_geometria_base_adc4acb4c1def00d6294243d8f7c115dd}{GeometriaBase}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//GeometriaBase(double\ volume);}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ calcularVolume();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometria_base_ad74a5333c6f59752c2a96b867e564b77}{calcularAreaFace}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometria_base_ac59d2af8db192ce5febd612983c6dc58}{setVolume}}(\textcolor{keywordtype}{double}\ valor);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ setAreaFace(\textcolor{keywordtype}{double}\ valor);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ getVolume()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ getAreaFace()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MODELAGEM\_MEMBRANAS\_GEOMETRIABASE\_H}}
+
+\end{DoxyCode}

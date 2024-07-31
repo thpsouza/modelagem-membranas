@@ -1,0 +1,33 @@
+\doxysection{Fibra\+Cilindrica.\+h}
+\hypertarget{_fibra_cilindrica_8h_source}{}\label{_fibra_cilindrica_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/VolumeControle/Fibras/FibraCilindrica.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/VolumeControle/Fibras/FibraCilindrica.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ LABCFD\ on\ 7/11/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MODELAGEM\_MEMBRANAS\_FIBRACILINDRICA\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MODELAGEM\_MEMBRANAS\_FIBRACILINDRICA\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}FibraBase.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fibra_cilindrica}{FibraCilindrica}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fibra_base}{FibraBase}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{double}\ areaTransversal;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Construtor}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_fibra_cilindrica_a9fca07e97eeff6df5fcebcac5043c401}{FibraCilindrica}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_fibra_cilindrica_a9fca07e97eeff6df5fcebcac5043c401}{FibraCilindrica}}(\textcolor{keywordtype}{double}\ comprimento,\ \textcolor{keywordtype}{double}\ diametro);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Calculadoras}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fibra_cilindrica_a5a2fb1b8e234171968a83f7799b1ae6f}{calcularAreaTransversal}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fibra_cilindrica_a36b4b684e644f3cc01804e40d90327b6}{calcularAreaSuperficial}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ calcularVolume()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Set\ e\ Get}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fibra_cilindrica_ad5d949d18b91a198b17a43fe2a311524}{setAreaTransversal}}(\textcolor{keywordtype}{double}\ valor);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ getAreaTransversal()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MODELAGEM\_MEMBRANAS\_FIBRACILINDRICA\_H}}
+
+\end{DoxyCode}

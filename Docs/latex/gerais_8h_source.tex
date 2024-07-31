@@ -1,0 +1,32 @@
+\doxysection{gerais.\+h}
+\hypertarget{gerais_8h_source}{}\label{gerais_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ LABCFD\ on\ 5/27/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GERAIS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GERAIS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ std::vector<double>\ linspace(\textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ stop,\ \textcolor{keywordtype}{int}\ n\ =\ 50);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ std::vector<double>\ transform(std::vector<double>\ x,\ std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\ f);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ exportarDados(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ cabecalhos,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ X,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ Y);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ print(Args\ \&\&\ ...args)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ (std::cout\ <<\ ...\ <<\ args);}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GERAIS\_H}}
+
+\end{DoxyCode}

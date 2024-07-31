@@ -1,0 +1,45 @@
+\doxysection{Dados\+Entrada\+Modelo.\+h}
+\hypertarget{_dados_entrada_modelo_8h_source}{}\label{_dados_entrada_modelo_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/Entrada/DadosEntradaModelo.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/Entrada/DadosEntradaModelo.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ LABCFD\ on\ 7/5/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DADOSENTRADAMODELO\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DADOSENTRADAMODELO\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dados_entrada_modelo}{DadosEntradaModelo}}\{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{enum}\ TipoGeometria}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cubo_perfeito}{CuboPerfeito}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Esfera,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Cilindro}
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{enum}\ TipoDistribuicao}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ UniformeUmaDirecao}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_dados_entrada_modelo}{DadosEntradaModelo}}(TipoGeometria\ geometria,\ TipoDistribuicao\ distribuicao,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ empacotamento,\ \textcolor{keywordtype}{double}\ volume,\ \textcolor{keywordtype}{double}\ razaoComprimentoDiametroFibra);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ TipoGeometria\ getGeometria()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ TipoDistribuicao\ getDistribuicao()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ getEmpacotamento()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ getVolume()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ razaoComprimentoDiametroFibra;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ TipoGeometria\ geometria;}
+\DoxyCodeLine{00033\ \ \ \ \ TipoDistribuicao\ distribuicao;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ empacotamento;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ volume;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DADOSENTRADAMODELO\_H}}
+
+\end{DoxyCode}
