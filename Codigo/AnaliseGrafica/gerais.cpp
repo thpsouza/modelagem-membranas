@@ -1,3 +1,14 @@
+/**
+ * @file gerais.cpp
+ * @author Thiago Souza (thiagosouza@eq.ufrj.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-24
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "gerais.h"
 #include <stdexcept>
 #include <utility>
@@ -15,8 +26,8 @@
 std::vector<double> linspace(double start, double stop, int n) {
     std::vector<double> v;
 
-    /// Defesa
-    /// Retorna vetor com apenas o primeiro valor se n=1; Retorna vetor vazio se n=0; Levanta erro se n<0;
+    // Defesa
+    // Retorna vetor com apenas o primeiro valor se n=1; Retorna vetor vazio se n=0; Levanta erro se n<0;
     if (n <= 1) {
         if (n < 0) {
             throw std::invalid_argument("n deve ser um inteiro positivo");
@@ -29,7 +40,7 @@ std::vector<double> linspace(double start, double stop, int n) {
 
     double step = (stop - start) / (n - 1);
 
-    /// Preenche o corpo do vetor
+    // Preenche o corpo do vetor
     for(int i=0; i < n-1; i++) {
         v.push_back(start + step * i);
     }
