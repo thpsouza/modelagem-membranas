@@ -1,6 +1,13 @@
-//
-// Created by LABCFD on 7/5/2024.
-//
+/**
+ * @file GeradorDadosSaida.cpp
+ * @author Thiago Souza (thiagosouza@eq.ufrj.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-05
+ *
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
 #include <memory>
 #include "GeradorDadosSaida.h"
@@ -9,12 +16,20 @@
 #include "../Calculadora/CalculadoraDadosSaida.h"
 #include "../Calculadora/CalculadoraCuboPerfeitoDadosSaida.h"
 
-
+/**
+ * @brief Construtor da classe GeradorDadosSaida.
+ * 
+ * @param entrada : Ponteiro da classe de entrada de dados.
+ */
 GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
     entrada(entrada)
 {
 }
 
+/**
+ * @brief Função geradora dos dados de saída. Alterna o método de cálculo com base nas propriedades do volume de controle,
+ * passadas nos dados de entrada.
+ */
 void GeradorDadosSaida::gerar() {
     std::unique_ptr<CalculadoraDadosSaida> calculadora;
     // TODO: Criar novos modelos para as demais geometrias
@@ -32,6 +47,10 @@ void GeradorDadosSaida::gerar() {
     saida = calculadora->calcular();
 }
 
+/**
+ * @brief Retorna um ponteiro para os dados de saída gerados.
+ * @return DadosSaidaModelo* 
+ */
 DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
     return saida;
 }
