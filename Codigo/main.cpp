@@ -3,32 +3,71 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <cmath>
+#include "AnaliseGrafica/gerais.h"
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
 
-int main() {
-    double porosidade;
-    DadosEntradaModelo dadosEntrada {DadosEntradaModelo::CuboPerfeito, 0.8, 1};
-    DadosSaidaModelo dadosSaida;
-    GeradorDadosSaida gerador {&dadosEntrada, &dadosSaida};
 
-    /**
-     *
-     * ERRO ENCONTRADO:
-     *      SEGFAULT NO SETTER DOS DADOS DE SAIDA NA FUNÇÃO 'CALCULAR' DA CLASSE 'CalculadoraCuboPerfeitoDadosSaida'
-     * SOLUÇÃO ENCONTRADA:
-     *      Declarei uma variável da classe, para poder setar o valor, e então retornei um ponteiro que
-     *      aponta para essa variável.
-     * SOLUÇÃO ALTERNATIVA (feito na branch 'home'):
-     *      Modificar a classe geradora para receber a referência de uma instância classe de saida, de forma a
-     *      modificá-la "in-place" não necessitando do metodo getDadosSaida.
-     */
+DadosSaidaModelo realizarCalculos(
+        double empacotamento,
+        double razaoComprimentoDiametroFibra = 10,
+        double volume = 1,
+        DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito,
+        DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao
+){
+    /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
+    const DadosEntradaModelo dadosEntrada {
+        geometria, distribuicao, empacotamento, volume, razaoComprimentoDiametroFibra
+    };
+    GeradorDadosSaida gerador {&dadosEntrada};
     gerador.gerar();
-    porosidade = dadosSaida.getPorosidade();
+    return *gerador.getDadosSaida();
+}
+
+
+void testeEntradaSaidaDados() {
+    DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
 
     // Output
-    std::cout << "Porosidade: " << porosidade << std::endl;
+    print("Porosidade: ", dadosSaida.getPorosidade(), "\n"
+          "Num Fibras: ", dadosSaida.getNumFibras(), "\n"
+          "Area Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia(), "\n");
+}
 
+
+void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
+    std::vector<std::string> cabecalhos {
+            "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
+    };
+
+    int N = 100;
+    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6; // Geometria cúbica / Distribuicao uniforme
+    std::vector<double> empacotamentos = linspace(0, porosidadeMaximaTeorica, N);
+    std::vector<double> porosidades(N);
+    std::vector<double> numFibras(N);
+    std::vector<double> AreaTotal(N);
+
+    DadosSaidaModelo saida;
+    for (int i = 0; i<N; i++) {
+        saida = realizarCalculos(empacotamentos[i], razaoComprimentoDiametroFibra);
+        porosidades[i] = saida.getPorosidade();
+        numFibras[i] = (double) saida.getNumFibras();
+        AreaTotal[i] = saida.getAreaTotalTransferencia();
+    }
+    std::vector<std::vector<double>> propriedades {porosidades, numFibras, AreaTotal};
+
+    exportarDados(path, cabecalhos, empacotamentos, propriedades);
+}
+
+
+int main(int argc, char* argv[]) {
+    if (argc == 3) {
+        analisarDados(argv[1], atof(argv[2]));
+    } else {
+        testeEntradaSaidaDados();
+    }
     return 0;
 }

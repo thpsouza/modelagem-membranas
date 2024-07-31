@@ -6,24 +6,21 @@
 #include "GeradorDadosSaida.h"
 #include "../Entrada/DadosEntradaModelo.h"
 #include "../Saida/DadosSaidaModelo.h"
-#include "../Modelos/CalculadoraDadosSaida.h"
-#include "../Modelos/CalculadoraCuboPerfeitoDadosSaida.h"
+#include "../Calculadora/CalculadoraDadosSaida.h"
+#include "../Calculadora/CalculadoraCuboPerfeitoDadosSaida.h"
 
-GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada, DadosSaidaModelo *saida) :
-    entrada(entrada),
-    saida(saida)
+
+GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
+    entrada(entrada)
 {
 }
 
 void GeradorDadosSaida::gerar() {
-
     std::unique_ptr<CalculadoraDadosSaida> calculadora;
-    //std::unique_ptr<CalculadoraCuboPerfeitoDadosSaida> calculadora;
-
     // TODO: Criar novos modelos para as demais geometrias
     switch (entrada->getGeometria()) {
         case DadosEntradaModelo::TipoGeometria::CuboPerfeito:
-            calculadora = std::make_unique<CalculadoraCuboPerfeitoDadosSaida>();
+            calculadora = std::make_unique<CalculadoraCuboPerfeitoDadosSaida>(entrada);
             break;
         case DadosEntradaModelo::TipoGeometria::Cilindro:
             break;
@@ -32,10 +29,9 @@ void GeradorDadosSaida::gerar() {
         default:
             ;
     }
-
-    calculadora->calcular(saida);
+    saida = calculadora->calcular();
 }
 
-//DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
-//    return saida;
-//}
+DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
+    return saida;
+}
