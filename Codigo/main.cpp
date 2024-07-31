@@ -57,9 +57,10 @@ void testeEntradaSaidaDados() {
     DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
 
     // Output
-    print("Porosidade: ", dadosSaida.getPorosidade(), "\n"
-                                                      "Num Fibras: ", dadosSaida.getNumFibras(), "\n"
-                                                                                                 "Area Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia(), "\n");
+    print("Porosidade: ", dadosSaida.getPorosidade(),
+          "\nNum Fibras: ", dadosSaida.getNumFibras(),
+          "\nArea Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia()
+          );
 }
 
 
