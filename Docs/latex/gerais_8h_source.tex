@@ -1,32 +1,29 @@
 \doxysection{gerais.\+h}
 \hypertarget{gerais_8h_source}{}\label{gerais_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h}}
-
+\mbox{\hyperlink{gerais_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ LABCFD\ on\ 5/27/2024.}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GERAIS\_H}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GERAIS\_H}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <functional>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ std::vector<double>\ linspace(\textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ stop,\ \textcolor{keywordtype}{int}\ n\ =\ 50);}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ GERAIS\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ GERAIS\_H}}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ std::vector<double>\ transform(std::vector<double>\ x,\ std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\ f);}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ exportarDados(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ cabecalhos,}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ X,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ Y);}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ print(Args\ \&\&\ ...args)\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ (std::cout\ <<\ ...\ <<\ args);}
-\DoxyCodeLine{00023\ \}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GERAIS\_H}}
+\DoxyCodeLine{00020\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_ae1a2aaa003428b70fab8f5e849e366e9}{linspace}}(\textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ stop,\ \textcolor{keywordtype}{int}\ n\ =\ 50);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_afc17982e448c494dfe73ed18c170b610}{transform}}(std::vector<double>\ x,\ std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\ f);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_ab52c10697d62efe62289a86c224be826}{exportarDados}}(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ cabecalhos,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ X,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ Y);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_af69a6e7c148a000a4abf034a3f300e07}{print}}(Args\ \&\&\ ...args)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ (std::cout\ <<\ ...\ <<\ args);}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GERAIS\_H}}
 
 \end{DoxyCode}

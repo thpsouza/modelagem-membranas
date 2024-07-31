@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fibrabase_0',['FibraBase',['../class_fibra_base.html',1,'FibraBase'],['../class_fibra_base.html#ac7a1a900926814742bc7d40bdc5ef62a',1,'FibraBase::FibraBase()']]],
-  ['fibracilindrica_1',['FibraCilindrica',['../class_fibra_cilindrica.html',1,'FibraCilindrica'],['../class_fibra_cilindrica.html#a9fca07e97eeff6df5fcebcac5043c401',1,'FibraCilindrica::FibraCilindrica()']]]
+  ['exportardados_0',['exportarDados',['../gerais_8cpp.html#ab52c10697d62efe62289a86c224be826',1,'exportarDados(const std::string &amp;path, const std::vector&lt; std::string &gt; &amp;cabecalhos, const std::vector&lt; double &gt; &amp;X, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;Y):&#160;gerais.cpp'],['../gerais_8h.html#ab52c10697d62efe62289a86c224be826',1,'exportarDados(const std::string &amp;path, const std::vector&lt; std::string &gt; &amp;cabecalhos, const std::vector&lt; double &gt; &amp;X, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;Y):&#160;gerais.cpp']]]
 ];
