@@ -28,16 +28,6 @@ DadosSaidaModelo realizarCalculos(
 }
 
 
-void testeEntradaSaidaDados() {
-    DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
-
-    // Output
-    print("Porosidade: ", dadosSaida.getPorosidade(), "\n"
-          "Num Fibras: ", dadosSaida.getNumFibras(), "\n"
-          "Area Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia(), "\n");
-}
-
-
 void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
     std::vector<std::string> cabecalhos {
             "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
@@ -60,6 +50,16 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
     std::vector<std::vector<double>> propriedades {porosidades, numFibras, AreaTotal};
 
     exportarDados(path, cabecalhos, empacotamentos, propriedades);
+}
+
+
+void testeEntradaSaidaDados() {
+    DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
+
+    // Output
+    print("Porosidade: ", dadosSaida.getPorosidade(), "\n"
+                                                      "Num Fibras: ", dadosSaida.getNumFibras(), "\n"
+                                                                                                 "Area Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia(), "\n");
 }
 
 
