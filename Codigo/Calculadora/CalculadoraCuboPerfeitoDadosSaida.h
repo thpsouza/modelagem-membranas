@@ -16,8 +16,7 @@
 
 /**
  * @brief Classe calculadora dos dados de saída do modelo, para uma geometria de cubo perfeito, com método 'calcular' 
- * da classe base sobreposto para essa geometria.
- * 
+ * da classe base reimplementado para essa geometria.
  */
 class CalculadoraCuboPerfeitoDadosSaida : public CalculadoraDadosSaida {
 public:

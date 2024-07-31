@@ -19,7 +19,7 @@
 /**
  * @brief Construtor da classe GeradorDadosSaida.
  * 
- * @param entrada : Ponteiro da classe de entrada de dados.
+ * @param entrada : Ponteiro para um objeto da classe de entrada de dados.
  */
 GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
     entrada(entrada)

@@ -18,7 +18,7 @@ class DadosSaidaModelo;
 class DadosEntradaModelo;
 
 /**
- * @brief Classe base para calcular os dados de saída do modelo
+ * @brief Classe base para calcular os dados de saída do modelo.
  */
 class CalculadoraDadosSaida {
 protected:
