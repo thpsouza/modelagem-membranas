@@ -18,11 +18,10 @@ Inheritance diagram for Calculadora\+Dados\+Saida\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55}\label{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55} 
-{\bfseries Calculadora\+Dados\+Saida} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
-\item 
+\mbox{\hyperlink{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55}{Calculadora\+Dados\+Saida}} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
+\begin{DoxyCompactList}\small\item\em Construtor da classe base da calculadora de dados de saída. Gera um unique\+\_\+ptr da classe \textquotesingle{}\doxylink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}\textquotesingle{}. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_calculadora_dados_saida_a9d62e224c18fbacaa1ae573498ca92fc}{calcular}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Método base para calcular os dados de saída. Reimplemetado para cada caso. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +36,24 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Said
 \doxysubsection{Detailed Description}
 Classe base para calcular os dados de saída do modelo. 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55}\index{CalculadoraDadosSaida@{CalculadoraDadosSaida}!CalculadoraDadosSaida@{CalculadoraDadosSaida}}
+\index{CalculadoraDadosSaida@{CalculadoraDadosSaida}!CalculadoraDadosSaida@{CalculadoraDadosSaida}}
+\doxysubsubsection{\texorpdfstring{CalculadoraDadosSaida()}{CalculadoraDadosSaida()}}
+{\footnotesize\ttfamily \label{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55} 
+Calculadora\+Dados\+Saida\+::\+Calculadora\+Dados\+Saida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}}]{entrada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da classe base da calculadora de dados de saída. Gera um unique\+\_\+ptr da classe \textquotesingle{}\doxylink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entrada} & \+: Ponteiro para um objeto da classe de dados de entrada. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_calculadora_dados_saida_a9d62e224c18fbacaa1ae573498ca92fc}\index{CalculadoraDadosSaida@{CalculadoraDadosSaida}!calcular@{calcular}}
 \index{calcular@{calcular}!CalculadoraDadosSaida@{CalculadoraDadosSaida}}
@@ -46,11 +63,18 @@ Classe base para calcular os dados de saída do modelo.
 
 
 
+Método base para calcular os dados de saída. Reimplemetado para cada caso. 
+
+\begin{DoxyReturn}{Returns}
+Dados\+Saida\+Modelo\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
 Reimplemented in \mbox{\hyperlink{class_calculadora_cubo_perfeito_dados_saida_a21b5a667fce1dd709b082226028e234d}{Calculadora\+Cubo\+Perfeito\+Dados\+Saida}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_dados_saida_8h}{Calculadora\+Dados\+Saida.\+h}}\item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Calculadora/Calculadora\+Dados\+Saida.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_dados_saida_8h}{Calculadora\+Dados\+Saida.\+h}}\item 
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_dados_saida_8cpp}{Calculadora\+Dados\+Saida.\+cpp}}\end{DoxyCompactItemize}

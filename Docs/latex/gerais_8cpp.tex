@@ -1,14 +1,15 @@
-\doxysection{C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Analise\+Grafica/gerais.cpp File Reference}
-\hypertarget{gerais_8cpp}{}\label{gerais_8cpp}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.cpp@{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.cpp}}
+\doxysection{C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Analise\+Grafica/gerais.cpp File Reference}
+\hypertarget{gerais_8cpp}{}\label{gerais_8cpp}\index{C:/Users/EQ/Desktop/Thiago Souza/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.cpp@{C:/Users/EQ/Desktop/Thiago Souza/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.cpp}}
 {\ttfamily \#include "{}gerais.\+h"{}}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 {\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{gerais_8cpp_acb8e58126140250f3627ce948605772d}{linspace}} (double start, double stop, int n)
-\begin{DoxyCompactList}\small\item\em Retorna um vetor com n numeros igualmente distribuidos no intervalo \mbox{[}start, stop. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{gerais_8cpp_a0141078340603885429b5b1649b646f8}{linspace}} (double start, double stop, int num)
+\begin{DoxyCompactList}\small\item\em Retorna um vetor com num numeros igualmente distribuidos no intervalo \mbox{[}start, stop. \end{DoxyCompactList}\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{gerais_8cpp_afc17982e448c494dfe73ed18c170b610}{transform}} (std\+::vector$<$ double $>$ x, std\+::function$<$ double(double)$>$ f)
 \begin{DoxyCompactList}\small\item\em Recebe um vetor e retorna uma copia com os elementos modificados por uma dada transformacao. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gerais_8cpp_ab52c10697d62efe62289a86c224be826}{exportar\+Dados}} (const std\+::string \&path, const std\+::vector$<$ std\+::string $>$ \&cabecalhos, const std\+::vector$<$ double $>$ \&X, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&Y)
@@ -52,15 +53,15 @@ Exporta os dados para uma arquivo .csv. Cada série de propriedade será inserid
 {\em Y} & matriz de séries do eixo y \\
 \hline
 \end{DoxyParams}
-\Hypertarget{gerais_8cpp_acb8e58126140250f3627ce948605772d}\index{gerais.cpp@{gerais.cpp}!linspace@{linspace}}
+\Hypertarget{gerais_8cpp_a0141078340603885429b5b1649b646f8}\index{gerais.cpp@{gerais.cpp}!linspace@{linspace}}
 \index{linspace@{linspace}!gerais.cpp@{gerais.cpp}}
 \doxysubsubsection{\texorpdfstring{linspace()}{linspace()}}
-{\footnotesize\ttfamily \label{gerais_8cpp_acb8e58126140250f3627ce948605772d} 
-std\+::vector$<$ double $>$ linspace (\begin{DoxyParamCaption}\item[{double}]{start}{, }\item[{double}]{stop}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{gerais_8cpp_a0141078340603885429b5b1649b646f8} 
+std\+::vector$<$ double $>$ linspace (\begin{DoxyParamCaption}\item[{double}]{start}{, }\item[{double}]{stop}{, }\item[{int}]{num}{ = {\ttfamily 50}}\end{DoxyParamCaption})}
 
 
 
-Retorna um vetor com n numeros igualmente distribuidos no intervalo \mbox{[}start, stop. 
+Retorna um vetor com num numeros igualmente distribuidos no intervalo \mbox{[}start, stop. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -68,7 +69,7 @@ Retorna um vetor com n numeros igualmente distribuidos no intervalo \mbox{[}star
 \hline
 {\em stop} & fim do intervalo \\
 \hline
-{\em n} & quantidade de numeros \\
+{\em num} & quantidade de numeros \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

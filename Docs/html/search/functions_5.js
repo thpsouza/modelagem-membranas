@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print_0',['print',['../gerais_8h.html#af69a6e7c148a000a4abf034a3f300e07',1,'gerais.h']]]
+  ['linspace_0',['linspace',['../gerais_8cpp.html#a0141078340603885429b5b1649b646f8',1,'linspace(double start, double stop, int num):&#160;gerais.cpp'],['../gerais_8h.html#a945d9dfd2e334f3af673a6972d0171c4',1,'linspace(double start, double stop, int num=50):&#160;gerais.cpp']]]
 ];

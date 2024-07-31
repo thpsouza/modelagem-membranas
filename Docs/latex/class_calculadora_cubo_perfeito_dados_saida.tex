@@ -2,7 +2,7 @@
 \hypertarget{class_calculadora_cubo_perfeito_dados_saida}{}\label{class_calculadora_cubo_perfeito_dados_saida}\index{CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}}
 
 
-Classe calculadora dos dados de saída do modelo, para uma geometria de cubo perfeito, com método \textquotesingle{}calcular\textquotesingle{} da classe base sobreposto para essa geometria.  
+Classe calculadora dos dados de saída do modelo, para uma geometria de cubo perfeito, com método \textquotesingle{}calcular\textquotesingle{} da classe base reimplementado para essa geometria.  
 
 
 
@@ -18,16 +18,15 @@ Inheritance diagram for Calculadora\+Cubo\+Perfeito\+Dados\+Saida\+:\begin{figur
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_calculadora_cubo_perfeito_dados_saida_aa4946b1de6f2e5dda507b1f20a778d47}\label{class_calculadora_cubo_perfeito_dados_saida_aa4946b1de6f2e5dda507b1f20a778d47} 
-{\bfseries Calculadora\+Cubo\+Perfeito\+Dados\+Saida} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
-\item 
+\mbox{\hyperlink{class_calculadora_cubo_perfeito_dados_saida_aa4946b1de6f2e5dda507b1f20a778d47}{Calculadora\+Cubo\+Perfeito\+Dados\+Saida}} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
+\begin{DoxyCompactList}\small\item\em Construtor da classe calculadora de dados de saída para uma geometria de cubo perfeito. Passa os parâmetros de entrada para o construtor da classe base. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_calculadora_cubo_perfeito_dados_saida_a21b5a667fce1dd709b082226028e234d}{calcular}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reimplementação do método de cálculo, para a geometria de cubo perfeito. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_calculadora_dados_saida}{Calculadora\+Dados\+Saida}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Calculadora\+Dados\+Saida} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_calculadora_dados_saida_afcbca7e0d8d1d7979aa2b8e7d03e5a55}{Calculadora\+Dados\+Saida}} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
+\begin{DoxyCompactList}\small\item\em Construtor da classe base da calculadora de dados de saída. Gera um unique\+\_\+ptr da classe \textquotesingle{}\doxylink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_calculadora_dados_saida}{Calculadora\+Dados\+Saida}}}
 \begin{DoxyCompactItemize}
@@ -39,7 +38,25 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Said
 
 
 \doxysubsection{Detailed Description}
-Classe calculadora dos dados de saída do modelo, para uma geometria de cubo perfeito, com método \textquotesingle{}calcular\textquotesingle{} da classe base sobreposto para essa geometria. 
+Classe calculadora dos dados de saída do modelo, para uma geometria de cubo perfeito, com método \textquotesingle{}calcular\textquotesingle{} da classe base reimplementado para essa geometria. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_calculadora_cubo_perfeito_dados_saida_aa4946b1de6f2e5dda507b1f20a778d47}\index{CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}!CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}}
+\index{CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}!CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}}
+\doxysubsubsection{\texorpdfstring{CalculadoraCuboPerfeitoDadosSaida()}{CalculadoraCuboPerfeitoDadosSaida()}}
+{\footnotesize\ttfamily \label{class_calculadora_cubo_perfeito_dados_saida_aa4946b1de6f2e5dda507b1f20a778d47} 
+Calculadora\+Cubo\+Perfeito\+Dados\+Saida\+::\+Calculadora\+Cubo\+Perfeito\+Dados\+Saida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}}]{entrada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da classe calculadora de dados de saída para uma geometria de cubo perfeito. Passa os parâmetros de entrada para o construtor da classe base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entrada} & \+: Ponteiro para um objeto da classe de dados de entrada. \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_calculadora_cubo_perfeito_dados_saida_a21b5a667fce1dd709b082226028e234d}\index{CalculadoraCuboPerfeitoDadosSaida@{CalculadoraCuboPerfeitoDadosSaida}!calcular@{calcular}}
@@ -48,6 +65,13 @@ Classe calculadora dos dados de saída do modelo, para uma geometria de cubo per
 {\footnotesize\ttfamily \label{class_calculadora_cubo_perfeito_dados_saida_a21b5a667fce1dd709b082226028e234d} 
 \mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} Calculadora\+Cubo\+Perfeito\+Dados\+Saida\+::calcular (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Reimplementação do método de cálculo, para a geometria de cubo perfeito. 
+
+\begin{DoxyReturn}{Returns}
+Dados\+Saida\+Modelo\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
 TODO\+: Modificar dados\+Entrada para receber do usuario as propriedades do VC.
 
 TODO\+: Inicializar as classes
@@ -56,11 +80,11 @@ TODO\+: Realizar os calculos/operacoes no VC
 
 TODO\+: Passar valores calculados para a classe de saída
 
-Reimplemented from \mbox{\hyperlink{class_calculadora_dados_saida}{Calculadora\+Dados\+Saida}}.
+Reimplemented from \mbox{\hyperlink{class_calculadora_dados_saida_a9d62e224c18fbacaa1ae573498ca92fc}{Calculadora\+Dados\+Saida}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_cubo_perfeito_dados_saida_8h}{Calculadora\+Cubo\+Perfeito\+Dados\+Saida.\+h}}\item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Calculadora/Calculadora\+Cubo\+Perfeito\+Dados\+Saida.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_cubo_perfeito_dados_saida_8h}{Calculadora\+Cubo\+Perfeito\+Dados\+Saida.\+h}}\item 
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Calculadora/\mbox{\hyperlink{_calculadora_cubo_perfeito_dados_saida_8cpp}{Calculadora\+Cubo\+Perfeito\+Dados\+Saida.\+cpp}}\end{DoxyCompactItemize}

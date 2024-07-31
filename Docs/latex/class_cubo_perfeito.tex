@@ -1,5 +1,14 @@
 \doxysection{Cubo\+Perfeito Class Reference}
 \hypertarget{class_cubo_perfeito}{}\label{class_cubo_perfeito}\index{CuboPerfeito@{CuboPerfeito}}
+
+
+Subclasse da classe \textquotesingle{}\doxylink{class_geometria_base}{Geometria\+Base}\textquotesingle{}. Implementa os cálculos para uma geometria de cubo perfeito.  
+
+
+
+
+{\ttfamily \#include $<$Cubo\+Perfeito.\+h$>$}
+
 Inheritance diagram for Cubo\+Perfeito\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,39 +20,57 @@ Inheritance diagram for Cubo\+Perfeito\+:\begin{figure}[H]
 \item 
 \Hypertarget{class_cubo_perfeito_a3fb21718727a1109fc124f41a47acd84}\label{class_cubo_perfeito_a3fb21718727a1109fc124f41a47acd84} 
 {\bfseries Cubo\+Perfeito} ()
-\begin{DoxyCompactList}\small\item\em Construtor. \end{DoxyCompactList}\item 
-\Hypertarget{class_cubo_perfeito_a8814574f494f06a58406b89958c07e73}\label{class_cubo_perfeito_a8814574f494f06a58406b89958c07e73} 
-{\bfseries Cubo\+Perfeito} (double aresta)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor trivial da subclasse de geometria \textquotesingle{}\doxylink{class_cubo_perfeito}{Cubo\+Perfeito}\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cubo_perfeito_a8814574f494f06a58406b89958c07e73}{Cubo\+Perfeito}} (double aresta)
+\begin{DoxyCompactList}\small\item\em Construtor da subclasse de geometria \textquotesingle{}\doxylink{class_cubo_perfeito}{Cubo\+Perfeito}\textquotesingle{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cubo_perfeito_a26fd7b46240117e56de2db6a516d7e67}{calcular\+Area\+Face}} () override
-\begin{DoxyCompactList}\small\item\em Calculadoras. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reimplementação do método calculador da área da face, para a geometria cúbica perfeita. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cubo_perfeito_a1c3fdf4c8fc9dd12af1e9528a49ed47c}{calcular\+Volume}} () override
-\item 
-\Hypertarget{class_cubo_perfeito_a5f5eb3b2a58df4bb8b273f286bfa9d17}\label{class_cubo_perfeito_a5f5eb3b2a58df4bb8b273f286bfa9d17} 
-void {\bfseries set\+Aresta} (double valor)
-\begin{DoxyCompactList}\small\item\em Setters and Getters. \end{DoxyCompactList}\item 
-\Hypertarget{class_cubo_perfeito_a94f863f762efc075cfbb4997d1ba98c0}\label{class_cubo_perfeito_a94f863f762efc075cfbb4997d1ba98c0} 
-double {\bfseries get\+Aresta} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reimplementação do método calculador do volume, para a geometria cúbica perfeita. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cubo_perfeito_a5f5eb3b2a58df4bb8b273f286bfa9d17}{set\+Aresta}} (double valor)
+\begin{DoxyCompactList}\small\item\em Define o valor da aresta do volume de controle, para uma geometria cúbica perfeita. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_cubo_perfeito_a94f863f762efc075cfbb4997d1ba98c0}{get\+Aresta}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor da aresta do volume de controle, para uma geometria cúbica perfeita. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometria_base}{Geometria\+Base}}}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Geometria\+Base} ()
-\begin{DoxyCompactList}\small\item\em Construtores. \end{DoxyCompactList}\item 
-void {\bfseries set\+Volume} (double valor)
-\begin{DoxyCompactList}\small\item\em Setters and Getters. \end{DoxyCompactList}\item 
-void {\bfseries set\+Area\+Face} (double valor)
-\item 
-double {\bfseries get\+Volume} () const
-\item 
-double {\bfseries get\+Area\+Face} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Construtor da classe base de geometria do volume de controle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometria_base_ac59d2af8db192ce5febd612983c6dc58}{set\+Volume}} (double valor)
+\begin{DoxyCompactList}\small\item\em Define o volume total do volume de controle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometria_base_ac63fb85f1b48a93afdf5652fd07d6033}{set\+Area\+Face}} (double valor)
+\begin{DoxyCompactList}\small\item\em Define o valor da área da face do volume de controle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_geometria_base_a05bc8dc0d6b6459c52509527aa0ae3c5}{get\+Volume}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor do volume total do volume de controle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_geometria_base_ac56deb03f7110b7bfb3dea4b426d0fe2}{get\+Area\+Face}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor da área da face do volume de controle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometria_base}{Geometria\+Base}}}
 \begin{DoxyCompactItemize}
 \item 
 bool {\bfseries tem\+Face}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subclasse da classe \textquotesingle{}\doxylink{class_geometria_base}{Geometria\+Base}\textquotesingle{}. Implementa os cálculos para uma geometria de cubo perfeito. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cubo_perfeito_a8814574f494f06a58406b89958c07e73}\index{CuboPerfeito@{CuboPerfeito}!CuboPerfeito@{CuboPerfeito}}
+\index{CuboPerfeito@{CuboPerfeito}!CuboPerfeito@{CuboPerfeito}}
+\doxysubsubsection{\texorpdfstring{CuboPerfeito()}{CuboPerfeito()}}
+{\footnotesize\ttfamily \label{class_cubo_perfeito_a8814574f494f06a58406b89958c07e73} 
+Cubo\+Perfeito\+::\+Cubo\+Perfeito (\begin{DoxyParamCaption}\item[{double}]{aresta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da subclasse de geometria \textquotesingle{}\doxylink{class_cubo_perfeito}{Cubo\+Perfeito}\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aresta} & \+: Tamanho da aresta do cubo perfeito considerado. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -55,7 +82,7 @@ void Cubo\+Perfeito\+::calcular\+Area\+Face (\begin{DoxyParamCaption}{}{}\end{Do
 
 
 
-Calculadoras. 
+Reimplementação do método calculador da área da face, para a geometria cúbica perfeita. 
 
 
 
@@ -69,11 +96,43 @@ void Cubo\+Perfeito\+::calcular\+Volume (\begin{DoxyParamCaption}{}{}\end{DoxyPa
 
 
 
-Reimplemented from \mbox{\hyperlink{class_geometria_base}{Geometria\+Base}}.
+Reimplementação do método calculador do volume, para a geometria cúbica perfeita. 
 
+
+
+Reimplemented from \mbox{\hyperlink{class_geometria_base_ad11486322597e9c40b26c3d6f601e538}{Geometria\+Base}}.
+
+\Hypertarget{class_cubo_perfeito_a94f863f762efc075cfbb4997d1ba98c0}\index{CuboPerfeito@{CuboPerfeito}!getAresta@{getAresta}}
+\index{getAresta@{getAresta}!CuboPerfeito@{CuboPerfeito}}
+\doxysubsubsection{\texorpdfstring{getAresta()}{getAresta()}}
+{\footnotesize\ttfamily \label{class_cubo_perfeito_a94f863f762efc075cfbb4997d1ba98c0} 
+double Cubo\+Perfeito\+::get\+Aresta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna o valor da aresta do volume de controle, para uma geometria cúbica perfeita. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\Hypertarget{class_cubo_perfeito_a5f5eb3b2a58df4bb8b273f286bfa9d17}\index{CuboPerfeito@{CuboPerfeito}!setAresta@{setAresta}}
+\index{setAresta@{setAresta}!CuboPerfeito@{CuboPerfeito}}
+\doxysubsubsection{\texorpdfstring{setAresta()}{setAresta()}}
+{\footnotesize\ttfamily \label{class_cubo_perfeito_a5f5eb3b2a58df4bb8b273f286bfa9d17} 
+void Cubo\+Perfeito\+::set\+Aresta (\begin{DoxyParamCaption}\item[{double}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Define o valor da aresta do volume de controle, para uma geometria cúbica perfeita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & \+: Nova aresta. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Volume\+Controle/\+Geometrias/Cubo\+Perfeito.\+h\item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Volume\+Controle/\+Geometrias/Cubo\+Perfeito.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Volume\+Controle/\+Geometrias/\mbox{\hyperlink{_cubo_perfeito_8h}{Cubo\+Perfeito.\+h}}\item 
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Volume\+Controle/\+Geometrias/\mbox{\hyperlink{_cubo_perfeito_8cpp}{Cubo\+Perfeito.\+cpp}}\end{DoxyCompactItemize}

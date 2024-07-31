@@ -1,20 +1,64 @@
 \doxysection{Gerador\+Dados\+Saida Class Reference}
 \hypertarget{class_gerador_dados_saida}{}\label{class_gerador_dados_saida}\index{GeradorDadosSaida@{GeradorDadosSaida}}
+
+
+Classe geradora dos dados de saída, com base nos dados de entrada.  
+
+
+
+
+{\ttfamily \#include $<$Gerador\+Dados\+Saida.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_gerador_dados_saida_ab59e5e980dd4a34714f4d52c369b561c}\label{class_gerador_dados_saida_ab59e5e980dd4a34714f4d52c369b561c} 
-{\bfseries Gerador\+Dados\+Saida} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
-\item 
+\mbox{\hyperlink{class_gerador_dados_saida_ab59e5e980dd4a34714f4d52c369b561c}{Gerador\+Dados\+Saida}} (const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}entrada)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_gerador_dados_saida}{Gerador\+Dados\+Saida}. \end{DoxyCompactList}\item 
 \Hypertarget{class_gerador_dados_saida_ae5d59bdc493c5a78d8c5d79a32b40b61}\label{class_gerador_dados_saida_ae5d59bdc493c5a78d8c5d79a32b40b61} 
 void {\bfseries gerar} ()
-\item 
-\Hypertarget{class_gerador_dados_saida_adfc6583f098c2a01fc9dd71bef9f943f}\label{class_gerador_dados_saida_adfc6583f098c2a01fc9dd71bef9f943f} 
-\mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Dados\+Saida} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função geradora dos dados de saída. Alterna o método de cálculo com base nas propriedades do volume de controle, passadas nos dados de entrada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_gerador_dados_saida_adfc6583f098c2a01fc9dd71bef9f943f}{get\+Dados\+Saida}} ()
+\begin{DoxyCompactList}\small\item\em Retorna um ponteiro para os dados de saída gerados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe geradora dos dados de saída, com base nos dados de entrada. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_gerador_dados_saida_ab59e5e980dd4a34714f4d52c369b561c}\index{GeradorDadosSaida@{GeradorDadosSaida}!GeradorDadosSaida@{GeradorDadosSaida}}
+\index{GeradorDadosSaida@{GeradorDadosSaida}!GeradorDadosSaida@{GeradorDadosSaida}}
+\doxysubsubsection{\texorpdfstring{GeradorDadosSaida()}{GeradorDadosSaida()}}
+{\footnotesize\ttfamily \label{class_gerador_dados_saida_ab59e5e980dd4a34714f4d52c369b561c} 
+Gerador\+Dados\+Saida\+::\+Gerador\+Dados\+Saida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dados_entrada_modelo}{Dados\+Entrada\+Modelo}} \texorpdfstring{$\ast$}{*}}]{entrada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da classe \doxylink{class_gerador_dados_saida}{Gerador\+Dados\+Saida}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entrada} & \+: Ponteiro para um objeto da classe de entrada de dados. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gerador_dados_saida_adfc6583f098c2a01fc9dd71bef9f943f}\index{GeradorDadosSaida@{GeradorDadosSaida}!getDadosSaida@{getDadosSaida}}
+\index{getDadosSaida@{getDadosSaida}!GeradorDadosSaida@{GeradorDadosSaida}}
+\doxysubsubsection{\texorpdfstring{getDadosSaida()}{getDadosSaida()}}
+{\footnotesize\ttfamily \label{class_gerador_dados_saida_adfc6583f098c2a01fc9dd71bef9f943f} 
+\mbox{\hyperlink{class_dados_saida_modelo}{Dados\+Saida\+Modelo}} \texorpdfstring{$\ast$}{*} Gerador\+Dados\+Saida\+::get\+Dados\+Saida (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna um ponteiro para os dados de saída gerados. 
+
+\begin{DoxyReturn}{Returns}
+Dados\+Saida\+Modelo\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Gerador/Gerador\+Dados\+Saida.\+h\item 
-C\+:/\+Programacao/\+Github/modelagem-\/membranas/\+Codigo/\+Gerador/Gerador\+Dados\+Saida.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Gerador/\mbox{\hyperlink{_gerador_dados_saida_8h}{Gerador\+Dados\+Saida.\+h}}\item 
+C\+:/\+Users/\+EQ/\+Desktop/\+Thiago Souza/modelagem-\/membranas/\+Codigo/\+Gerador/\mbox{\hyperlink{_gerador_dados_saida_8cpp}{Gerador\+Dados\+Saida.\+cpp}}\end{DoxyCompactItemize}

@@ -92,13 +92,18 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">GeometriaBase Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe base para definição da geometria do volume de controle.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_geometria_base_8h_source.html">GeometriaBase.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GeometriaBase:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_geometria_base.png" usemap="#GeometriaBase_map" alt=""/>
   <map id="GeometriaBase_map" name="GeometriaBase_map">
-<area href="class_cubo_perfeito.html" alt="CuboPerfeito" shape="rect" coords="0,56,97,80"/>
+<area href="class_cubo_perfeito.html" title="Subclasse da classe &#39;GeometriaBase&#39;. Implementa os cálculos para uma geometria de cubo perfeito." alt="CuboPerfeito" shape="rect" coords="0,56,97,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -106,26 +111,25 @@ Inheritance diagram for GeometriaBase:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adc4acb4c1def00d6294243d8f7c115dd" id="r_adc4acb4c1def00d6294243d8f7c115dd"><td class="memItemLeft" align="right" valign="top"><a id="adc4acb4c1def00d6294243d8f7c115dd" name="adc4acb4c1def00d6294243d8f7c115dd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GeometriaBase</b> ()</td></tr>
-<tr class="memdesc:adc4acb4c1def00d6294243d8f7c115dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtores. <br /></td></tr>
+<tr class="memdesc:adc4acb4c1def00d6294243d8f7c115dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe base de geometria do volume de controle. <br /></td></tr>
 <tr class="separator:adc4acb4c1def00d6294243d8f7c115dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11486322597e9c40b26c3d6f601e538" id="r_ad11486322597e9c40b26c3d6f601e538"><td class="memItemLeft" align="right" valign="top"><a id="ad11486322597e9c40b26c3d6f601e538" name="ad11486322597e9c40b26c3d6f601e538"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>calcularVolume</b> ()</td></tr>
+<tr class="memitem:ad11486322597e9c40b26c3d6f601e538" id="r_ad11486322597e9c40b26c3d6f601e538"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad11486322597e9c40b26c3d6f601e538">calcularVolume</a> ()</td></tr>
+<tr class="memdesc:ad11486322597e9c40b26c3d6f601e538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método base para calcular o volume total do volume de controle. Será reimplementado em cada caso, para cada geometria.  <br /></td></tr>
 <tr class="separator:ad11486322597e9c40b26c3d6f601e538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad74a5333c6f59752c2a96b867e564b77" id="r_ad74a5333c6f59752c2a96b867e564b77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad74a5333c6f59752c2a96b867e564b77">calcularAreaFace</a> ()</td></tr>
-<tr class="memdesc:ad74a5333c6f59752c2a96b867e564b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculadoras.  <br /></td></tr>
+<tr class="memdesc:ad74a5333c6f59752c2a96b867e564b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método base para calcular a área da face do volume de controle. Será reimplementado em cada caso, para cada geometria.  <br /></td></tr>
 <tr class="separator:ad74a5333c6f59752c2a96b867e564b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac59d2af8db192ce5febd612983c6dc58" id="r_ac59d2af8db192ce5febd612983c6dc58"><td class="memItemLeft" align="right" valign="top"><a id="ac59d2af8db192ce5febd612983c6dc58" name="ac59d2af8db192ce5febd612983c6dc58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVolume</b> (double valor)</td></tr>
-<tr class="memdesc:ac59d2af8db192ce5febd612983c6dc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setters and Getters. <br /></td></tr>
+<tr class="memitem:ac59d2af8db192ce5febd612983c6dc58" id="r_ac59d2af8db192ce5febd612983c6dc58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac59d2af8db192ce5febd612983c6dc58">setVolume</a> (double valor)</td></tr>
+<tr class="memdesc:ac59d2af8db192ce5febd612983c6dc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o volume total do volume de controle.  <br /></td></tr>
 <tr class="separator:ac59d2af8db192ce5febd612983c6dc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63fb85f1b48a93afdf5652fd07d6033" id="r_ac63fb85f1b48a93afdf5652fd07d6033"><td class="memItemLeft" align="right" valign="top"><a id="ac63fb85f1b48a93afdf5652fd07d6033" name="ac63fb85f1b48a93afdf5652fd07d6033"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAreaFace</b> (double valor)</td></tr>
+<tr class="memitem:ac63fb85f1b48a93afdf5652fd07d6033" id="r_ac63fb85f1b48a93afdf5652fd07d6033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac63fb85f1b48a93afdf5652fd07d6033">setAreaFace</a> (double valor)</td></tr>
+<tr class="memdesc:ac63fb85f1b48a93afdf5652fd07d6033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o valor da área da face do volume de controle.  <br /></td></tr>
 <tr class="separator:ac63fb85f1b48a93afdf5652fd07d6033"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05bc8dc0d6b6459c52509527aa0ae3c5" id="r_a05bc8dc0d6b6459c52509527aa0ae3c5"><td class="memItemLeft" align="right" valign="top"><a id="a05bc8dc0d6b6459c52509527aa0ae3c5" name="a05bc8dc0d6b6459c52509527aa0ae3c5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getVolume</b> () const</td></tr>
+<tr class="memitem:a05bc8dc0d6b6459c52509527aa0ae3c5" id="r_a05bc8dc0d6b6459c52509527aa0ae3c5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05bc8dc0d6b6459c52509527aa0ae3c5">getVolume</a> () const</td></tr>
+<tr class="memdesc:a05bc8dc0d6b6459c52509527aa0ae3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor do volume total do volume de controle.  <br /></td></tr>
 <tr class="separator:a05bc8dc0d6b6459c52509527aa0ae3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac56deb03f7110b7bfb3dea4b426d0fe2" id="r_ac56deb03f7110b7bfb3dea4b426d0fe2"><td class="memItemLeft" align="right" valign="top"><a id="ac56deb03f7110b7bfb3dea4b426d0fe2" name="ac56deb03f7110b7bfb3dea4b426d0fe2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getAreaFace</b> () const</td></tr>
+<tr class="memitem:ac56deb03f7110b7bfb3dea4b426d0fe2" id="r_ac56deb03f7110b7bfb3dea4b426d0fe2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac56deb03f7110b7bfb3dea4b426d0fe2">getAreaFace</a> () const</td></tr>
+<tr class="memdesc:ac56deb03f7110b7bfb3dea4b426d0fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor da área da face do volume de controle.  <br /></td></tr>
 <tr class="separator:ac56deb03f7110b7bfb3dea4b426d0fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -134,7 +138,9 @@ Protected Attributes</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>temFace</b></td></tr>
 <tr class="separator:a35575428aeccd8e4eae5cfeb8281e5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe base para definição da geometria do volume de controle. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad74a5333c6f59752c2a96b867e564b77" name="ad74a5333c6f59752c2a96b867e564b77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad74a5333c6f59752c2a96b867e564b77">&#9670;&#160;</a></span>calcularAreaFace()</h2>
 
@@ -158,15 +164,134 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>temFace</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculadoras. </p>
+<p>Método base para calcular a área da face do volume de controle. Será reimplementado em cada caso, para cada geometria. </p>
 
 <p>Reimplemented in <a class="el" href="class_cubo_perfeito.html#a26fd7b46240117e56de2db6a516d7e67">CuboPerfeito</a>.</p>
 
 </div>
 </div>
+<a id="ad11486322597e9c40b26c3d6f601e538" name="ad11486322597e9c40b26c3d6f601e538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11486322597e9c40b26c3d6f601e538">&#9670;&#160;</a></span>calcularVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeometriaBase::calcularVolume </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método base para calcular o volume total do volume de controle. Será reimplementado em cada caso, para cada geometria. </p>
+
+<p>Reimplemented in <a class="el" href="class_cubo_perfeito.html#a1c3fdf4c8fc9dd12af1e9528a49ed47c">CuboPerfeito</a>.</p>
+
+</div>
+</div>
+<a id="ac56deb03f7110b7bfb3dea4b426d0fe2" name="ac56deb03f7110b7bfb3dea4b426d0fe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac56deb03f7110b7bfb3dea4b426d0fe2">&#9670;&#160;</a></span>getAreaFace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GeometriaBase::getAreaFace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o valor da área da face do volume de controle. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a05bc8dc0d6b6459c52509527aa0ae3c5" name="a05bc8dc0d6b6459c52509527aa0ae3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05bc8dc0d6b6459c52509527aa0ae3c5">&#9670;&#160;</a></span>getVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GeometriaBase::getVolume </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o valor do volume total do volume de controle. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="ac63fb85f1b48a93afdf5652fd07d6033" name="ac63fb85f1b48a93afdf5652fd07d6033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63fb85f1b48a93afdf5652fd07d6033">&#9670;&#160;</a></span>setAreaFace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeometriaBase::setAreaFace </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o valor da área da face do volume de controle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>: Nova área da face. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac59d2af8db192ce5febd612983c6dc58" name="ac59d2af8db192ce5febd612983c6dc58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac59d2af8db192ce5febd612983c6dc58">&#9670;&#160;</a></span>setVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeometriaBase::setVolume </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o volume total do volume de controle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>: Novo volume total. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Programacao/Github/modelagem-membranas/Codigo/VolumeControle/Geometrias/<a class="el" href="_geometria_base_8h_source.html">GeometriaBase.h</a></li>
-<li>C:/Programacao/Github/modelagem-membranas/Codigo/VolumeControle/Geometrias/<b>GeometriaBase.cpp</b></li>
+<li>C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/Codigo/VolumeControle/Geometrias/<a class="el" href="_geometria_base_8h_source.html">GeometriaBase.h</a></li>
+<li>C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/Codigo/VolumeControle/Geometrias/<b>GeometriaBase.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

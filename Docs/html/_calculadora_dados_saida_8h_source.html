@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Módulo de Membranas: C:/Programacao/Github/modelagem-membranas/Codigo/Calculadora/CalculadoraDadosSaida.h Source File</title>
+<title>Módulo de Membranas: C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/Codigo/Calculadora/CalculadoraDadosSaida.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,16 +108,18 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::unique_ptr&lt;DadosSaidaModelo&gt; dadosPtr;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_calculadora_dados_saida.html">CalculadoraDadosSaida</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_dados_entrada_modelo.html">DadosEntradaModelo</a>* entrada);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_dados_saida_modelo.html">DadosSaidaModelo</a>* calcular();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_calculadora_dados_saida.html#afcbca7e0d8d1d7979aa2b8e7d03e5a55">CalculadoraDadosSaida</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_dados_entrada_modelo.html">DadosEntradaModelo</a>* entrada);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_dados_saida_modelo.html">DadosSaidaModelo</a>* <a class="code hl_function" href="class_calculadora_dados_saida.html#a9d62e224c18fbacaa1ae573498ca92fc">calcular</a>();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">//CALCULADORADADOSSAIDA_H</span></div>
 <div class="ttc" id="aclass_calculadora_dados_saida_html"><div class="ttname"><a href="class_calculadora_dados_saida.html">CalculadoraDadosSaida</a></div><div class="ttdoc">Classe base para calcular os dados de saída do modelo.</div><div class="ttdef"><b>Definition</b> CalculadoraDadosSaida.h:23</div></div>
-<div class="ttc" id="aclass_dados_entrada_modelo_html"><div class="ttname"><a href="class_dados_entrada_modelo.html">DadosEntradaModelo</a></div><div class="ttdef"><b>Definition</b> DadosEntradaModelo.h:9</div></div>
-<div class="ttc" id="aclass_dados_saida_modelo_html"><div class="ttname"><a href="class_dados_saida_modelo.html">DadosSaidaModelo</a></div><div class="ttdef"><b>Definition</b> DadosSaidaModelo.h:9</div></div>
+<div class="ttc" id="aclass_calculadora_dados_saida_html_a9d62e224c18fbacaa1ae573498ca92fc"><div class="ttname"><a href="class_calculadora_dados_saida.html#a9d62e224c18fbacaa1ae573498ca92fc">CalculadoraDadosSaida::calcular</a></div><div class="ttdeci">virtual DadosSaidaModelo * calcular()</div><div class="ttdoc">Método base para calcular os dados de saída. Reimplemetado para cada caso.</div><div class="ttdef"><b>Definition</b> CalculadoraDadosSaida.cpp:31</div></div>
+<div class="ttc" id="aclass_calculadora_dados_saida_html_afcbca7e0d8d1d7979aa2b8e7d03e5a55"><div class="ttname"><a href="class_calculadora_dados_saida.html#afcbca7e0d8d1d7979aa2b8e7d03e5a55">CalculadoraDadosSaida::CalculadoraDadosSaida</a></div><div class="ttdeci">CalculadoraDadosSaida(const DadosEntradaModelo *entrada)</div><div class="ttdoc">Construtor da classe base da calculadora de dados de saída. Gera um unique_ptr da classe 'DadosSaidaM...</div><div class="ttdef"><b>Definition</b> CalculadoraDadosSaida.cpp:20</div></div>
+<div class="ttc" id="aclass_dados_entrada_modelo_html"><div class="ttname"><a href="class_dados_entrada_modelo.html">DadosEntradaModelo</a></div><div class="ttdoc">Classe de entrada de dados para os cálculos do modelo. Aceita a geometria do volume de controle,...</div><div class="ttdef"><b>Definition</b> DadosEntradaModelo.h:19</div></div>
+<div class="ttc" id="aclass_dados_saida_modelo_html"><div class="ttname"><a href="class_dados_saida_modelo.html">DadosSaidaModelo</a></div><div class="ttdoc">Classe de saída de dados para os cálculos do modelo. Contém os valores calculados para a porosidade,...</div><div class="ttdef"><b>Definition</b> DadosSaidaModelo.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

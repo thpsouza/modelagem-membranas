@@ -1,5 +1,5 @@
 \doxysection{gerais.\+h}
-\hypertarget{gerais_8h_source}{}\label{gerais_8h_source}\index{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h@{C:/Programacao/Github/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h}}
+\hypertarget{gerais_8h_source}{}\label{gerais_8h_source}\index{C:/Users/EQ/Desktop/Thiago Souza/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h@{C:/Users/EQ/Desktop/Thiago Souza/modelagem-\/membranas/Codigo/AnaliseGrafica/gerais.h}}
 \mbox{\hyperlink{gerais_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -11,19 +11,26 @@
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_ae1a2aaa003428b70fab8f5e849e366e9}{linspace}}(\textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ stop,\ \textcolor{keywordtype}{int}\ n\ =\ 50);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_afc17982e448c494dfe73ed18c170b610}{transform}}(std::vector<double>\ x,\ std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\ f);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_ab52c10697d62efe62289a86c224be826}{exportarDados}}(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ cabecalhos,}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ X,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ Y);}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_af69a6e7c148a000a4abf034a3f300e07}{print}}(Args\ \&\&\ ...args)\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ (std::cout\ <<\ ...\ <<\ args);}
-\DoxyCodeLine{00036\ \}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GERAIS\_H}}
+\DoxyCodeLine{00028\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_a945d9dfd2e334f3af673a6972d0171c4}{linspace}}(\textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ stop,\ \textcolor{keywordtype}{int}\ num\ =\ 50);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ std::vector<double>\ \mbox{\hyperlink{gerais_8h_afc17982e448c494dfe73ed18c170b610}{transform}}(std::vector<double>\ x,\ std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\ f);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_ab52c10697d62efe62289a86c224be826}{exportarDados}}(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ cabecalhos,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ X,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ Y);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...Args>}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gerais_8h_af69a6e7c148a000a4abf034a3f300e07}{print}}(Args\ \&\&\ ...args)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ (std::cout\ <<\ ...\ <<\ args);}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GERAIS\_H}}
 
 \end{DoxyCode}

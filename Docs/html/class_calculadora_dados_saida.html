@@ -109,10 +109,11 @@ Inheritance diagram for CalculadoraDadosSaida:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afcbca7e0d8d1d7979aa2b8e7d03e5a55" id="r_afcbca7e0d8d1d7979aa2b8e7d03e5a55"><td class="memItemLeft" align="right" valign="top"><a id="afcbca7e0d8d1d7979aa2b8e7d03e5a55" name="afcbca7e0d8d1d7979aa2b8e7d03e5a55"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CalculadoraDadosSaida</b> (const <a class="el" href="class_dados_entrada_modelo.html">DadosEntradaModelo</a> *entrada)</td></tr>
+<tr class="memitem:afcbca7e0d8d1d7979aa2b8e7d03e5a55" id="r_afcbca7e0d8d1d7979aa2b8e7d03e5a55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcbca7e0d8d1d7979aa2b8e7d03e5a55">CalculadoraDadosSaida</a> (const <a class="el" href="class_dados_entrada_modelo.html">DadosEntradaModelo</a> *entrada)</td></tr>
+<tr class="memdesc:afcbca7e0d8d1d7979aa2b8e7d03e5a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe base da calculadora de dados de saída. Gera um unique_ptr da classe '<a class="el" href="class_dados_saida_modelo.html" title="Classe de saída de dados para os cálculos do modelo. Contém os valores calculados para a porosidade,...">DadosSaidaModelo</a>'.  <br /></td></tr>
 <tr class="separator:afcbca7e0d8d1d7979aa2b8e7d03e5a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d62e224c18fbacaa1ae573498ca92fc" id="r_a9d62e224c18fbacaa1ae573498ca92fc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_dados_saida_modelo.html">DadosSaidaModelo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d62e224c18fbacaa1ae573498ca92fc">calcular</a> ()</td></tr>
+<tr class="memdesc:a9d62e224c18fbacaa1ae573498ca92fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método base para calcular os dados de saída. Reimplemetado para cada caso.  <br /></td></tr>
 <tr class="separator:a9d62e224c18fbacaa1ae573498ca92fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -126,7 +127,41 @@ std::unique_ptr&lt; <a class="el" href="class_dados_saida_modelo.html">DadosSaid
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe base para calcular os dados de saída do modelo. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afcbca7e0d8d1d7979aa2b8e7d03e5a55" name="afcbca7e0d8d1d7979aa2b8e7d03e5a55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcbca7e0d8d1d7979aa2b8e7d03e5a55">&#9670;&#160;</a></span>CalculadoraDadosSaida()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CalculadoraDadosSaida::CalculadoraDadosSaida </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_dados_entrada_modelo.html">DadosEntradaModelo</a> *</td>          <td class="paramname"><span class="paramname"><em>entrada</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor da classe base da calculadora de dados de saída. Gera um unique_ptr da classe '<a class="el" href="class_dados_saida_modelo.html" title="Classe de saída de dados para os cálculos do modelo. Contém os valores calculados para a porosidade,...">DadosSaidaModelo</a>'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entrada</td><td>: Ponteiro para um objeto da classe de dados de entrada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9d62e224c18fbacaa1ae573498ca92fc" name="a9d62e224c18fbacaa1ae573498ca92fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d62e224c18fbacaa1ae573498ca92fc">&#9670;&#160;</a></span>calcular()</h2>
 
@@ -150,13 +185,16 @@ std::unique_ptr&lt; <a class="el" href="class_dados_saida_modelo.html">DadosSaid
 </table>
 </div><div class="memdoc">
 
+<p>Método base para calcular os dados de saída. Reimplemetado para cada caso. </p>
+<dl class="section return"><dt>Returns</dt><dd>DadosSaidaModelo* </dd></dl>
+
 <p>Reimplemented in <a class="el" href="class_calculadora_cubo_perfeito_dados_saida.html#a21b5a667fce1dd709b082226028e234d">CalculadoraCuboPerfeitoDadosSaida</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Programacao/Github/modelagem-membranas/Codigo/Calculadora/<a class="el" href="_calculadora_dados_saida_8h_source.html">CalculadoraDadosSaida.h</a></li>
-<li>C:/Programacao/Github/modelagem-membranas/Codigo/Calculadora/<b>CalculadoraDadosSaida.cpp</b></li>
+<li>C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/Codigo/Calculadora/<a class="el" href="_calculadora_dados_saida_8h_source.html">CalculadoraDadosSaida.h</a></li>
+<li>C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/Codigo/Calculadora/<a class="el" href="_calculadora_dados_saida_8cpp.html">CalculadoraDadosSaida.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
