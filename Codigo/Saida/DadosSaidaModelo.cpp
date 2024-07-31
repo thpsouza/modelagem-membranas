@@ -1,6 +1,13 @@
-//
-// Created by LABCFD on 7/5/2024.
-//
+/**
+ * @file DadosSaidaModelo.cpp
+ * @author Thiago Souza (thiagosouza@eq.ufrj.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-05
+ *
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
 #include "DadosSaidaModelo.h"
 

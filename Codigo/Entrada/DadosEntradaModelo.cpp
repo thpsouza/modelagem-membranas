@@ -17,7 +17,7 @@
  * @param distribuicao Especificação do tipo de distribuição de fibras ao longo do volume de controle.
  * @param empacotamento Fator de empacotamento das fibras no volume de controle.
  * @param volume Volume do volume de controle.
- * @param razaoComprimentoDiametroFibra Razão entre comprimento da fibra e do diâmetro da fibra (TEMPORÁRIO)/
+ * @param razaoComprimentoDiametroFibra Razão entre comprimento da fibra e do diâmetro da fibra (TEMPORÁRIO)
  */
 DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
                                        double empacotamento, double volume, double razaoComprimentoDiametroFibra):
