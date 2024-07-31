@@ -1,11 +1,21 @@
-//
-// Created by LABCFD on 7/11/2024.
-//
+/**
+ * @file GeometriaBase.h
+ * @author Thiago Souza (thiagosouza@eq.ufrj.com)
+ * @brief Arquivo com a classe base da geometria do volume de controle.
+ * @version 0.1
+ * @date 2024-07-11
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 
 #ifndef MODELAGEM_MEMBRANAS_GEOMETRIABASE_H
 #define MODELAGEM_MEMBRANAS_GEOMETRIABASE_H
 
-
+/**
+ * @brief Classe base para definição da geometria do volume de controle.
+ */
 class GeometriaBase {
 private:
     double volume;
