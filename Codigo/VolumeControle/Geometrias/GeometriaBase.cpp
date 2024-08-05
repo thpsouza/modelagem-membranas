@@ -40,6 +40,7 @@ void GeometriaBase::calcularVolume() {
 }
 
 
+// Setters e Getters
 /**
  * @brief Define o volume total do volume de controle.
  * 

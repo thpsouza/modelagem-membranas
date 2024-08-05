@@ -11,6 +11,7 @@
 
 #include "CuboPerfeito.h"
 
+// Construtores
 /**
  * @brief Construtor trivial da subclasse de geometria 'CuboPerfeito'.
  */
@@ -32,6 +33,7 @@ CuboPerfeito::CuboPerfeito(double aresta) :
 }
 
 
+// Calculadoras
 /**
  * @brief Reimplementação do método calculador da área da face, para a geometria cúbica perfeita.
  */
@@ -47,6 +49,7 @@ void CuboPerfeito::calcularVolume() {
 }
 
 
+// Setters e getters
 /**
  * @brief Define o valor da aresta do volume de controle, para uma geometria cúbica perfeita.
  * 
