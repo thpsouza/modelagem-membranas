@@ -5,6 +5,10 @@ Codigo/cmake-build-debug
 Codigo/cmake-build-debug-event-trace
 build
 
+# Doxygen
+Docs/html
+Docs/latex
+
 # PDFs
 UML/uml pdf.pdf
 
