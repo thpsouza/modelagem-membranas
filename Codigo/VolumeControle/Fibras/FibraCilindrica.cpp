@@ -22,8 +22,8 @@ FibraCilindrica::FibraCilindrica() : FibraBase() {
 /**
  * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
  *
- * @param comprimento comprimento da fibra média do módulo de membranas.
- * @param diametro diâmetro da fibra média do módulo de membranas.
+ * @param comprimento : comprimento da fibra média do módulo de membranas.
+ * @param diametro : diâmetro da fibra média do módulo de membranas.
  */
 FibraCilindrica::FibraCilindrica(double comprimento, double diametro) : FibraBase(comprimento, diametro) {
 }

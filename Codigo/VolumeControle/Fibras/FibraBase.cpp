@@ -47,7 +47,7 @@ void FibraBase::calcularVolume() {
 /**
  * @brief Define o valor do comprimento da fibra.
  *
- * @param valor Novo comprimento da fibra.
+ * @param valor : Novo comprimento da fibra.
  */
 void FibraBase::setComprimento(double valor) {
     comprimento = valor;
