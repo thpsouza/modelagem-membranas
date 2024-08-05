@@ -10,7 +10,7 @@ Docs/html
 Docs/latex
 
 # PDFs
-UML/uml pdf.pdf
+Docs/UMLS/uml pdf.pdf
 
 # Arquivo com o path do cmake do Clion
 Codigo/AnaliseGrafica/cmake_path.txt

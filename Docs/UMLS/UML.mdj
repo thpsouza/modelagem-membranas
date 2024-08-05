@@ -11201,18 +11201,18 @@
 												"$ref": "AAAAAAGQOpXV335MdKg="
 											},
 											"font": "Arial;13;0",
-											"left": 332.43017578125,
+											"left": 338.5556640625,
 											"top": 37,
-											"width": 70.814453125,
+											"width": 64.68896484375,
 											"height": 13,
 											"text": "T: typename",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 327.43017578125,
+									"left": 333.5556640625,
 									"top": 32,
-									"width": 80.814453125,
+									"width": 74.68896484375,
 									"height": 23
 								}
 							],

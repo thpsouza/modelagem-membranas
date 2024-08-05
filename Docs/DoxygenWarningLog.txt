@@ -1,0 +1,10 @@
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.
+C:/Users/EQ/Desktop/Thiago Souza/modelagem-membranas/README.md:15: warning: image file /Docs/UMLS/png/Mistura is not found in IMAGE_PATH: assuming external image.

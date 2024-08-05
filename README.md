@@ -3,13 +3,13 @@
 ## UMLs:
 
 ### Fluxo principal do programa:
-![Main](/UML/Main!Main_2.png)
+![Main](/Docs/UMLS/Main.png)
 
 ### I/O:
-![I/O](/UML/IO!IO_4.png)
+![I/O](/Docs/UMLS/IO.png)
 
 ### Geometria:
-![Geometria](/UML/Geometria!Geometria_3.png)
+![Geometria](/Docs/UMLS/Geometria.png)
 
 ### Mistura:
-![Mistura](/UML/png/Mistura(old)!Mistura_1.png)
+![Mistura](/Docs/UMLS/png/Mistura(old).png)
