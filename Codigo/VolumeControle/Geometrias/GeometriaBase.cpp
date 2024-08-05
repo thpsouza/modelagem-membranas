@@ -1,5 +1,5 @@
 /**
- * @file GeometriaBase.h
+ * @file GeometriaBase.cpp
  * @author Thiago Souza (thiagosouza@eq.ufrj.com)
  * @brief
  * @version 0.1
