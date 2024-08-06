@@ -9,5 +9,12 @@
  * 
  */
 
+#include "gtest/gtest.h"
+
 void executarTestes() {
+}
+
+
+int main() {
+    return 0;
 }

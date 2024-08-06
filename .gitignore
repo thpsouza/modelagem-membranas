@@ -18,6 +18,8 @@ Codigo/AnaliseGrafica/cmake_path.txt
 # Arquivos de dados (pode ser gerado a qualquer momento)
 Codigo/AnaliseGrafica/dados.csv
 
+# Atalhos
+*.lnk
 
 ## TEMPLATE Github:
 # Prerequisites
