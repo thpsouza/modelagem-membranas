@@ -47,6 +47,11 @@ std::vector<double> transform(std::vector<double> x, std::function<double(double
 }
 
 
+bool isClose(double x, double y, double tolerancia) {
+    return (std::abs(x-y) <= tolerancia);
+}
+
+
 void exportarDados(const std::string& path, const std::vector<std::string>& cabecalhos,
                    const std::vector<double>& X, const std::vector<std::vector<double>>& Y) {
     std::ofstream file;
@@ -72,3 +77,5 @@ void exportarDados(const std::string& path, const std::vector<std::string>& cabe
     }
     file.close();
 }
+
+

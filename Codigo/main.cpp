@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "AnaliseGrafica/gerais.h"
+#include "Gerais/gerais.h"
 #include "Entrada/DadosEntradaModelo.h"
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
