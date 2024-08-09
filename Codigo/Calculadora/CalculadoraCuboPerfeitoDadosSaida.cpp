@@ -17,6 +17,7 @@
 #include "../VolumeControle/Geometrias/CuboPerfeito.h"
 #include "../VolumeControle/Fibras/FibraCilindrica.h"
 
+
 /**
  * @brief Construtor da classe calculadora de dados de saída para uma geometria de cubo perfeito.
  * Passa os parâmetros de entrada para o construtor da classe base.
@@ -45,10 +46,12 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // double d = l/entrada->razaoComprimentoDiametroFibra;
     ///
 
+    /// TODO: Reduzir o numero de fibras e a área de membrana totais para os valores do VC
+    ///
 
     /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
     // Geometria das fibras
-    FibraCilindrica fibra {entrada->getDiametroFibra(), entrada->getAreaMembrana()/entrada->getNumFibras()};
+    FibraCilindrica fibra {entrada->getDiametroFibra(), entrada->getAreaTotalMembrana()/entrada->getNumTotalFibras()};
     fibra.calcularComprimento();
     fibra.calcularVolume();
 
@@ -58,6 +61,8 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
 
     // Construção do volume de controle
     VolumeControle VC {&cubo, &fibra, entrada};
+    VC.setNumFibras(entrada->getNumTotalFibras());
+    VC.setAreaTransferenciaTotal(entrada->getAreaTotalMembrana());
     VC.construirModelo();
     VC.calcularEmpacotamento();
     VC.calcularPorosidade();
