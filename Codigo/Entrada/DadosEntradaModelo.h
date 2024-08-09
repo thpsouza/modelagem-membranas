@@ -32,16 +32,25 @@ public:
     DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
                        double empacotamento, double volume, double razaoComprimentoDiametroFibra);
 
+    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
+                       double areaMembrana, int numFibras, double diametroFibra, double volume);
+
     [[nodiscard]] TipoGeometria getGeometria() const;
     [[nodiscard]] TipoDistribuicao getDistribuicao() const;
     [[nodiscard]] double getEmpacotamento() const;
+    [[nodiscard]] double getAreaMembrana() const;
+    [[nodiscard]] int getNumFibras() const;
+    [[nodiscard]] double getDiametroFibra() const;
     [[nodiscard]] double getVolume() const;
     double razaoComprimentoDiametroFibra;
 
 private:
     TipoGeometria geometria;
     TipoDistribuicao distribuicao;
+    double diametroFibra;
     double empacotamento;
+    double areaMembrana;
+    int numFibras;
     double volume;
 };
 
