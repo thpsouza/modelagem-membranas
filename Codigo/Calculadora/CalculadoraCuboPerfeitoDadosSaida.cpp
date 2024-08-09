@@ -18,7 +18,9 @@
 #include "../VolumeControle/Fibras/FibraCilindrica.h"
 
 /**
- * @brief Construtor da classe calculadora de dados de saída para uma geometria de cubo perfeito. Passa os parâmetros de entrada para o construtor da classe base.
+ * @brief Construtor da classe calculadora de dados de saída para uma geometria de cubo perfeito.
+ * Passa os parâmetros de entrada para o construtor da classe base.
+ *
  * @param entrada : Ponteiro para um objeto da classe de dados de entrada.
  */
 CalculadoraCuboPerfeitoDadosSaida::CalculadoraCuboPerfeitoDadosSaida(const DadosEntradaModelo* entrada) :
@@ -28,6 +30,7 @@ CalculadoraCuboPerfeitoDadosSaida::CalculadoraCuboPerfeitoDadosSaida(const Dados
 
 /**
  * @brief Reimplementação do método de cálculo, para a geometria de cubo perfeito.
+ *
  * @return DadosSaidaModelo* 
  */
 DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
@@ -36,27 +39,28 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // - Como a geometria é cúbica e as fibras são cilindros perfeitos, pode-se obter os comprimentos a partir da
     // raiz cúbica do volume.
     // - O diâmetro da fibra poderia ser obtido a partir do empacotamento, pois para essa geometria, este equivale
-    // à densidade de fibras na face; porém, isso requere já saber previamente o número de fibras no VC...
+    // à densidade de fibras na face; porém, isso requere já saber previamente o número de fibras no volume de controle...
     // - Assim, será assumido um diâmetro arbitrário temporariamente.
-    double l = cbrt(entrada->getVolume());
-    double d = l/entrada->razaoComprimentoDiametroFibra;
+    // double l = cbrt(entrada->getVolume());
+    // double d = l/entrada->razaoComprimentoDiametroFibra;
     ///
 
-    /// TODO: Inicializar as classes
-    CuboPerfeito cubo {l};
-    FibraCilindrica fibra {l, d};
-    VolumeControle VC {&cubo, &fibra, entrada};
-    ///
 
-    /// TODO: Realizar os calculos/operacoes no VC
-    cubo.calcularVolume();
+    /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
+    // Geometria das fibras
+    FibraCilindrica fibra {entrada->getDiametroFibra(), entrada->getAreaMembrana()/entrada->getNumFibras()};
+    fibra.calcularDiametro();
     fibra.calcularVolume();
-    fibra.calcularAreaSuperficial();
 
+    // Geometria do volume de controle
+    CuboPerfeito cubo {fibra.getComprimento()};
+    cubo.calcularVolume();
+
+    // Construção do volume de controle
+    VolumeControle VC {&cubo, &fibra, entrada};
     VC.construirModelo();
+    VC.calcularEmpacotamento();
     VC.calcularPorosidade();
-    VC.calcularNumFibras();
-    VC.calcularAreaTotalTransferencia();
     ///
 
     /// TODO: Passar valores calculados para a classe de saída
