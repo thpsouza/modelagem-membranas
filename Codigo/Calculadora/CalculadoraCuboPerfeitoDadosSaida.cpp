@@ -49,7 +49,7 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
     // Geometria das fibras
     FibraCilindrica fibra {entrada->getDiametroFibra(), entrada->getAreaMembrana()/entrada->getNumFibras()};
-    fibra.calcularDiametro();
+    fibra.calcularComprimento();
     fibra.calcularVolume();
 
     // Geometria do volume de controle
