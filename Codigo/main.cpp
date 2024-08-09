@@ -10,17 +10,25 @@
 #include "Gerador/GeradorDadosSaida.h"
 #include "Saida/DadosSaidaModelo.h"
 
+struct Args {
+    int numFibras = 0;
+    double areaMembrana = 0;
+    double diametroFibra = 0;
+    double empacotamento = 0;
+    double razaoComprimentoDiametroFibra = 0;
+    double volume = 0;
+};
 
 DadosSaidaModelo realizarCalculos(
-        double empacotamento,
-        double razaoComprimentoDiametroFibra = 10,
-        double volume = 1,
+        Args *args,
         DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito,
         DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao
 ){
     /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
     const DadosEntradaModelo dadosEntrada {
-        geometria, distribuicao, empacotamento, volume, razaoComprimentoDiametroFibra
+            geometria, distribuicao,
+            args->areaMembrana, args->numFibras, args->diametroFibra,
+            args->empacotamento, args->volume, args->razaoComprimentoDiametroFibra
     };
     GeradorDadosSaida gerador {&dadosEntrada};
     gerador.gerar();
@@ -28,7 +36,7 @@ DadosSaidaModelo realizarCalculos(
 }
 
 
-void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
+void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) {
     std::vector<std::string> cabecalhos {
             "Empacotamento", "Porosidade", "Numero de Fibras", "Area Total de trasferencia"
     };
@@ -41,8 +49,11 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
     std::vector<double> AreaTotal(N);
 
     DadosSaidaModelo saida;
+    Args args;
+    args.razaoComprimentoDiametroFibra = razaoComprimentoDiametroFibra;
     for (int i = 0; i<N; i++) {
-        saida = realizarCalculos(empacotamentos[i], razaoComprimentoDiametroFibra);
+        args.empacotamento = empacotamentos[i];
+        saida = realizarCalculos(&args);
         porosidades[i] = saida.getPorosidade();
         numFibras[i] = (double) saida.getNumFibras();
         AreaTotal[i] = saida.getAreaTotalTransferencia();
@@ -54,7 +65,12 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra) {
 
 
 void testeEntradaSaidaDados() {
-    DadosSaidaModelo dadosSaida = realizarCalculos(0.8);
+    Args args;
+    args.numFibras = 30;
+    args.areaMembrana = 0.0021;
+    args.diametroFibra = 300e-6;
+
+    DadosSaidaModelo dadosSaida = realizarCalculos(&args);
 
     // Output
     print("Porosidade: ", dadosSaida.getPorosidade(),
