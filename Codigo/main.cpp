@@ -11,12 +11,13 @@
 #include "Saida/DadosSaidaModelo.h"
 
 struct Args {
-    int numFibras = 0;
-    double areaMembrana = 0;
-    double diametroFibra = 0;
-    double empacotamento = 0;
-    double razaoComprimentoDiametroFibra = 0;
-    double volume = 0;
+    int numTotalFibras = 0;
+    double areaTotalMembrana = 0.0;
+    double volumeTotalModulo = 0.0;
+    double volumeVC = 0.0;
+    double diametroFibra = 0.0;
+    double empacotamento = 0.0;
+    double razaoComprimentoDiametroFibra = 0.0;
 };
 
 DadosSaidaModelo realizarCalculos(
@@ -27,8 +28,9 @@ DadosSaidaModelo realizarCalculos(
     /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
     const DadosEntradaModelo dadosEntrada {
             geometria, distribuicao,
-            args->areaMembrana, args->numFibras, args->diametroFibra,
-            args->empacotamento, args->volume, args->razaoComprimentoDiametroFibra
+            args->areaTotalMembrana, args->numTotalFibras, args->diametroFibra,
+            args->volumeTotalModulo, args->volumeVC,
+            args->empacotamento, args->razaoComprimentoDiametroFibra
     };
     GeradorDadosSaida gerador {&dadosEntrada};
     gerador.gerar();
@@ -42,8 +44,8 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) 
     };
 
     int N = 100;
-    const double porosidadeMaximaTeorica = M_PI * sqrt(3) / 6; // Geometria cúbica / Distribuicao uniforme
-    std::vector<double> empacotamentos = linspace(0, porosidadeMaximaTeorica, N);
+    const double porosidadeMaximaTeorica = 1 - M_PI * sqrt(3) / 6; // Geometria cúbica / Distribuicao uniforme
+    std::vector<double> empacotamentos = linspace(0,  1 - porosidadeMaximaTeorica, N);
     std::vector<double> porosidades(N);
     std::vector<double> numFibras(N);
     std::vector<double> AreaTotal(N);
@@ -51,6 +53,7 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) 
     DadosSaidaModelo saida;
     Args args;
     args.razaoComprimentoDiametroFibra = razaoComprimentoDiametroFibra;
+    args.volumeTotalModulo = 1;
     for (int i = 0; i<N; i++) {
         args.empacotamento = empacotamentos[i];
         saida = realizarCalculos(&args);
@@ -66,10 +69,11 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) 
 
 void testeEntradaSaidaDados() {
     Args args;
-    args.numFibras = 30;
-    args.areaMembrana = 0.0021;
+    args.numTotalFibras = 30000;
+    args.areaTotalMembrana = 2.1;
     args.diametroFibra = 300e-6;
-
+    args.volumeTotalModulo = 8.9 * 8.9 * M_PI_4 * 14.2 * 1e-6;
+    args.volumeVC = 1e-6;
     DadosSaidaModelo dadosSaida = realizarCalculos(&args);
 
     // Output
