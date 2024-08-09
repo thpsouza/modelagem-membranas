@@ -56,7 +56,14 @@ void VolumeControle::construirModelo() {
 }
 
 /**
- * @brief Calcula a porosidade a partir do parâmetro de empacotamento, definido na classe de entrada.
+ * @brief Calcula o empacotamento a partir do número de fibras, volume das fibras e volume do VC. Definidos na classe de entrada.
+ */
+void VolumeControle::calcularEmpacotamento() {
+    setEmpacotamento(entrada->getNumFibras() * fibra->getVolume() / entrada->getVolume());
+}
+
+/**
+ * @brief Calcula a porosidade a partir do parâmetro de empacotamento.
  */
 void VolumeControle::calcularPorosidade() {
     setPorosidade(1 - entrada->getEmpacotamento());
@@ -78,9 +85,16 @@ void VolumeControle::calcularAreaTotalTransferencia() {
 
 /// TODO: Implementar os cálculos para diferentes distribuições
 
+/**
+ * @brief Define um novo valor para a variável 'empacotamento'.
+ * @param valor : Novo fator de empacotamento calculado.
+ */
+void VolumeControle::setEmpacotamento(double valor) {
+
+}
 
 /**
- * @brief Define um novo valor para a variável 'porosidade'
+ * @brief Define um novo valor para a variável 'porosidade'.
  * @param valor : Nova porosidade calculada.
  */
 void VolumeControle::setPorosidade(double valor) {
@@ -88,7 +102,7 @@ void VolumeControle::setPorosidade(double valor) {
 }
 
 /**
- * @brief Define um novo valor para a variável 'numFibras'
+ * @brief Define um novo valor para a variável 'numFibras'.
  * @param valor : Novo número de fibras calculado.
  */
 void VolumeControle::setNumFibras(int valor) {
@@ -96,7 +110,7 @@ void VolumeControle::setNumFibras(int valor) {
 }
 
 /**
- * @brief Define um novo valor para a variável 'areaTransferenciaTotal'
+ * @brief Define um novo valor para a variável 'areaTransferenciaTotal'.
  * @param valor : Nova área total de transferência calculada.
  */
 void VolumeControle::setAreaTransferenciaTotal(double valor) {
@@ -105,7 +119,7 @@ void VolumeControle::setAreaTransferenciaTotal(double valor) {
 
 /**
  * @brief Retorna a porosidade calculada.
- * @return double 
+ * @return double
  */
 double VolumeControle::getPorosidade() const {
     return porosidade;
@@ -113,7 +127,7 @@ double VolumeControle::getPorosidade() const {
 
 /**
  * @brief Retorna o número de fibras calculado.
- * @return int 
+ * @return int
  */
 int VolumeControle::getNumFibras() const {
     return numFibras;
@@ -121,8 +135,16 @@ int VolumeControle::getNumFibras() const {
 
 /**
  * @brief Retorna a área total de transferência calculada.
- * @return double 
+ * @return double
  */
 double VolumeControle::getAreaTransferenciaTotal() const {
     return areaTransferenciaTotal;
+}
+
+/**
+ * @brief Retorna o empacotamento do volume de controle.
+ * @return double
+ */
+double VolumeControle::getEmpacotamento() const {
+    return 0;
 }

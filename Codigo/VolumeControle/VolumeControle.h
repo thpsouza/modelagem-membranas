@@ -23,6 +23,7 @@ class DadosEntradaModelo;
  */
 class VolumeControle {
 private:
+    double empacotamento;
     double porosidade;
     int numFibras;
     double areaTransferenciaTotal;
@@ -34,14 +35,17 @@ public:
     VolumeControle(const GeometriaBase *geometria, const FibraBase *fibra, const DadosEntradaModelo *entrada);
 
     void construirModelo();
+    void calcularEmpacotamento();
     void calcularPorosidade();
     void calcularNumFibras();
     void calcularAreaTotalTransferencia();
 
+    void setEmpacotamento(double valor);
     void setPorosidade(double valor);
     void setNumFibras(int valor);
     void setAreaTransferenciaTotal(double valor);
 
+    double getEmpacotamento() const;
     double getPorosidade() const;
     int getNumFibras() const;
     double getAreaTransferenciaTotal() const;
