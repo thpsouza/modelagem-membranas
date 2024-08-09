@@ -28,12 +28,13 @@ public:
     {
         UniformeUmaDirecao
     };
+    DadosEntradaModelo() = default;
 
     DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
                        double empacotamento, double volume, double razaoComprimentoDiametroFibra);
 
     DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                       double areaMembrana, int numFibras, double diametroFibra, double volume);
+                       double areaMembrana, int numFibras, double diametroFibra);
 
     [[nodiscard]] TipoGeometria getGeometria() const;
     [[nodiscard]] TipoDistribuicao getDistribuicao() const;

@@ -38,17 +38,15 @@ DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao
  * @param areaMembrana : Área total de fibras no volume de controle.
  * @param numFibras : Número de fibras no volume de controle.
  * @param diametroFibra : Diâmetro médio das fibras no volume de controle.
- * @param volume : Volume do volume de controle.
  * @param razaoComprimentoDiametroFibra : Razão entre comprimento da fibra e do diâmetro da fibra (TEMPORÁRIO)
  */
 DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                                       double areaMembrana, int numFibras, double diametroFibra, double volume):
+                                       double areaMembrana, int numFibras, double diametroFibra):
         geometria(geometria),
         distribuicao(distribuicao),
         areaMembrana(areaMembrana),
         numFibras(numFibras),
-        diametroFibra(diametroFibra),
-        volume(volume)
+        diametroFibra(diametroFibra)
 {
 }
 
