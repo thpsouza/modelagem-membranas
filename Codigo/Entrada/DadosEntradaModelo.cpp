@@ -17,15 +17,15 @@
  * @param geometria : Especificação da geometria do volume de controle.
  * @param distribuicao : Especificação do tipo de distribuição de fibras ao longo do volume de controle.
  * @param empacotamento : Fator de empacotamento das fibras no volume de controle.
- * @param volume : Volume do volume de controle.
+ * @param volumeVC : Volume do volume de controle.
  * @param razaoComprimentoDiametroFibra : Razão entre comprimento da fibra e do diâmetro da fibra (TEMPORÁRIO).
  */
 DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                                       double empacotamento, double volume, double razaoComprimentoDiametroFibra):
+                                       double empacotamento, double volumeVC, double razaoComprimentoDiametroFibra):
         geometria(geometria),
         distribuicao(distribuicao),
         empacotamento(empacotamento),
-        volume(volume),
+        volumeVC(volumeVC),
         razaoComprimentoDiametroFibra(razaoComprimentoDiametroFibra)
 {
 }
@@ -35,16 +35,16 @@ DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao
  *
  * @param geometria : Especificação da geometria do volume de controle.
  * @param distribuicao : Especificação do tipo de distribuição de fibras ao longo do volume de controle.
- * @param areaMembrana : Área total de fibras no volume de controle.
- * @param numFibras : Número de fibras no volume de controle.
+ * @param areaTotalMembrana : Área total de fibras no módulo de membranas.
+ * @param numTotalFibras : Número de fibras total no módulo de membranas.
  * @param diametroFibra : Diâmetro médio das fibras no volume de controle.
  */
 DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                                       double areaMembrana, int numFibras, double diametroFibra):
+                                       double areaTotalMembrana, int numTotalFibras, double diametroFibra):
         geometria(geometria),
         distribuicao(distribuicao),
-        areaMembrana(areaMembrana),
-        numFibras(numFibras),
+        areaTotalMembrana(areaTotalMembrana),
+        numTotalFibras(numTotalFibras),
         diametroFibra(diametroFibra)
 {
 }
@@ -54,24 +54,28 @@ DadosEntradaModelo::DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao
  *
  * @param geometria : Especificação da geometria do volume de controle.
  * @param distribuicao : Especificação do tipo de distribuição de fibras ao longo do volume de controle.
- * @param areaMembrana : Área total de fibras no volume de controle.
- * @param numFibras : Número de fibras no volume de controle.
+ * @param areaTotalMembrana : Área total de fibras no módulo de membranas.
+ * @param numTotalFibras : Número de fibras total no módulo de membranas.
  * @param diametroFibra : Diâmetro médio das fibras no volume de controle.
+ * @param volumeTotalModulo : Volume total do módulo de membranas.
+ * @param volumeVC : Volume do volume de controle.
  * @param empacotamento : Fator de empacotamento das fibras no volume de controle.
- * @param volume : Volume do volume de controle.
  * @param razaoComprimentoDiametroFibra : Razão entre comprimento da fibra e do diâmetro da fibra (TEMPORÁRIO).
  */
 DadosEntradaModelo::DadosEntradaModelo(DadosEntradaModelo::TipoGeometria geometria,
-                                       DadosEntradaModelo::TipoDistribuicao distribuicao, double areaMembrana,
-                                       int numFibras, double diametroFibra, double empacotamento, double volume,
-                                       double razaoComprimentoDiametroFibra) :
+                                       DadosEntradaModelo::TipoDistribuicao distribuicao,
+                                       double areaTotalMembrana, int numTotalFibras, double diametroFibra,
+                                       double volumeTotalModulo, double volumeVC,
+                                       double empacotamento, double razaoComprimentoDiametroFibra) :
+
         geometria(geometria),
         distribuicao(distribuicao),
-        areaMembrana(areaMembrana),
-        numFibras(numFibras),
+        areaTotalMembrana(areaTotalMembrana),
+        numTotalFibras(numTotalFibras),
         diametroFibra(diametroFibra),
+        volumeTotalModulo(volumeTotalModulo),
+        volumeVC(volumeVC),
         empacotamento(empacotamento),
-        volume(volume),
         razaoComprimentoDiametroFibra(razaoComprimentoDiametroFibra)
 {
 }
@@ -98,17 +102,17 @@ double DadosEntradaModelo::getEmpacotamento() const {
 }
 
 /**
- * @return Área total de transferência no volume de controle.
+ * @return Área total de transferência no módulo de membranas.
  */
-double DadosEntradaModelo::getAreaMembrana() const {
-    return areaMembrana;
+double DadosEntradaModelo::getAreaTotalMembrana() const {
+    return areaTotalMembrana;
 }
 
 /**
- * @return Número de fibras no volume de controle.
+ * @return Número total de fibras no módulo de membranas.
  */
-int DadosEntradaModelo::getNumFibras() const {
-    return numFibras;
+int DadosEntradaModelo::getNumTotalFibras() const {
+    return numTotalFibras;
 }
 
 /**
@@ -119,10 +123,18 @@ double DadosEntradaModelo::getDiametroFibra() const {
 }
 
 /**
+ * @return Volume total do módulo de membranas
+ */
+double DadosEntradaModelo::getVolumeTotalModulo() const {
+    return volumeTotalModulo;
+}
+
+/**
  * @return Volume do volume de controle.
  */
-double DadosEntradaModelo::getVolume() const {
-    return volume;
+double DadosEntradaModelo::getVolumeVC() const {
+    return volumeVC;
 }
+
 
 
