@@ -22,14 +22,53 @@ FibraCilindrica::FibraCilindrica() : FibraBase() {
 /**
  * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
  *
- * @param comprimento : comprimento da fibra média do módulo de membranas.
- * @param diametro : diâmetro da fibra média do módulo de membranas.
+ * @param diametro : Diâmetro médio das fibras no módulo de membranas.
  */
-FibraCilindrica::FibraCilindrica(double comprimento, double diametro) : FibraBase(comprimento, diametro) {
+FibraCilindrica::FibraCilindrica(double diametro) :
+        FibraBase(diametro)
+{
+}
+
+/**
+ * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
+ *
+ * @param diametro : Diâmetro médio das fibras no módulo de membranas.
+ * @param areaSuperficial : Área superficial média das fibras no módulo de membranas.
+ */
+FibraCilindrica::FibraCilindrica(double diametro, double areaSuperficial) :
+    FibraBase(diametro, areaSuperficial)
+{
+}
+
+/**
+ * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
+ *
+ * @param comprimento : Comprimento das fibras no módulo de membranas.
+ * @param diametro : Diâmetro médio das fibras no módulo de membranas.
+ * @param areaSuperficial : Área superficial média das fibras no módulo de membranas.
+ * @param volume : Volume médio das fibras no módulo de membranas.
+ */
+FibraCilindrica::FibraCilindrica(double comprimento, double diametro, double areaSuperficial, double volume)
+        : FibraBase(comprimento, diametro, areaSuperficial, volume) {
+
 }
 
 
 // Calculadoras
+/**
+ * @brief Método para calcular o diâmetro de uma fibra cilíndrica perfeita.
+ */
+void FibraCilindrica::calcularDiametro() {
+    setDiametro(getAreaSuperficial() / (M_PI * getComprimento()));
+}
+
+/**
+ * @brief Método para calcular o comprimento de uma fibra cilíndrica perfeita.
+ */
+void FibraCilindrica::calcularComprimento() {
+    setDiametro(getAreaSuperficial() / (M_PI * getDiametro()));
+}
+
 /**
  * @brief Método para calcular a área transversal de uma fibra cilíndrica perfeita.
  */
@@ -70,3 +109,8 @@ void FibraCilindrica::setAreaTransversal(double valor) {
 double FibraCilindrica::getAreaTransversal() const {
     return areaTransversal;
 }
+
+
+
+
+

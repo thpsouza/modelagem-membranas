@@ -24,8 +24,12 @@ private:
 public:
     // Construtor
     FibraBase();
-    FibraBase(double comprimento, double diametro);
+    explicit FibraBase(double diametro);
+    FibraBase(double diametro, double areaSuperficial);
+    FibraBase(double comprimento, double diametro, double areaSuperficial, double volume);
     // Calculadoras
+    virtual void calcularDiametro();
+    virtual void calcularComprimento();
     virtual void calcularAreaSuperficial();
     virtual void calcularVolume();
     // Setters e Getters

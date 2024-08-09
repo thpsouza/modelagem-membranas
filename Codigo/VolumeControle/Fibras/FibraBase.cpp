@@ -22,14 +22,48 @@ FibraBase::FibraBase() {
 /**
  * @brief Construtor da classe base das fibras do módulo de membranas.
  */
-FibraBase::FibraBase(double comprimento, double diametro) :
-    comprimento(comprimento),
+FibraBase::FibraBase(double diametro) :
     diametroMedio(diametro)
 {
 }
 
+/**
+ * @brief Construtor da classe base das fibras do módulo de membranas.
+ */
+FibraBase::FibraBase(double diametro, double areaSuperficial) :
+    diametroMedio(diametro),
+    areaSuperficial(areaSuperficial)
+{
+}
+
+/**
+ * @brief Construtor da classe base das fibras do módulo de membranas.
+ */
+FibraBase::FibraBase(double comprimento, double diametro, double areaSuperficial, double volume) :
+    comprimento(comprimento),
+    diametroMedio(diametro),
+    areaSuperficial(areaSuperficial),
+    volume(volume)
+{
+}
+
+
 
 // Cálculos
+/**
+ * @brief Método base para calcular o diâmetro médio das fibras. Será reimplementado em cada caso, para cada tipo de fibra.
+ */
+void FibraBase::calcularDiametro() {
+
+}
+
+/**
+ * @brief Método base para calcular o comprimento das fibras. Será reimplementado em cada caso, para cada tipo de fibra.
+ */
+void FibraBase::calcularComprimento() {
+
+}
+
 /**
  * @brief Método base para calcular a área de superfície de uma fibra. Será reimplementado em cada caso, para cada tipo de fibra.
  */
@@ -115,4 +149,12 @@ double FibraBase::getAreaSuperficial() const {
 double FibraBase::getVolume() const {
     return volume;
 }
+
+
+
+
+
+
+
+
 

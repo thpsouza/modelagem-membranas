@@ -22,8 +22,12 @@ private:
 public:
     // Construtor
     FibraCilindrica();
-    FibraCilindrica(double comprimento, double diametro);
+    explicit FibraCilindrica(double diametro);
+    FibraCilindrica(double diametro, double areaSuperficial);
+    FibraCilindrica(double comprimento, double diametro, double areaSuperficial, double volume);
     // Calculadoras
+    void calcularDiametro() override;
+    void calcularComprimento() override;
     void calcularAreaTransversal();
     void calcularAreaSuperficial() override;
     void calcularVolume() override;
