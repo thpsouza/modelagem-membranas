@@ -66,7 +66,7 @@ void FibraCilindrica::calcularDiametro() {
  * @brief Método para calcular o comprimento de uma fibra cilíndrica perfeita.
  */
 void FibraCilindrica::calcularComprimento() {
-    setDiametro(getAreaSuperficial() / (M_PI * getDiametro()));
+    setComprimento(getAreaSuperficial() / (M_PI * getDiametro()));
 }
 
 /**

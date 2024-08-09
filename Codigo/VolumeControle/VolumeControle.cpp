@@ -18,7 +18,6 @@
 #include "Distribuicoes/DistribuicaoBase.h"
 #include "Distribuicoes/DistribuicaoUniforme.h"
 
-
 /**
  * @brief Construtor do volume de controle.
  * 
@@ -59,14 +58,14 @@ void VolumeControle::construirModelo() {
  * @brief Calcula o empacotamento a partir do número de fibras, volume das fibras e volume do VC. Definidos na classe de entrada.
  */
 void VolumeControle::calcularEmpacotamento() {
-    setEmpacotamento(entrada->getNumFibras() * fibra->getVolume() / entrada->getVolume());
+    setEmpacotamento(entrada->getNumFibras() * fibra->getVolume() / geometria->getVolume());
 }
 
 /**
  * @brief Calcula a porosidade a partir do parâmetro de empacotamento.
  */
 void VolumeControle::calcularPorosidade() {
-    setPorosidade(1 - entrada->getEmpacotamento());
+    setPorosidade(1 - empacotamento);
 }
 
 /**
@@ -90,7 +89,7 @@ void VolumeControle::calcularAreaTotalTransferencia() {
  * @param valor : Novo fator de empacotamento calculado.
  */
 void VolumeControle::setEmpacotamento(double valor) {
-
+    empacotamento = valor;
 }
 
 /**
@@ -146,5 +145,5 @@ double VolumeControle::getAreaTransferenciaTotal() const {
  * @return double
  */
 double VolumeControle::getEmpacotamento() const {
-    return 0;
+    return empacotamento;
 }
