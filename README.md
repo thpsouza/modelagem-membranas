@@ -1,12 +1,13 @@
-﻿# **modelagem-modulo-membranas**
+﻿**modelagem-modulo-membranas**
+==============================
 
-Projeto de modelagem de um módulo de membranas como um meio poroso, 
+Projeto de modelagem de um módulo de membranas como um meio poroso.
 
-
+\n
 ## Fluxo de informação:
 ![FluxoInformacao](/Docs/UMLS/FluxoInformacao.png)
 
-
+\n
 ## UMLs:
 
 ### Visão geral do programa:
@@ -19,8 +20,8 @@ Projeto de modelagem de um módulo de membranas como um meio poroso,
 ![Geometria](/Docs/UMLS/Geometria.png)
 
 ### Mistura:
-![Mistura](/Docs/UMLS/png/Mistura(old).png)
+![Mistura](/Docs/UMLS/Mistura.png)
 
-
+\n
 ## Links de referência:
 - https://www.permselect.com/products/pdmsxa-2_1
