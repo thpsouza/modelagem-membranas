@@ -21,6 +21,8 @@ class DistribuicaoUniforme : public DistribuicaoBase {
 private:
     const double porosidadeMaximaTeorica = 1 - M_PI_4;
     const double porosidadeMaximaTeoricaAlternada = 1 - M_PI * sqrt(3) / 6;
+public:
+    static double distanciaFibras(double porosidade);
 };
 
 

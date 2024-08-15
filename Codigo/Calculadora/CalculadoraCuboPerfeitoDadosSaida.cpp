@@ -68,6 +68,11 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     VC.calcularPorosidade();
     ///
 
+    /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
+    entrada
+    ///
+
+
     /// TODO: Passar valores calculados para a classe de saída
     dadosPtr->setAreaTotalTransferencia(VC.getAreaTransferenciaTotal());
     dadosPtr->setPorosidade(VC.getPorosidade());
