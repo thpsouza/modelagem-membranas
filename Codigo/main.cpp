@@ -11,6 +11,8 @@
 #include "Saida/DadosSaidaModelo.h"
 
 struct Args {
+    DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito;
+    DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
     int numTotalFibras = 0;
     double areaTotalMembrana = 0.0;
     double volumeTotalModulo = 0.0;
@@ -20,14 +22,10 @@ struct Args {
     double razaoComprimentoDiametroFibra = 0.0;
 };
 
-DadosSaidaModelo realizarCalculos(
-        Args *args,
-        DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito,
-        DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao
-){
+DadosSaidaModelo realizarCalculos(Args *args) {
     /// Não seria melhor passar também o objeto de saída e modificá-lo in-place?
     const DadosEntradaModelo dadosEntrada {
-            geometria, distribuicao,
+            args->geometria, args->distribuicao,
             args->areaTotalMembrana, args->numTotalFibras, args->diametroFibra,
             args->volumeTotalModulo, args->volumeVC,
             args->empacotamento, args->razaoComprimentoDiametroFibra
