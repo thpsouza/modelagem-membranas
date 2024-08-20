@@ -58,7 +58,7 @@ void VolumeControle::construirModelo() {
  * @brief Calcula o empacotamento a partir do número de fibras, volume das fibras e volume do VC. Definidos na classe de entrada.
  */
 void VolumeControle::calcularEmpacotamento() {
-    setEmpacotamento(entrada->getNumTotalFibras() * fibra->getVolume() / geometria->getVolume());
+    setEmpacotamento(numFibras * fibra->getVolume() / geometria->getVolume());
 }
 
 /**
