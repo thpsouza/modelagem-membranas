@@ -18,6 +18,7 @@ struct Args {
     double volumeTotalModulo = 0.0;
     double volumeVC = 0.0;
     double diametroFibra = 0.0;
+
     double empacotamento = 0.0;
     double razaoComprimentoDiametroFibra = 0.0;
 };
@@ -67,14 +68,20 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) 
 
 void testeEntradaSaidaDados() {
     Args args;
+
+    // Parâmetros de entrada do módulo de membranas:
     args.numTotalFibras = 30000;
     args.areaTotalMembrana = 2.1;
     args.diametroFibra = 300e-6;
     args.volumeTotalModulo = 8.9 * 8.9 * M_PI_4 * 14.2 * 1e-6;
-    args.volumeVC = 1e-6;
-    DadosSaidaModelo dadosSaida = realizarCalculos(&args);
+
+    // Volume de controle escolhido:
+    args.geometria = DadosEntradaModelo::CuboPerfeito;
+    args.distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
+    args.volumeVC = args.volumeTotalModulo;
 
     // Output
+    DadosSaidaModelo dadosSaida = realizarCalculos(&args);
     print("Porosidade: ", dadosSaida.getPorosidade(),
           "\nNum Fibras: ", dadosSaida.getNumFibras(),
           "\nArea Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia()
