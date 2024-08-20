@@ -16,6 +16,7 @@
 #include "../VolumeControle/VolumeControle.h"
 #include "../VolumeControle/Geometrias/CuboPerfeito.h"
 #include "../VolumeControle/Fibras/FibraCilindrica.h"
+#include "../Gerais/gerais.h"
 
 
 /**
@@ -46,13 +47,11 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // double d = l/entrada->razaoComprimentoDiametroFibra;
     ///
 
-    /// TODO: Reduzir o numero de fibras e a área de membrana totais para os valores do VC
-    ///
-
     /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
     // Geometria das fibras
-    FibraCilindrica fibra {entrada->getDiametroFibra(), entrada->getAreaTotalMembrana()/entrada->getNumTotalFibras()};
-    fibra.calcularComprimento();
+    FibraCilindrica fibra {entrada->getDiametroFibra()};
+    fibra.setComprimento(cbrt(entrada->getVolumeVC()));
+    fibra.calcularAreaSuperficial();
     fibra.calcularVolume();
 
     // Geometria do volume de controle
@@ -61,15 +60,22 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
 
     // Construção do volume de controle
     VolumeControle VC {&cubo, &fibra, entrada};
-    VC.setNumFibras(entrada->getNumTotalFibras());
-    VC.setAreaTransferenciaTotal(entrada->getAreaTotalMembrana());
+
+    /// TODO: Reduzir o numero de fibras e a área de membrana totais para os valores do VC
+    double razaoVolumes = entrada->getVolumeVC()/entrada->getVolumeTotalModulo();
+    int numFibras = (int) (entrada->getNumTotalFibras()*razaoVolumes);
+    double areaTransferencia = numFibras * fibra.getAreaSuperficial();
+    ///
+
+    VC.setNumFibras(numFibras);
+    VC.setAreaTransferenciaTotal(areaTransferencia);
     VC.construirModelo();
     VC.calcularEmpacotamento();
     VC.calcularPorosidade();
     ///
 
     /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
-    entrada
+    double distanciaMedia = 0;
     ///
 
 
