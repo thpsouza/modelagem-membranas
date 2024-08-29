@@ -11,13 +11,18 @@
 #include "Saida/DadosSaidaModelo.h"
 
 struct Args {
-    DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito;
-    DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
+    // Parâmetros do módulo
     int numTotalFibras = 0;
     double areaTotalMembrana = 0.0;
     double volumeTotalModulo = 0.0;
-    double volumeVC = 0.0;
     double diametroFibra = 0.0;
+
+    // Volume de controle escolhido
+    DadosEntradaModelo::TipoGeometria geometria = DadosEntradaModelo::CuboPerfeito;
+    DadosEntradaModelo::TipoDistribuicao distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
+    double volumeVC = 0.0;
+    int numFibrasVC = 0;
+    double distanciaFibras = 0.0;
 
     double empacotamento = 0.0;
     double razaoComprimentoDiametroFibra = 0.0;
@@ -69,13 +74,15 @@ void analisarDados(const char* path, double razaoComprimentoDiametroFibra = 10) 
 void testeEntradaSaidaDados() {
     Args args;
 
-    // Parâmetros de entrada do módulo de membranas:
+    // Parâmetros de reais do módulo de membranas:
     args.numTotalFibras = 30000;
     args.areaTotalMembrana = 2.1;
     args.diametroFibra = 300e-6;
     args.volumeTotalModulo = 8.9 * 8.9 * M_PI_4 * 14.2 * 1e-6;
 
     // Volume de controle escolhido:
+    args.distanciaFibras = 0.0;
+    args.numFibrasVC = 4;
     args.geometria = DadosEntradaModelo::CuboPerfeito;
     args.distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
     args.volumeVC = args.volumeTotalModulo;

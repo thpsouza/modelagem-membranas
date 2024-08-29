@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button, RadioButtons
 
 
+def calcular_propriedades():
+    ...
+
+
 def calcular_area_fibras(Nf, r):
     return Nf * np.pi * r**2
 
