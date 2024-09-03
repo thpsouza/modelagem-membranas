@@ -40,7 +40,7 @@ VolumeControle::VolumeControle(const GeometriaBase *geometria,
 void VolumeControle::construirModelo() {
     std::unique_ptr<DistribuicaoBase> modelo;
     /// TODO: Criar as demais distribuicoes
-    switch (entrada->getDistribuicao()) {
+    switch (entrada->getDadosVC().distribuicao) {
         case DadosEntradaModelo::TipoDistribuicao::UniformeUmaDirecao:
             modelo = std::make_unique<DistribuicaoUniforme>();
             break;
