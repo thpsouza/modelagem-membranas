@@ -28,37 +28,50 @@ public:
     {
         UniformeUmaDirecao
     };
+    struct DadosModulo {
+        int numTotalFibras{0};
+        double areaTotalMembrana{0};
+        double volumeTotalModulo{0};
+    };
+    struct DadosVC {
+        TipoGeometria geometria{CuboPerfeito};
+        TipoDistribuicao distribuicao{UniformeUmaDirecao};
+        double diametroFibra{0};
+        double volumeVC{0};
+        int numFibrasVC{0};
+        double distanciaFibras{0};
+        double empacotamento{0};
+        //double razaoComprimentoDiametroFibra{0};
+        //double dimensoesVC[3]{0};
+    };
+
+
     DadosEntradaModelo() = default;
 
-    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                       double empacotamento, double volumeVC, double razaoComprimentoDiametroFibra);
+    DadosEntradaModelo(const DadosVC &dadosVC, const DadosModulo &dadosModulo);
 
-    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                       double areaTotalMembrana, int numTotalFibras, double diametroFibra);
+    [[nodiscard]] const DadosModulo &getDadosModulo() const;
+    [[nodiscard]] const DadosVC &getDadosVC() const;
 
-    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
-                       double areaTotalMembrana, int numTotalFibras, double diametroFibra,
-                       double volumeTotalModulo, double volumeVC, double empacotamento, double razaoComprimentoDiametroFibra);
-
-    [[nodiscard]] TipoGeometria getGeometria() const;
-    [[nodiscard]] TipoDistribuicao getDistribuicao() const;
-    [[nodiscard]] double getEmpacotamento() const;
-    [[nodiscard]] double getAreaTotalMembrana() const;
-    [[nodiscard]] int getNumTotalFibras() const;
-    [[nodiscard]] double getDiametroFibra() const;
-    [[nodiscard]] double getVolumeTotalModulo() const;
-    [[nodiscard]] double getVolumeVC() const;
-    double razaoComprimentoDiametroFibra;
+//    DadosEntradaModelo(TipoGeometria geometria, TipoDistribuicao distribuicao,
+//                       int numTotalFibras, double areaTotalMembrana, double volumeTotalModulo, double diametroFibra,
+//                       double volumeVC, int numFibrasVC, double distanciaFibras,
+//                       double empacotamento, double razaoComprimentoDiametroFibra);
+//    [[nodiscard]] TipoGeometria getGeometria() const;
+//    [[nodiscard]] TipoDistribuicao getDistribuicao() const;
+//    [[nodiscard]] double getEmpacotamento() const;
+//    [[nodiscard]] int getNumTotalFibras() const;
+//    [[nodiscard]] double getAreaTotalMembrana() const;
+//    [[nodiscard]] double getDiametroFibra() const;
+//    [[nodiscard]] double getVolumeTotalModulo() const;
+//    [[nodiscard]] double getDistanciaFibras() const;
+//    [[nodiscard]] int getNumFibrasVC() const;
+//    [[nodiscard]] double getVolumeVC() const;
+//    double razaoComprimentoDiametroFibra;
 
 private:
-    TipoGeometria geometria;
-    TipoDistribuicao distribuicao;
-    double diametroFibra;
-    double empacotamento;
-    double areaTotalMembrana;
-    int numTotalFibras;
-    double volumeTotalModulo;
-    double volumeVC;
+    DadosModulo dadosModulo;
+    DadosVC dadosVC;
 };
 
 
