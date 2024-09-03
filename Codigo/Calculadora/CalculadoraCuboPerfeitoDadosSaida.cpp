@@ -49,8 +49,8 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
 
     /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
     // Geometria das fibras
-    FibraCilindrica fibra {entrada->getDiametroFibra()};
-    fibra.setComprimento(cbrt(entrada->getVolumeVC()));
+    FibraCilindrica fibra {entrada->getDadosVC().diametroFibra};
+    fibra.setComprimento(cbrt(entrada->getDadosVC().volumeVC));
     fibra.calcularAreaSuperficial();
     fibra.calcularVolume();
 
@@ -62,8 +62,8 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     VolumeControle VC {&cubo, &fibra, entrada};
 
     /// TODO: Reduzir o numero de fibras e a área de membrana totais para os valores do VC
-    double razaoVolumes = entrada->getVolumeVC()/entrada->getVolumeTotalModulo();
-    int numFibras = (int) (entrada->getNumTotalFibras()*razaoVolumes);
+    double razaoVolumes = entrada->getDadosVC().volumeVC/entrada->getDadosModulo().volumeTotalModulo;
+    int numFibras = (int) (entrada->getDadosModulo().numTotalFibras*razaoVolumes);
     double areaTransferencia = numFibras * fibra.getAreaSuperficial();
     ///
 
