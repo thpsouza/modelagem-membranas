@@ -33,13 +33,15 @@ GeradorDadosSaida::GeradorDadosSaida(const DadosEntradaModelo *entrada) :
 void GeradorDadosSaida::gerar() {
     std::unique_ptr<CalculadoraDadosSaida> calculadora;
     // TODO: Criar novos modelos para as demais geometrias
-    switch (entrada->getGeometria()) {
+    switch (entrada->getDadosVC().geometria) {
         case DadosEntradaModelo::TipoGeometria::CuboPerfeito:
             calculadora = std::make_unique<CalculadoraCuboPerfeitoDadosSaida>(entrada);
             break;
         case DadosEntradaModelo::TipoGeometria::Cilindro:
+//            calculadora = std::make_unique<CalculadoraCilindroDadosSaida>(entrada);
             break;
         case DadosEntradaModelo::TipoGeometria::Esfera:
+//            calculadora = std::make_unique<CalculadoraEsferaDadosSaida>(entrada);
             break;
         default:
             ;
