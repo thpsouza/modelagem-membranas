@@ -19,10 +19,15 @@
  */
 class DistribuicaoUniforme : public DistribuicaoBase {
 private:
-    const double porosidadeMaximaTeorica = 1 - M_PI_4;
-    const double porosidadeMaximaTeoricaAlternada = 1 - M_PI * sqrt(3) / 6;
+    const double porosidadeMaximaTeorica1D = 1 - M_PI_4;
+    const double porosidadeMaximaTeoricaAlternada1D = 1 - M_PI * sqrt(3) / 6;
+    double distanciaFibras;
+
 public:
-    static double distanciaFibras(double porosidade);
+    DistribuicaoUniforme();
+    static double calcularDistanciaFibras(double porosidade);
+    void setDistanciaFibras(double valor);
+    [[nodiscard]] double getDistanciaFibras() const;
 };
 
 

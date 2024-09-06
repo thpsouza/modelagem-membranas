@@ -10,10 +10,27 @@
 
 #include "DistribuicaoUniforme.h"
 
-double DistribuicaoUniforme::distanciaFibras(double porosidade) {
+
+double DistribuicaoUniforme::calcularDistanciaFibras(double porosidade) {
     double d;
     if (1-porosidade > M_PI_4) { // pi/4 ~ 0.785 é a densidade superficial máxima para uma distribuição em retículo quadrado.
         d = 1;
     }
     return d;
+}
+
+/**
+ * @brief Define um novo valor para o distanciamento médio de fibras.
+ * @param valor : Nova distância entre fibras calculada.
+ */
+void DistribuicaoUniforme::setDistanciaFibras(double valor) {
+    distanciaFibras = valor;
+}
+
+/**
+ * @brief Retorna o distanciamento médio entre as fibras.
+ * @return double
+ */
+double DistribuicaoUniforme::getDistanciaFibras() const {
+    return distanciaFibras;
 }
