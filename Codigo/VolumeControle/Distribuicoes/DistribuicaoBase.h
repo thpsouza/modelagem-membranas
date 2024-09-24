@@ -11,12 +11,24 @@
 #ifndef MODELAGEM_MEMBRANAS_DISTRIBUICAOBASE_H
 #define MODELAGEM_MEMBRANAS_DISTRIBUICAOBASE_H
 
+#include <vector>
+
 /**
  * @brief Classe base para definição da distribuição de fibras no volume de controle.
  * TODO: Implementar distribuições de fibras
  */
 class DistribuicaoBase {
+private:
+    double distanciaFibras;
+    std::vector<double[2]> coordenadasFibras;
 
+public:
+    DistribuicaoBase();
+    virtual double calcularDistanciaFibras(double ladoVC, double raio, int numCentroFibras);
+    virtual std::vector<double[2]> calcularCoordenadasFibras(double raioFibra, double distanciaEntreFibras, int numCentroFibras);
+    virtual double calcularNumeroEfetivoDeFibras(int numCentroFibras, int numSobreposicoes, double razaoAreas);
+    void setDistanciaFibras(double valor);
+    [[nodiscard]] double getDistanciaFibras() const;
 };
 
 

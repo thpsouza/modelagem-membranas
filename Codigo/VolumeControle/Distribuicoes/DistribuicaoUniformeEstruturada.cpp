@@ -11,26 +11,36 @@
 #include "DistribuicaoUniformeEstruturada.h"
 
 
-double DistribuicaoUniformeEstruturada::calcularDistanciaFibras(double porosidade) {
-    double d;
-    if (1-porosidade > M_PI_4) { // pi/4 ~ 0.785 é a densidade superficial máxima para uma distribuição em retículo quadrado.
-        d = 1;
-    }
-    return d;
+DistribuicaoUniformeEstruturada::DistribuicaoUniformeEstruturada() {
 }
 
 /**
- * @brief Define um novo valor para o distanciamento médio de fibras.
- * @param valor : Nova distância entre fibras calculada.
+ * @brief
+ * @param ladoVC : Valor do lado do VC.
+ * @param raioFibras : Raio médio das fibras.
+ * @param numCentroFibras : Número de fibras cujos centros estão contidos no VC.
+ * @return
  */
-void DistribuicaoUniformeEstruturada::setDistanciaFibras(double valor) {
-    distanciaFibras = valor;
+double DistribuicaoUniformeEstruturada::calcularDistanciaFibras(double ladoVC, double raioFibras, int numCentroFibras) {
+    return ladoVC / sqrt(numCentroFibras) - 2 * raioFibras;
 }
 
 /**
- * @brief Retorna o distanciamento médio entre as fibras.
- * @return double
+ * @brief Calcula as coordenadas dos centros das fibras para a distribuição uniforme estruturada.
+ * @param raioFibra : Raio médio das fibras.
+ * @param distanciaEntreFibras : Distância média entre as fibras no VC.
+ * @param numCentroFibras : Número de fibras cujos centros estão contidos no VC.
+ * @return
  */
-double DistribuicaoUniformeEstruturada::getDistanciaFibras() const {
-    return distanciaFibras;
+std::vector<double[2]>
+DistribuicaoUniformeEstruturada::calcularCoordenadasFibras(double raioFibra, double distanciaEntreFibras,
+                                                           int numCentroFibras) {
+    return std::vector<double[2]>();
 }
+
+
+double DistribuicaoUniformeEstruturada::calcularNumeroEfetivoDeFibras(int numCentroFibras, int numSobreposicoes,
+                                                                      double razaoAreas) {
+    return 0;
+}
+

@@ -11,6 +11,7 @@
 #define MODELAGEM_MEMBRANAS_DISTRIBUICAOUNIFORMEESTRUTURADA_H
 
 #include <cmath>
+#include <vector>
 #include "DistribuicaoBase.h"
 
 /**
@@ -20,13 +21,13 @@
 class DistribuicaoUniformeEstruturada : public DistribuicaoBase {
 private:
     const double porosidadeMaximaTeorica1D = 1 - M_PI_4;
-    double distanciaFibras;
+
 
 public:
     DistribuicaoUniformeEstruturada();
-    static double calcularDistanciaFibras(double porosidade);
-    void setDistanciaFibras(double valor);
-    [[nodiscard]] double getDistanciaFibras() const;
+    double calcularDistanciaFibras(double ladoVC, double raio, int numCentroFibras) override;
+    std::vector<double[2]> calcularCoordenadasFibras(double raioFibra, double distanciaEntreFibras, int numCentroFibras) override;
+    double calcularNumeroEfetivoDeFibras(int numCentroFibras, int numSobreposicoes, double razaoAreas) override;
 };
 
 

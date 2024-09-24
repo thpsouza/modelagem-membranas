@@ -30,6 +30,7 @@ private:
     const FibraBase *fibra;
     const GeometriaBase *geometria;
     const DadosEntradaModelo *entrada;
+    double teste;
 
 public:
     VolumeControle(const GeometriaBase *geometria, const FibraBase *fibra, const DadosEntradaModelo *entrada);
