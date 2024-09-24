@@ -1,0 +1,50 @@
+% Operações Matemáticas
+% vector operations format
+\newcommand{\gvec}[1] {\ensuremath{\mbox{\boldmath$\bf#1$}}}
+\newcommand{\idot}[2] {#1 \cdot #2}
+\newcommand{\rot}[2] {#1 \times #2}
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+
+% derivatives formats
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+% simple derivative
+\renewcommand{\d}[2] {\frac{d #1}{d #2}}
+\newcommand{\dn}[3] {\frac{d^{#3} #1}{d {#2}^{#3}}}
+\newcommand{\D}[2] {\frac{D #1}{D #2}}
+% partial derivative
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
+\newcommand{\pdn}[3]{\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
+
+% integral formats
+% volume integrals
+\newcommand{\intv}[2]{\int_{#1} #2 \,\mathrm{d}#1} 
+\newcommand{\intg}[3]{\int_{#1_{#2}} #3 \,\mathrm{d}#1}
+
+% surface integrals
+\newcommand{\oints}[2]{\oint_{#1} #2 \,\mathrm{d}#1} 
+
+% generic operations
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+
+% tensor operations formats
+\newcommand{\grad}[1]{\gvec{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gvec{\nabla} \cdot \left( #1 \right)} % for divergence
+\newcommand{\curl}[1]{\gvec{\nabla} \times ( #1 )} % for curl
+\newcommand{\laplacian}[1]{\gvec{\nabla}^{2}( #1 )} % for curl
+\newcommand{\divs}[1]{\gvec{\nabla} \cdot \left( #1 \right)} % for divergence
+
+% subscripts & superscripts
+\newcommand{\lam} {\text{lam}}           % laminar
+\newcommand{\turb} {\text{turb}}         % turbulent
+\newcommand{\A} {A}                      % chemical specie index
+
+% variables
+\newcommand{\U} {\mathbf{u}}             % velocity
+\newcommand{\g} {\mathbf{g}}             % gravity
+\newcommand{\n} {\uv{n}}                 % normal unit vector
+\newcommand{\stress} {\gvec{\tau}}       % stress tensor
+\newcommand{\viscous} {\stress^{\prime}} % viscous tensor
+
+\newcommand{\rhs}{\texttt{r.h.s.}}

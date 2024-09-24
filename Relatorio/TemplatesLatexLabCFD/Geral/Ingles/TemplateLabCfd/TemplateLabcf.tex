@@ -1,0 +1,103 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={140mm,237mm},
+ left=25mm,
+ right=25mm,
+ top=33mm,
+ bottom=33mm,
+  headsep=\dimexpr15mm-\baselineskip,
+  headheight=\baselineskip
+ }
+\usepackage{amsmath,amssymb}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{notoccite}
+\usepackage{wrapfig}
+\usepackage{pbox}
+\usepackage{makecell, booktabs}
+\usepackage{stackengine}
+\usepackage[numbers]{natbib}
+\usepackage{colortbl}%colorir tabela
+\usepackage{multirow, tabularx}
+\usepackage{lastpage}
+\usepackage[intoc,english]{nomencl}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{wallpaper}
+\usepackage{fancyhdr}
+
+\input{config/newColors}
+\input{config/extraSections}
+\input{config/fancyHF}
+\input{config/macroDefinitions}
+\input{config/tensorNotation}
+
+\tolerance=9999 %allows as much whitespace as possible.
+\emergencystretch=10pt %allows some extra whitespace per line.
+\hyphenpenalty=10000 %disables hyphens completly.
+\exhyphenpenalty=100 %allows using hyphens which were already present.
+
+\makenomenclature
+
+\begin{document}
+\color{labCfdColor}
+
+\input{config/title_page}
+
+\newpage
+\fancyfoot{}
+\input{config/second_page}
+\fancyfoot{}
+\newpage
+
+%New hline length
+\setlength{\arrayrulewidth}{1.5pt}
+
+% Sumario
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
+
+\newpage
+\phantomsection \label{listoffig}
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+\newpage
+\phantomsection \label{listoftab}
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+
+\newpage
+\input{src/nomenclature}
+
+\printnomenclature
+
+\newpage
+
+\input{config/fancyHF}
+
+\setcounter{page}{1}
+\renewcommand\thepage{\arabic{page}}
+
+\input{src/Introduction}
+\input{src/Table}
+
+\cleardoublepage
+
+\phantomsection
+
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{unsrtnat}
+\bibliography{LabCfd}
+
+\end{document}
+
+

@@ -1,0 +1,39 @@
+\documentclass[10pt,unknownkeysallowed]{beamer}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xfrac}%permite o uso de frações do tipo x/r 
+\usepackage{float} %garante a posição das figuras no local desejado com [H]
+\usepackage{mathtools} % comando para usar o dcases (parentesis pela esquerda)
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{tikz}%figura se sobrepor ao texto
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{icomma}
+\usepackage{pbox}
+\usepackage{xcolor,colortbl}%colorir tabela
+\usepackage{stackengine}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,fit,shapes.geometric}
+
+
+\input{config/theme_config}
+\input{config/tensorNotation}
+\input{config/titleInformation}
+
+
+\begin{document}
+
+\input{config/titlePage}
+\input{config/tableofContentsPage}
+
+\input{src/Introducao}
+\input{src/ModeloTabelas}
+\input{src/Conclusao}
+
+\input{config/lastPage}
+
+\end{document}
+
+

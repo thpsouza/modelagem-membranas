@@ -1,0 +1,263 @@
+% Fonts and AMS math 
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% Movies, animations and more
+\usepackage{multimedia}
+\usepackage{keyval}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{color,xcolor}
+\usepackage{epsfig}
+\DeclareGraphicsExtensions{.pdf,.png,.gif,.jpg,.eps,.eps.gz}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage[super]{nth}
+\usepackage{transparent}
+
+\definecolor{lblue}{RGB}{68,69,185}
+\definecolor{tungs}{RGB}{51,51,51}
+\usepackage{tikz}
+\usetikzlibrary{shadows,calc}
+
+% code adapted from http://tex.stackexchange.com/a/11483/3954
+
+% some parameters for customization
+\def\shadowshift{3pt,-3pt}
+\def\shadowradius{6pt}
+
+\colorlet{innercolor}{black!60}
+\colorlet{outercolor}{gray!05}
+
+% this draws a shadow under a rectangle node
+\newcommand\drawshadow[1]{
+    \begin{pgfonlayer}{shadow}
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+        \shade[top color=innercolor,bottom color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+        \shade[left color=innercolor,right color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+        \shade[bottom color=innercolor,top color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+        \shade[outercolor,right color=innercolor,left color=outercolor] ($(#1.south west)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+        \filldraw ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)-(\shadowradius/2,\shadowradius/2)$);
+    \end{pgfonlayer}
+}
+
+% create a shadow layer, so that we don't need to worry about overdrawing other things
+\pgfdeclarelayer{shadow} 
+\pgfsetlayers{shadow,main}
+
+\newsavebox\mybox
+\newlength\mylen
+
+\newcommand\shadowimage[2][]{%
+\setbox0=\hbox{\includegraphics[#1]{#2}}
+\setlength\mylen{\wd0}
+\ifnum\mylen<\ht0
+\setlength\mylen{\ht0}
+\fi
+\divide \mylen by 120
+\def\shadowshift{\mylen,-\mylen}
+\def\shadowradius{\the\dimexpr\mylen+\mylen+\mylen\relax}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[#1]{#2}};
+\drawshadow{image}
+\end{tikzpicture}}
+
+% Header and footer
+%\usepackage{fancyhdr}
+\usepackage{etoolbox}
+%\pagestyle{fancy}
+%\fancyhf{}
+%
+%\makeatletter
+%\patchcmd{\@fancyhead}{\rlap}{\color{lblue}\rlap}{}{}
+%\patchcmd{\headrule}{\hrule}{\color{lblue}\hrule}{}{}
+%\patchcmd{\@fancyfoot}{\rlap}{\color{lblue}\rlap}{}{}
+%\patchcmd{\footrule}{\hrule}{\color{lblue}\hrule}{}{}
+%\makeatother
+%
+% Header
+%\renewcommand{\headrulewidth}{2.5pt}
+%\lhead{UNIVERSIDADE FEDERAL DO RIO DE JANEIRO}
+%\rhead{ESCOLA DE QUÍMICA}
+%
+% Footer
+%\renewcommand{\footrulewidth}{0.25pt}
+%\lfoot{EQE-044 Computação Científica Aplicada}
+%\rfoot{\thepage}
+
+% Themes and good-looking stuff
+%\usetheme{Hannover}
+\usetheme{Pittsburgh}
+%\usetheme{metropolis}
+%\usetheme{Boadilla}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{frametitle continuation}{}
+%\setbeamertemplate{frametitle continuation}[from second]
+% Take off the "boring" navigation buttons
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{beamer@Orange}{RGB}{233, 137, 59 }
+\definecolor{beamer@Blue}{RGB}{49, 83, 161 }
+\colorlet{beamer@BlueOpacity}{beamer@Blue!35}
+
+%New hline length
+\setlength{\arrayrulewidth}{1.5pt}
+
+%Footer
+\setbeamercolor{title in head/foot}{fg=white , bg=beamer@Orange}
+\setbeamercolor{author in head/foot}{fg=white, bg=beamer@Blue}
+\setbeamercolor{subsection in head/foot}{fg=white, bg=beamer@Blue}
+
+%Table of Contents
+\setbeamercolor{section number projected}{bg=beamer@Blue}
+\setbeamercolor{section in toc}{fg=beamer@Blue}
+\setbeamercolor{subsection in toc}{fg=black}
+
+%Frame Title
+\setbeamercolor{frametitle}{fg=beamer@Blue}
+
+%Section Title
+\setbeamercolor{sectiontitle}{fg=beamer@Blue}
+\setbeamerfont{sectiontitle}{size=\Huge}
+
+%Bullets
+\setbeamercolor{itemize item}{fg=beamer@Blue}
+
+%Frame to begin a section
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,wd=\textwidth,ht=2.25ex,dp=1ex,left,shadow=true,rounded=true]{sectiontitle}
+    \hskip 2.ex \usebeamerfont{sectiontitle}\insertsectionhead\par%
+    \vskip-2.ex%
+    \color{beamer@Orange}\rule{0.9\textwidth}{1.pt}
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+%Title Frame
+\makeatletter
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \vskip-7.ex%
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip-2.ex%
+    % ----------------------- new
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+
+%Footline for all frames
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.37\textwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\tiny{\insertshortauthor}%\hspace*{0.15cm}(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.47\textwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\tiny{\insertshorttitle}\hfill
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.16\textwidth,ht=2.25ex,dp=1ex,center]{subsection in head/foot}%
+	\usebeamerfont{date in head/foot}    
+    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%Put logo in header
+\addtobeamertemplate{frametitle}{}{
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west] at (current page.north west) {\includegraphics[height=1.cm]{config/fig/eqLabCFD}};
+\end{tikzpicture}
+}
+
+%\setbeamertemplate{part page}{
+%        \begin{beamercolorbox}[sep=8pt,center,wd=\textwidth]{part title}
+%            \usebeamerfont{part title}\insertpart\par
+%        \end{beamercolorbox}
+%}
+% Listings package
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{courier}
+\lstset{
+         language=bash,
+         basicstyle=\scriptsize\ttfamily,
+         numbers=none,
+%         numberstyle=\tiny,
+%         stepnumber=3,
+%         numbersep=5pt,
+         tabsize=4,
+         extendedchars=true,
+         breaklines=true,
+         keywordstyle=\color[rgb]{0,0,1}\textbf,
+         identifierstyle=\color{black},
+         commentstyle=\color[rgb]{0.1,0.5,0},
+         stringstyle=\color[rgb]{0.9,0,1},
+         numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+         frame=single,
+         showspaces=false,
+         showtabs=false,
+         xleftmargin=13pt,
+         framexleftmargin=13pt,
+         framexrightmargin=3pt,
+         framexbottommargin=2pt,
+%         backgroundcolor=\color{lightgray},
+         backgroundcolor=\color{white},
+         showstringspaces=false,
+%         title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+ }
+ 
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+}
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+\newcommand{\nofootline}{\setbeamertemplate{footline}{}}
+
+
+%\DeclareCaptionFont{white}{\color{white}}
+%\DeclareCaptionFormat{listing}{\colorbox{lblue}{\parbox{\textwidth}{#1#2#3}}}
+%\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}

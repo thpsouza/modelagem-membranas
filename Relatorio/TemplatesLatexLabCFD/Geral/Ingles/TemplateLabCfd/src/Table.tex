@@ -1,0 +1,25 @@
+\section{Table}
+The \tabref{tab:StandardTable} is an example of a standard table.
+
+ \begin{table}[H]
+\centering
+ \renewcommand{\arraystretch}{1.5}
+  \caption{Standard Table}
+ \begin{tabular}{cccc}
+\hline
+  \textbf{Column 1} &
+  \textbf{Column 2} &
+  \multicolumn{2}{c}{\pbox{10cm}{\centering \textbf{Multicolumn Example}}}\\
+  \hline
+  Element 11 & Element 12 & Element 13 & Element 14 \\
+  Element 21 & Element 22 & Element 23 & Element 24 \\
+  Element 31 & Element 32 & Element 33 & Element 34 \\
+  \multirow{2}{*}{\pbox{10cm}{Multirow\\  Example}} & Element 42 & Element 43 & Element 44  \\
+   & Element 52 & Element 53 & Element 54  \\
+  \hline
+ \end{tabular}
+ \label{tab:StandardTable}
+\end{table}
+
+
+\newpage

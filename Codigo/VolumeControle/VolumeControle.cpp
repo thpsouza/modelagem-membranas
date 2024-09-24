@@ -16,7 +16,7 @@
 #include "Geometrias/GeometriaBase.h"
 #include "Fibras/FibraBase.h"
 #include "Distribuicoes/DistribuicaoBase.h"
-#include "Distribuicoes/DistribuicaoUniforme.h"
+#include "Distribuicoes/DistribuicaoUniformeEstruturada.h"
 
 /**
  * @brief Construtor do volume de controle.
@@ -41,8 +41,8 @@ void VolumeControle::construirModelo() {
     std::unique_ptr<DistribuicaoBase> modelo;
     /// TODO: Criar as demais distribuicoes
     switch (entrada->getDadosVC().distribuicao) {
-        case DadosEntradaModelo::TipoDistribuicao::UniformeUmaDirecao:
-            modelo = std::make_unique<DistribuicaoUniforme>();
+        case DadosEntradaModelo::TipoDistribuicao::UniformeEstruturada1D:
+            modelo = std::make_unique<DistribuicaoUniformeEstruturada>();
             break;
         default:
             ;

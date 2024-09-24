@@ -64,7 +64,7 @@ void testeEntradaSaidaDados() {
     argsVC.distanciaFibras = 0.0;
     argsVC.numFibrasVC = 4;
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
-    argsVC.distribuicao = DadosEntradaModelo::UniformeUmaDirecao;
+    argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
     argsVC.volumeVC = argsModulo.volumeTotalModulo;
 
     // Output

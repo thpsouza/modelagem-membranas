@@ -26,7 +26,8 @@ public:
     };
     enum TipoDistribuicao
     {
-        UniformeUmaDirecao
+        UniformeEstruturada1D,
+        UniformeAlternada1D
     };
     struct DadosModulo {
         int numTotalFibras{0};
@@ -35,7 +36,7 @@ public:
     };
     struct DadosVC {
         TipoGeometria geometria{CuboPerfeito};
-        TipoDistribuicao distribuicao{UniformeUmaDirecao};
+        TipoDistribuicao distribuicao{UniformeEstruturada1D};
         double diametroFibra{0};
         double volumeVC{0};
         int numFibrasVC{0};

@@ -1,0 +1,60 @@
+%Renew nomenclatue definitions
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{\color{labCfdColor}{Abbreviations}}{%
+  %\ifstrequal{#1}{R}{Roman Letters}{%
+  %\ifstrequal{#1}{G}{Greek Letters}{%
+  %\ifstrequal{#1}{S}{Superscripts}{%
+  %\ifstrequal{#1}{U}{Subscript}{%
+  %\ifstrequal{#1}{X}{Other Symbols}{}}}}}
+  }
+  ]
+  }
+  
+%Renew link colors
+\newcommand{\Color}[1]{\hypersetup{linkcolor=#1}\color{#1}}
+\renewcommand{\cftsecfont}{\Color{labCfdColor}}
+\renewcommand{\cftsubsecfont}{\Color{labCfdColor}}
+\renewcommand{\cftsubsubsecfont}{\Color{labCfdColor}}
+  
+%\renewcommand{\contentsname}{Whatever} %Without babel
+\addto\captionsenglish{% Replace "english" with the language you use. If the babel package is used.
+  \renewcommand{\contentsname}%
+    {\centering Table of Contents}%
+}
+
+%Configure default project commands
+\newcommand{\ProjectName}{Latex Template}
+\newcommand{\DocumentType}{Template}
+\newcommand{\DocumentTitle}{LabCFD Template}
+\newcommand{\DocumentNumber}{LabCFD-01}
+\newcommand{\RevisionNumber}{01}
+\newcommand{\ProjectManager}{Rodrigo Petrone dos Anjos}
+\newcommand{\IssuanceDate}{\today}
+\newcommand{\PurposeReview}{First Issuance}
+\newcommand{\ClientAddress}{-}
+\newcommand{\ClientEmail}{-}
+\newcommand{\ClientPhone}{-}
+\newcommand{\LabCfdContact}{Rodrigo Petrone  \\ Reseacher}
+\newcommand{\LabCfdAddress}{Rua Moniz de Aragão, s/n, Bloco K, 2º andar, \\ Centro de Tecnologia, Ilha do Fundão,\\ CEP 21941-972, Rio de Janeiro - RJ}
+\newcommand{\LabCfdEmail}{rodrigopanjos1@hotmail.com}
+\newcommand{\LabCfdPhone}{+55-21-99372-0709}
+\newcommand{\OriginatorName}{Rodrigo Petrone}
+\newcommand{\OriginatorRole}{Researcher}
+\newcommand{\OriginatorSignaturePath}{images/OriginatorSignature}
+\newcommand{\ReviserName}{Rodrigo Petrone}
+\newcommand{\ReviserRole}{Researcher}
+\newcommand{\ReviserSignaturePath}{images/OriginatorSignature}
+\newcommand{\ApproverName}{Rodrigo Petrone}
+\newcommand{\ApproverRole}{Researcher}
+\newcommand{\ApproverSignaturePath}{images/OriginatorSignature}
+
+%Text elements commands
+\newcommand{\eqnref}[1]{Equation~\ref{#1}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+
+%Other new commands
+\newcommand{\CO}{CO\textsubscript{2}}
+
