@@ -26,7 +26,11 @@ public:
     explicit GeradorDadosSaida(const DadosEntradaModelo *entrada);
 
     void gerar();
+    void gerarCuboPerfeito();
+    void gerarCilindroPerfeito();
+    void gerarEsferaPerfeita();
     DadosSaidaModelo *getDadosSaida();
+
 };
 
 

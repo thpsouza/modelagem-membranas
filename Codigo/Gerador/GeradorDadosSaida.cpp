@@ -49,10 +49,35 @@ void GeradorDadosSaida::gerar() {
     saida = calculadora->calcular();
 }
 
+void GeradorDadosSaida::gerarCuboPerfeito() {
+    switch (entrada->getDadosVC().geometria) {
+        case DadosEntradaModelo::TipoGeometria::CuboPerfeito:
+            calculadora = std::make_unique<CalculadoraCuboPerfeitoDadosSaida>(entrada);
+            break;
+        case DadosEntradaModelo::TipoGeometria::Cilindro:
+//            calculadora = std::make_unique<CalculadoraCilindroDadosSaida>(entrada);
+            break;
+        case DadosEntradaModelo::TipoGeometria::Esfera:
+//            calculadora = std::make_unique<CalculadoraEsferaDadosSaida>(entrada);
+            break;
+        default:
+            ;
+    }
+}
+
+void GeradorDadosSaida::gerarCilindroPerfeito() {
+    switch (entrada->getDadosVC().geometria){}
+}
+
+void GeradorDadosSaida::gerarEsferaPerfeita() {
+
+}
+
 /**
  * @brief Retorna um ponteiro para os dados de saída gerados.
- * @return DadosSaidaModelo* 
+ * @return DadosSaidaModelo*
  */
 DadosSaidaModelo *GeradorDadosSaida::getDadosSaida() {
     return saida;
 }
+

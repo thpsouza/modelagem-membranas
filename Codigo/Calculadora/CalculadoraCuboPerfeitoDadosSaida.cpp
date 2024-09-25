@@ -67,16 +67,38 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     double areaTransferencia = numFibras * fibra.getAreaSuperficial();
     ///
 
+    /// CALCULOS
     VC.setNumFibras(numFibras);
     VC.setAreaTransferenciaTotal(areaTransferencia);
     VC.construirModelo();
     VC.calcularEmpacotamento();
     VC.calcularPorosidade();
-    ///
+
+
+    double L = cbrt(entrada->getDadosVC().volumeVC);
+    double r = entrada->getDadosVC().diametroFibra/2;
+    int Ni = entrada->getDadosVC().numFibrasVC;
 
     /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
-    double distanciaMedia = 0;
+    double distanciaMediaFibras = VC.calcularDistanciaFibras(L, r, 1);;
+    double anguloSobreposicao = VC.calcularAnguloSobreposicao(r, distanciaMediaFibras);
+    double comprimentoAuxiliar = VC.calcularComprimentoAuxiliar(r, distanciaMediaFibras);
     ///
+
+    std::vector<double[2]> coordenadas = VC.calcularCoordenadasFibras(r, l, Ni);
+
+    double As = VC.calcularAreaSobreposicao(r, l, theta, l_);
+    double x = VC.calcularRazaoAreas(r, As);
+    int Ns = VC.calcularNumeroSobreposicoes(Ni, x);
+    double Nf = VC.calcularNumeroEfetivoDeFibras(Ni, Ns, x);
+    double FE = VC.calcularEmpacotamento(r, ladoVC, Nf);
+    double porosidade = VC.calcularPorosidade(FE);
+
+    double phi = VC.calcularAnguloComplementar(theta);
+    double perimetroTotal = VC.calcularPerimetroTotal(r, Ni, phi);
+    double AreaTotalTransferencia = VC.calcularAreaTotalTransferencia(r, Ni, L, phi);
+    ///
+
 
 
     /// TODO: Passar valores calculados para a classe de saída

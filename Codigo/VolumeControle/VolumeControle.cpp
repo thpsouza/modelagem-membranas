@@ -52,27 +52,6 @@ void VolumeControle::construirModelo() {
     // implementadas, por enquanto, as alterações necessárias para uma distribuição qualquer.
     //modelo->aplicar();
 
-    double L = cbrt(entrada->getDadosVC().volumeVC);
-    double r = entrada->getDadosVC().diametroFibra/2;
-    int Ni = entrada->getDadosVC().numFibrasVC;
-
-    double l = modelo->calcularDistanciaFibras(L, r, 1);
-    double theta = modelo->calcularAnguloSobreposicao(r, l);
-    double l_ = modelo->calcularComprimentoAuxiliar(r, l);
-
-    auto coordenadas = modelo->calcularCoordenadasFibras(r, l, Ni);
-
-    double As = modelo->calcularAreaSobreposicao(r, l, theta, l_);
-    double x = modelo->calcularRazaoAreas(r, As);
-    int Ns = modelo->calcularNumeroSobreposicoes(Ni, x);
-    double Nf = modelo->calcularNumeroEfetivoDeFibras(Ni, Ns, x);
-    double FE = modelo->calcularEmpacotamento(r, ladoVC, Nf);
-    double porosidade = modelo->calcularPorosidade(FE);
-
-    double phi = modelo->calcularAnguloComplementar(theta);
-    double perimetroTotal = modelo->calcularPerimetroTotal(r, Ni, phi);
-    double AreaTotalTransferencia = modelo->calcularAreaTotalTransferencia(r, Ni, L, phi);
-
     ///
 }
 
