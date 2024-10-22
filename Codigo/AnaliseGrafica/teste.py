@@ -31,6 +31,16 @@ def coordenadas_centro_fibras(i, j, r, l):
     return np.array([i,j])*(2*r+l) + (l/2+r)
 
 
+def curvas_VC(x, R):
+    y1 = R + np.sqrt(R**2 - (x - R)**2)
+    y2 = R - np.sqrt(R**2 - (x - R)**2)
+
+
+
+def verificar_fibra_contida_VC():
+    if 
+
+
 def main():
     r = 1
     l = 0
@@ -38,7 +48,7 @@ def main():
     R = raio_VC(m, r)
     coord_VC = coordenadas_centro_VC(R)
     coords_fibras = []
-    coordenadas_centro_fibras
+    coordenadas_centro_fibras()
 
 
 
