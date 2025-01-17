@@ -3,6 +3,22 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button, RadioButtons
 
 
+def avaliar_fibra_dentro_VC(R, r, i, j):
+    def x_fibra(R, r, i, j):
+        return r*(2*i+1) + (r*np.sqrt(2)/2*(r*(2*i+1)-R)) / np.sqrt((R-r)**2 + 2*r*(j*(r*(1+j)-R) + i*(r*(1+i)-R)))
+    def x_VC(R, r, i, j):
+        return R + (R*np.sqrt(2)/2*(r*(2*i+1)-R)) / np.sqrt((R-r)**2 + 2*r*(j*(r*(1+j)-R) + i*(r*(1+i)-R)))
+
+    if i == j == (R/r-1)/2:
+        d = R - r
+    elif i > (R/r-1)/2:
+        d = x_VC(R, r, i, j) - x_fibra(R, r, i, j)
+    else:
+        d = x_fibra(R, r, i, j) - x_VC(R, r, i, j)    
+    
+    return d>=0#, d
+
+
 def calcular_propriedades():
     ...
 
@@ -44,15 +60,20 @@ def limpar_fibras(fibras):
     fibras.clear()
 
 
-def plotar_fibras(ax, r, n, l, fibras=None, **kwargs):
+def plotar_fibras(ax, R, r, n, l, fibras=None, **kwargs):
     if fibras is None:
         fibras = []
+    contador_fibras_dentro_VC = 0
     for i in range(n):
         for j in range(n):
             pos = (l/2 + r + i*(l+2*r), l/2 + r + j*(l+2*r))
-            fibra = plotar_fibra(ax, pos, r, **kwargs)
+            if avaliar_fibra_dentro_VC(R, r, j, i): 
+                fibra = plotar_fibra(ax, pos, r, color='tab:green', **kwargs)
+                contador_fibras_dentro_VC += 1
+            else:
+                fibra = plotar_fibra(ax, pos, r, **kwargs)
             fibras.append(fibra)
-    return fibras
+    return fibras, contador_fibras_dentro_VC
 
 
 def plotar_linhas(ax, fibras, r, n):
@@ -96,7 +117,7 @@ def update_linhas(ax, fibras, linhas, anotacoes, r, n, l):
 
 
 def update_slider_distancia_fibras(val, fig, ax, propriedades, plots):
-    r, l, n, area_fibras = propriedades.values()
+    r, l, Nf, n, area_fibras, contador_fibras_dentro_VC = propriedades.values()
     contorno_VC, fibras, linhas, anotacoes, texto = plots
     # Recalcular propriedades a partir da nova distância entre fibras
     propriedades["l"] = l = val
@@ -108,7 +129,7 @@ def update_slider_distancia_fibras(val, fig, ax, propriedades, plots):
     update_fibras(fibras, r, n, l)
     update_linhas(ax, fibras, linhas, anotacoes, r, n, l)
     # Reescrever textos
-    texto.set_text(f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},    m = {(n-1)/2}")
+    texto.set_text(f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},    Fibras no VC: {propriedades["contador"]}/{propriedades["Nf"]}")
     # Reescale dinâmico com o lado do VC
     ax.set_xlim(-0.01*(2*R), (2*R)*1.01)
     ax.set_ylim(-0.01*(2*R), (2*R)*1.01)
@@ -116,22 +137,26 @@ def update_slider_distancia_fibras(val, fig, ax, propriedades, plots):
 
 
 def update_slider_numero_fibras(val, fig, ax, propriedades, plots):
-    r, l, n, area_fibras = propriedades.values()
+    r, l, Nf, n, area_fibras, contador_fibras_dentro_VC = propriedades.values()
     contorno_VC, fibras, linhas, anotacoes, texto = plots
     # Recalcular propriedades a partir do novo número de fibras
-    N = val
-    propriedades["n"] = n = int(N**(1/2))
+    Nf = val
+    propriedades["Nf"] = Nf
+    propriedades["n"] = n = int(Nf**(1/2))
     R = r*n + l*(n-1)/2 + l/2
-    propriedades["area"] = area_fibras = calcular_area_fibras(N, r)
-    empacotamento = calcular_empacotamento(area_fibras, R)
     pos = R,R
     # Redefinir dimensões e plotar novamente as fibras
     update_VC(contorno_VC, R, pos)
     limpar_fibras(fibras)
-    plotar_fibras(ax, r, n, l, fibras=fibras)
+    _, contador_fibras_dentro_VC = plotar_fibras(ax, R, r, n, l, fibras=fibras)
     update_linhas(ax, fibras, linhas, anotacoes, r, n, l)
+    # Fibras totalmente contidas no volume de controle
+    propriedades["contador"] = contador_fibras_dentro_VC
+    propriedades["area"] = area_fibras = calcular_area_fibras(contador_fibras_dentro_VC, r)
+    empacotamento = calcular_empacotamento(area_fibras, R)
     # Reescrever textos
-    texto.set_text(f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},    m = {(n-1)/2}")
+    texto.set_text(f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},    Fibras no VC: {contador_fibras_dentro_VC}/{Nf}")
+    lista.append((int(Nf), int(contador_fibras_dentro_VC)))
     # Reescale dinâmico com o lado do VC
     ax.set_xlim(-0.01*(2*R), (2*R)*1.01)
     ax.set_ylim(-0.01*(2*R), (2*R)*1.01)
@@ -149,33 +174,35 @@ def plotar_geral(dados, fig):
     l = l_min = 0
     n = int(Nf**(1/2))
     R = r*n + l*(n-1)/2 + l/2
-    area_fibras = calcular_area_fibras(Nf, r)
-    empacotamento = calcular_empacotamento(area_fibras, R)
 
     ## Plots
     x0,y0,width,height = ax.get_position().bounds
-    contorno_VC = plotar_VC(ax, (900,900), R)
-    fibras = plotar_fibras(ax, r, n, l)
+    contorno_VC = plotar_VC(ax, (n*r,n*r), R)
+    fibras, contador_fibras_dentro_VC = plotar_fibras(ax, R, r, n, l)
     linhas, anotacoes = plotar_linhas(ax, fibras, r, n)
+
+    ## Fibras contidas no volume de controle
+    area_fibras = calcular_area_fibras(contador_fibras_dentro_VC, r)
+    empacotamento = calcular_empacotamento(area_fibras, R)
 
     ## Texto das propriedades
     fig.subplots_adjust(top=0.9)
     text_ax = fig.add_axes([0.185, 0.95, 0.65, 0.03], autoscale_on=True)
     texto = text_ax.text(
-        0.5, 0.5, f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},     m = {(n-1)/2}",
+        0.5, 0.5, f"r = {r}$\mu$m,      R = {R:.2f}$\mu$m,      F.E. = {empacotamento:.4f},     Fibras no VC: {contador_fibras_dentro_VC}/{Nf}",
         va='center', ha='center', fontsize=12
     )
 
     fig.subplots_adjust(bottom=0.25)
-    propriedades = {"r":r, "l":l, "n":n, "area":area_fibras}
+    propriedades = {"r":r, "l":l, "Nf":Nf, "n":n, "area":area_fibras, "contador":contador_fibras_dentro_VC}
     plots = [contorno_VC, fibras, linhas, anotacoes, texto]
 
     ## Slider da distancia entre fibras
-    slider_distancia_fibras_ax = fig.add_axes([0.2, 0.10, 0.65, 0.03], autoscale_on=True)
-    slider_distancia_fibras = Slider(slider_distancia_fibras_ax, '$\ell [\mu m]$\n{$0\leq\ell\leq2r$}', l_min, l_max, valinit=0)
-    slider_distancia_fibras.label.set_size(14)
-    slider_distancia_fibras.label.set_multialignment('center')
-    slider_distancia_fibras.on_changed(lambda x: update_slider_distancia_fibras(x, fig, ax, propriedades, plots))
+    #slider_distancia_fibras_ax = fig.add_axes([0.2, 0.10, 0.65, 0.03], autoscale_on=True)
+    #slider_distancia_fibras = Slider(slider_distancia_fibras_ax, '$\ell [\mu m]$\n{$0\leq\ell\leq2r$}', l_min, l_max, valinit=0)
+    #slider_distancia_fibras.label.set_size(14)
+    #slider_distancia_fibras.label.set_multialignment('center')
+    #slider_distancia_fibras.on_changed(lambda x: update_slider_distancia_fibras(x, fig, ax, propriedades, plots))
 
     # Slider do numero de fibras np.array(range( n, ))**2
     numeros_fibras_possiveis = np.array( range(int(np.sqrt(N_min)), int(np.sqrt(N_max))+1, 2) )**2
@@ -193,6 +220,7 @@ def plotar_geral(dados, fig):
 
     plt.show()
 
+lista = [(9,5)]
 
 def main():
     dados = {}
@@ -202,6 +230,12 @@ def main():
 
     fig = plt.figure(figsize=(7,6))
     plotar_geral(dados, fig)
+    
+    
+    #with open("dados.txt", "w+") as f:
+    #    for i in lista:
+    #        f.write(str(i))
+    
 
 
 if __name__ == "__main__":

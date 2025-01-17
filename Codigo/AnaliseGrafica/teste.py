@@ -1,5 +1,19 @@
 import numpy as np
+import sympy as sp
 
+
+
+def teste2():    
+    R, r, i, j, x1, x2 = sp.symbols('R r i j x1 x2')
+    i = j = (R/r-1)/2
+    
+    f_VC = R - sp.sqrt(R**2 - (x1-R)**2)
+    df_VC = (x1 - R)/sp.sqrt(R**2 - (x1-R)**2)
+    f_fibra = r*(2*j+1) - sp.sqrt(r**2 - (x2 - r*(2*i+1))**2)
+    df_fibra = (x2 - r*(2*i+1))/sp.sqrt(r**2 - (x2 - r*(2*i+1))**2)
+    
+    print(sp.simplify(f_VC))
+ 
 
 def teste1():
     teste = np.array(
@@ -38,17 +52,19 @@ def curvas_VC(x, R):
 
 
 def verificar_fibra_contida_VC():
-    if 
+    if 1:...
 
 
 def main():
     r = 1
     l = 0
     m=5
-    R = raio_VC(m, r)
-    coord_VC = coordenadas_centro_VC(R)
-    coords_fibras = []
-    coordenadas_centro_fibras()
+    #R = raio_VC(m, r)
+    #coord_VC = coordenadas_centro_VC(R)
+    #coords_fibras = []
+    #coordenadas_centro_fibras()
+    
+    teste2()
 
 
 
