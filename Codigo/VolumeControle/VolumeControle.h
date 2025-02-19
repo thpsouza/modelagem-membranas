@@ -26,6 +26,7 @@ private:
     double empacotamento;
     double porosidade;
     int numFibras;
+    double EspacamentoFibras;
     double areaTransferenciaTotal;
     const FibraBase *fibra;
     const GeometriaBase *geometria;
@@ -39,16 +40,30 @@ public:
     void calcularEmpacotamento();
     void calcularPorosidade();
     void calcularNumFibras();
+    void calcularEspacamentoFibras();
     void calcularAreaTotalTransferencia();
+
+    // Metodos auxiliares
+    void calcularAnguloSobreposicao();
+    void calcularComprimentoAuxiliar();
+    void calcularCoordenadasFibras();
+    void calcularAreaSobreposicao();
+    void calcularRazaoAreas();
+    void calcularNumeroSobreposicoes();
+    void calcularNumeroEfetivoDeFibras();
+    void calcularAnguloComplementar();
+    void calcularPerimetroTotal();
 
     void setEmpacotamento(double valor);
     void setPorosidade(double valor);
     void setNumFibras(int valor);
+    void setEspacamentoFibras(double valor);
     void setAreaTransferenciaTotal(double valor);
 
     double getEmpacotamento() const;
     double getPorosidade() const;
     int getNumFibras() const;
+    double getEspacamentoFibras() const;
     double getAreaTransferenciaTotal() const;
 };
 

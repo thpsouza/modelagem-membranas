@@ -56,7 +56,7 @@ void testeEntradaSaidaDados() {
     DadosEntradaModelo::DadosModulo argsModulo;
     argsModulo.numTotalFibras = 30000;
     argsModulo.areaTotalMembrana = 2.1;
-    argsModulo.volumeTotalModulo = 8.9 * 8.9 * M_PI_4 * 14.2 * 1e-6;
+    argsModulo.volumeTotalModulo = 8.9/100 * 8.9/100 * M_PI_4 * 14.2/100;
 
     // Volume de controle escolhido:
     DadosEntradaModelo::DadosVC argsVC;
@@ -65,14 +65,18 @@ void testeEntradaSaidaDados() {
     argsVC.numFibrasVC = 4;
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
     argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
-    argsVC.volumeVC = argsModulo.volumeTotalModulo;
+    argsVC.volumeVC = pow(2*argsVC.diametroFibra, 3);//argsModulo.volumeTotalModulo;
 
     // Output
     DadosSaidaModelo dadosSaida = realizarCalculos(argsVC, argsModulo);
-    print("Porosidade: ", dadosSaida.getPorosidade(),
-          "\nNum Fibras: ", dadosSaida.getNumFibras(),
-          "\nArea Total de Transferencia: ", dadosSaida.getAreaTotalTransferencia()
-          );
+    print("Numero de fibras: ", dadosSaida.getNumFibras(),
+        "\nEspacamento entre fibras: ", argsVC.distanciaFibras, " m"
+        "\nPorosidade do meio: ", dadosSaida.getPorosidade(),
+        "\nArea Total de Transferencia do VC: ", dadosSaida.getAreaTotalTransferencia(), " m^2"
+        );
+
+    print("\nExtrapolacao para todo o modulo: ",
+        dadosSaida.getAreaTotalTransferencia() * argsModulo.volumeTotalModulo/argsVC.volumeVC, " m^2");
 }
 
 

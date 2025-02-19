@@ -16,29 +16,29 @@
  */
 class FibraBase {
 private:
-    double comprimento;
     double diametroMedio;
+    double comprimento;
     double areaSuperficial;
     double volume;
 
 public:
-    // Construtor
+    // Construtores
     FibraBase();
     explicit FibraBase(double diametro);
-    FibraBase(double diametro, double areaSuperficial);
-    FibraBase(double comprimento, double diametro, double areaSuperficial, double volume);
+    FibraBase(double diametro, double comprimento);
+    FibraBase(double diametro, double comprimento, double areaSuperficial, double volume);
     // Calculadoras
     virtual void calcularDiametro();
     virtual void calcularComprimento();
     virtual void calcularAreaSuperficial();
     virtual void calcularVolume();
     // Setters e Getters
-    void setComprimento(double valor);
     void setDiametro(double valor);
+    void setComprimento(double valor);
     void setAreaSuperficial(double valor);
     void setVolume(double valor);
-    double getComprimento() const;
     double getDiametro() const;
+    double getComprimento() const;
     double getAreaSuperficial() const;
     double getVolume() const;
 };

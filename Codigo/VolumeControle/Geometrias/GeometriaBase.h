@@ -20,6 +20,7 @@ class GeometriaBase {
 private:
     double volume;
     double areaFace;
+    double comprimentoCaracteristico;
 
 protected:
     bool temFace;
@@ -30,10 +31,13 @@ public:
 
     virtual void calcularVolume();
     virtual void calcularAreaFace();
+    virtual void calcularComprimentoCaracteristico();
     void setVolume(double valor);
     void setAreaFace(double valor);
+    void setComprimentoCaracteristico(double valor);
     double getVolume() const;
     double getAreaFace() const;
+    double getComprimentoCaracteristico() const;
 };
 
 

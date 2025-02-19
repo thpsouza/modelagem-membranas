@@ -70,10 +70,18 @@ void VolumeControle::calcularPorosidade() {
 }
 
 /**
- * @brief Calcula a porosidade a partir dos volumes do volume de controle e da fibra, e da porosidade, calculada previamente pela propria classe.
+ * @brief Calcula o número de fibras a partir do volume do V.C., do volume da fibra, e da porosidade,
+ * calculada previamente pela propria classe.
  */
 void VolumeControle::calcularNumFibras() {
     setNumFibras((int) round(geometria->getVolume() * (1 - getPorosidade()) / fibra->getVolume()));
+}
+
+/**
+ * @brief Calcula o espaçamento entre fibras a partir do número de fibras e dos parâmetros geométricos.
+ */
+void VolumeControle::calcularEspacamentoFibras() {
+    setEspacamentoFibras(sqrt(numFibras) * geometria->getComprimentoCaracteristico() / numFibras - fibra->getVolume());
 }
 
 /**
@@ -110,6 +118,14 @@ void VolumeControle::setNumFibras(int valor) {
 }
 
 /**
+ * @brief Define um novo valor para a variável 'EspacamentoFibras'.
+ * @param valor : Novo espaçamento entre fibras calculado.
+ */
+void VolumeControle::setEspacamentoFibras(double valor) {
+    EspacamentoFibras = valor;
+}
+
+/**
  * @brief Define um novo valor para a variável 'areaTransferenciaTotal'.
  * @param valor : Nova área total de transferência calculada.
  */
@@ -131,6 +147,14 @@ double VolumeControle::getPorosidade() const {
  */
 int VolumeControle::getNumFibras() const {
     return numFibras;
+}
+
+/**
+ * @brief Retorna o valor do espaçamento entre de fibras calculado.
+ * @return double
+ */
+double VolumeControle::getEspacamentoFibras() const {
+    return EspacamentoFibras;
 }
 
 /**

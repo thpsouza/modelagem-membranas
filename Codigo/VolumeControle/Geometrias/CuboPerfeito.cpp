@@ -30,6 +30,22 @@ CuboPerfeito::CuboPerfeito(double aresta) :
     aresta(aresta)
 {
     temFace = true;
+    setComprimentoCaracteristico(aresta);
+}
+
+/**
+ * @brief Construtor da subclasse de geometria 'CuboPerfeito'.
+ *
+ * @param aresta : Tamanho da aresta do cubo perfeito considerado.
+ * @param volume : Volume do cubo perfeito considerado.
+ */
+CuboPerfeito::CuboPerfeito(double aresta, double volume) :
+    GeometriaBase(),
+    aresta(aresta)
+{
+    temFace = true;
+    setComprimentoCaracteristico(aresta);
+    setVolume(volume);
 }
 
 
@@ -48,6 +64,13 @@ void CuboPerfeito::calcularVolume() {
     setVolume(aresta * aresta * aresta);
 }
 
+/**
+ * @brief Reimplementação do método calculador do comprimento característico, para a geometria cúbica perfeita.
+ */
+void CuboPerfeito::calcularComprimentoCaracteristico() {
+    setComprimentoCaracteristico(aresta);
+}
+
 
 // Setters e getters
 /**
@@ -56,7 +79,7 @@ void CuboPerfeito::calcularVolume() {
  * @param valor : Nova aresta.
  */
 void CuboPerfeito::setAresta(double valor) {
-    aresta = valor;
+    setComprimentoCaracteristico(valor);
 }
 
 /**
@@ -65,7 +88,7 @@ void CuboPerfeito::setAresta(double valor) {
  * @return double 
  */
 double CuboPerfeito::getAresta() const {
-    return aresta;
+    return getComprimentoCaracteristico();
 }
 
 

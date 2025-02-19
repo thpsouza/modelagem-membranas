@@ -33,6 +33,13 @@ void GeometriaBase::calcularAreaFace() {
 }
 
 /**
+ * @brief Método base para calcular o comprimento caraterístico do volume de controle. Será reimplementado em cada caso, para cada geometria.
+ *
+ */
+void GeometriaBase::calcularComprimentoCaracteristico() {
+}
+
+/**
  * @brief Método base para calcular o volume total do volume de controle. Será reimplementado em cada caso, para cada geometria.
  * 
  */
@@ -60,6 +67,15 @@ void GeometriaBase::setAreaFace(double valor) {
 }
 
 /**
+ * @brief Define o valor do comprimento característico do volume de controle.
+ *
+ * @param valor : Novo comprimento característico.
+ */
+void GeometriaBase::setComprimentoCaracteristico(double valor) {
+    comprimentoCaracteristico = valor;
+}
+
+/**
  * @brief Retorna o valor do volume total do volume de controle.
  * 
  * @return double 
@@ -75,4 +91,13 @@ double GeometriaBase::getVolume() const {
  */
 double GeometriaBase::getAreaFace() const {
     return areaFace;
+}
+
+/**
+ * @brief Retorna o valor do comprimento característico volume de controle.
+ *
+ * @return double
+ */
+double GeometriaBase::getComprimentoCaracteristico() const {
+    return comprimentoCaracteristico;
 }

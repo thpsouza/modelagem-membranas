@@ -47,66 +47,53 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // double d = l/entrada->razaoComprimentoDiametroFibra;
     ///
 
-    /// TODO: Inicializar as classes e realizar os calculos/operacoes no VC
+    // Variáveis principais
+    double volumeVC = entrada->getDadosVC().volumeVC;
+    double ladoVC = cbrt(volumeVC);
+    double raioFibra = entrada->getDadosVC().diametroFibra/2;
+    int numFibras = entrada->getDadosVC().numFibrasVC;
+
+    // Geometria do volume de controle
+    CuboPerfeito cubo {ladoVC, volumeVC};
+
     // Geometria das fibras
-    FibraCilindrica fibra {entrada->getDadosVC().diametroFibra};
-    fibra.setComprimento(cbrt(entrada->getDadosVC().volumeVC));
+    FibraCilindrica fibra {raioFibra*2, ladoVC};
     fibra.calcularAreaSuperficial();
     fibra.calcularVolume();
 
-    // Geometria do volume de controle
-    CuboPerfeito cubo {fibra.getComprimento()};
-    cubo.calcularVolume();
-
     // Construção do volume de controle
     VolumeControle VC {&cubo, &fibra, entrada};
+    VC.setNumFibras(numFibras);
+    VC.construirModelo();
 
-    /// TODO: Reduzir o numero de fibras e a área de membrana totais para os valores do VC
-    double razaoVolumes = entrada->getDadosVC().volumeVC/entrada->getDadosModulo().volumeTotalModulo;
-    int numFibras = (int) (entrada->getDadosModulo().numTotalFibras*razaoVolumes);
-    double areaTransferencia = numFibras * fibra.getAreaSuperficial();
+    //// CALCULOS ////
+    // std::vector<double[2]> coordenadas = VC.calcularCoordenadasFibras(r, l, Ni);
+
+    /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
+    // double distanciaMediaFibras = VC.calcularDistanciaFibras(ladoVC, raioFibra, 1);;
     ///
 
-    /// CALCULOS
-    VC.setNumFibras(numFibras);
-    VC.setAreaTransferenciaTotal(areaTransferencia);
-    VC.construirModelo();
+    /// TODO: Considerar superempacotamento
+    // double anguloSobreposicao = VC.calcularAnguloSobreposicao(raioFibra, distanciaMediaFibras);
+    // double comprimentoAuxiliar = VC.calcularComprimentoAuxiliar(raioFibra, distanciaMediaFibras);
+    // double As = VC.calcularAreaSobreposicao(raioFibra, l, theta, l_);
+    // double x = VC.calcularRazaoAreas(raioFibra, As);
+    // int Ns = VC.calcularNumeroSobreposicoes(numFibras, x);
+    // double Nf = VC.calcularNumeroEfetivoDeFibras(numFibras, Ns, x);
+    // double FE = VC.calcularEmpacotamento(raioFibra, ladoVC, numFibras);
+    // double porosidade = VC.calcularPorosidade(FE);
+    // double phi = VC.calcularAnguloComplementar(theta); //phi
+    // double perimetroTotal = VC.calcularPerimetroTotal(raioFibra, numFibras, phi);
+    ///
+
+    VC.calcularAreaTotalTransferencia();
     VC.calcularEmpacotamento();
     VC.calcularPorosidade();
 
-
-    double L = cbrt(entrada->getDadosVC().volumeVC);
-    double r = entrada->getDadosVC().diametroFibra/2;
-    int Ni = entrada->getDadosVC().numFibrasVC;
-
-    /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
-    double distanciaMediaFibras = VC.calcularDistanciaFibras(L, r, 1);;
-    double anguloSobreposicao = VC.calcularAnguloSobreposicao(r, distanciaMediaFibras);
-    double comprimentoAuxiliar = VC.calcularComprimentoAuxiliar(r, distanciaMediaFibras);
-    ///
-
-    std::vector<double[2]> coordenadas = VC.calcularCoordenadasFibras(r, l, Ni);
-
-    double As = VC.calcularAreaSobreposicao(r, l, theta, l_);
-    double x = VC.calcularRazaoAreas(r, As);
-    int Ns = VC.calcularNumeroSobreposicoes(Ni, x);
-    double Nf = VC.calcularNumeroEfetivoDeFibras(Ni, Ns, x);
-    double FE = VC.calcularEmpacotamento(r, ladoVC, Nf);
-    double porosidade = VC.calcularPorosidade(FE);
-
-    double phi = VC.calcularAnguloComplementar(theta);
-    double perimetroTotal = VC.calcularPerimetroTotal(r, Ni, phi);
-    double AreaTotalTransferencia = VC.calcularAreaTotalTransferencia(r, Ni, L, phi);
-    ///
-
-
-
-    /// TODO: Passar valores calculados para a classe de saída
+    //// SAIDA DE DADOS ////
     dadosPtr->setAreaTotalTransferencia(VC.getAreaTransferenciaTotal());
     dadosPtr->setPorosidade(VC.getPorosidade());
     dadosPtr->setNumFibras(VC.getNumFibras());
-    ///
-
     return dadosPtr.release();
 }
 

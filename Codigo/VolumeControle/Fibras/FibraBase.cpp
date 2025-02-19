@@ -30,18 +30,18 @@ FibraBase::FibraBase(double diametro) :
 /**
  * @brief Construtor da classe base das fibras do módulo de membranas.
  */
-FibraBase::FibraBase(double diametro, double areaSuperficial) :
+FibraBase::FibraBase(double diametro, double comprimento) :
     diametroMedio(diametro),
-    areaSuperficial(areaSuperficial)
+    comprimento(comprimento)
 {
 }
 
 /**
  * @brief Construtor da classe base das fibras do módulo de membranas.
  */
-FibraBase::FibraBase(double comprimento, double diametro, double areaSuperficial, double volume) :
-    comprimento(comprimento),
+FibraBase::FibraBase(double diametro, double comprimento, double areaSuperficial, double volume) :
     diametroMedio(diametro),
+    comprimento(comprimento),
     areaSuperficial(areaSuperficial),
     volume(volume)
 {

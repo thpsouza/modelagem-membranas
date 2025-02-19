@@ -25,9 +25,11 @@ public:
     // Construtor
     CuboPerfeito();
     explicit CuboPerfeito(double aresta);
+    explicit CuboPerfeito(double aresta, double volume);
     // Demais métodos
     void calcularAreaFace() override;
     void calcularVolume() override;
+    void calcularComprimentoCaracteristico() override;
     void setAresta(double valor);
     double getAresta() const;
 };

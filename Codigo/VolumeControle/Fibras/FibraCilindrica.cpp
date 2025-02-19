@@ -33,23 +33,23 @@ FibraCilindrica::FibraCilindrica(double diametro) :
  * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
  *
  * @param diametro : Diâmetro médio das fibras no módulo de membranas.
- * @param areaSuperficial : Área superficial média das fibras no módulo de membranas.
+ * @param comprimento : Comprimento das fibras no módulo de membranas.
  */
-FibraCilindrica::FibraCilindrica(double diametro, double areaSuperficial) :
-    FibraBase(diametro, areaSuperficial)
+FibraCilindrica::FibraCilindrica(double diametro, double comprimento) :
+    FibraBase(diametro, comprimento)
 {
 }
 
 /**
  * @brief Construtor da subclasse de geometria de fibras 'FibraCilindrica'.
  *
- * @param comprimento : Comprimento das fibras no módulo de membranas.
  * @param diametro : Diâmetro médio das fibras no módulo de membranas.
+ * @param comprimento : Comprimento das fibras no módulo de membranas.
  * @param areaSuperficial : Área superficial média das fibras no módulo de membranas.
  * @param volume : Volume médio das fibras no módulo de membranas.
  */
-FibraCilindrica::FibraCilindrica(double comprimento, double diametro, double areaSuperficial, double volume)
-        : FibraBase(comprimento, diametro, areaSuperficial, volume) {
+FibraCilindrica::FibraCilindrica(double diametro, double comprimento, double areaSuperficial, double volume)
+        : FibraBase(diametro, comprimento, areaSuperficial, volume) {
 
 }
 
