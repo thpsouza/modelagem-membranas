@@ -79,18 +79,18 @@ double VolumeControle::calcularComprimentoAuxiliar() const {
  * @brief Calcula e retorna o número efetivo de fibras no caso de superempacotamento.
  * @return double
  */
-double VolumeControle::calcularNumeroEfetivoDeFibras() const {
+void VolumeControle::calcularNumeroEfetivoDeFibras() {
     double areaSobresposta = 2 * (raioFibra*raioFibra*calcularAnguloSobreposicao() - (raioFibra + espacamentoFibras/2)*calcularComprimentoAuxiliar());
     double razaoAreas = areaSobresposta / (M_PI * raioFibra*raioFibra);
-    return numFibras - 2 * (numFibras + sqrt(numFibras)) * razaoAreas;
+    setnumEfetivoFibras(numFibras - 2 * (numFibras + sqrt(numFibras)) * razaoAreas);
 }
 
 /**
  * @brief Calcula e retorna o perímetro total não impedido das fibras no V.C.
  * @return double
  */
-double VolumeControle::calcularPerimetroTotal() const {
-    return 4 * (M_PI_2 - 2*calcularAnguloSobreposicao()) * raioFibra * numFibras;
+void VolumeControle::calcularPerimetroTotalFibras() {
+    setPerimetroTotalFibras(4 * (M_PI_2 - 2*calcularAnguloSobreposicao()) * raioFibra * numFibras);
 }
 
 
@@ -116,13 +116,13 @@ void VolumeControle::calcularPorosidade() {
     setPorosidade(1 - empacotamento);
 }
 
-/**
- * @brief Calcula o número de fibras a partir do volume do V.C., do volume da fibra, e da porosidade,
- * calculada previamente pela propria classe.
- */
-void VolumeControle::calcularNumFibras() {
-    setNumFibras((int) round(geometria->getVolume() * (1 - getPorosidade()) / fibra->getVolume()));
-}
+// /**
+//  * @brief Calcula o número de fibras a partir do volume do V.C., do volume da fibra, e da porosidade,
+//  * calculada previamente pela propria classe.
+//  */
+// void VolumeControle::calcularNumFibras() {
+//     setNumFibras((int) round(geometria->getVolume() * (1 - getPorosidade()) / fibra->getVolume()));
+// }
 
 /**
  * @brief Calcula a área total de transferência, com base no número de fibras, calculado anteriormente pela própria classe, e na área de superfície de cada fibra.
@@ -163,6 +163,23 @@ void VolumeControle::setNumFibras(int valor) {
  */
 void VolumeControle::setEspacamentoFibras(double valor) {
     espacamentoFibras = valor;
+}
+
+
+/**
+* @brief Define um novo valor para a variável 'numEfetivoFibras'.
+ * @param valor : Número efetivo de fibras calculado para a condição de superempacotamento.
+ */
+void VolumeControle::setnumEfetivoFibras(double valor) {
+    numEfetivoFibras = valor;
+}
+
+/**
+ * @brief Define um novo valor para a variável 'perimetroTotalFibras'.
+ * @param valor : Perímetro total de fibras não impedido na condição de superempacotamento.
+ */
+void VolumeControle::setPerimetroTotalFibras(double valor) {
+    perimetroTotalFibras = valor;
 }
 
 /**
@@ -211,6 +228,22 @@ double VolumeControle::getFatorEspacamentoMaximo() const {
  */
 double VolumeControle::getFatorEspacamentoMinimo() const {
     return FatorEspacamentoMinimoFibras;
+}
+
+/**
+ * @brief Retorna o valor do número efetivo de fibras. (Útil na condição de superempacotamento.)
+ * @return double
+ */
+double VolumeControle::getNumEfetivoFibras() const {
+    return numEfetivoFibras;
+}
+
+/**
+ * @brief Retorna o valor do perímetro total de fibras não impedido. (Útil na condição de superempacotamento.)
+ * @return double
+ */
+double VolumeControle::getPerimetroTotalFibras() const {
+    return perimetroTotalFibras;
 }
 
 /**

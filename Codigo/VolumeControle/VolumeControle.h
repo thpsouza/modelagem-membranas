@@ -24,10 +24,12 @@ class DadosEntradaModelo;
 class VolumeControle {
 private:
     double raioFibra;
-    double empacotamento;
-    double porosidade;
     int numFibras;
     double espacamentoFibras;
+    double numEfetivoFibras;
+    double perimetroTotalFibras;
+    double empacotamento;
+    double porosidade;
     double areaTransferenciaTotal;
     const FibraBase *fibra;
     const GeometriaBase *geometria;
@@ -43,15 +45,15 @@ public:
     // Metodos auxiliares
     double calcularAnguloSobreposicao() const;
     double calcularComprimentoAuxiliar() const;
-    double calcularNumeroEfetivoDeFibras() const;
-    double calcularPerimetroTotal() const;
 
     // Métodos principais
     void calcularEspacamentoFibras();
+    void calcularNumeroEfetivoDeFibras();
+    void calcularPerimetroTotalFibras();
     void calcularEmpacotamento();
     void calcularPorosidade();
-    void calcularNumFibras();
     void calcularAreaTotalTransferencia();
+    // void calcularNumFibras();
     //double calcularCoordenadasFibras();
 
     // Setters e Getters
@@ -59,14 +61,18 @@ public:
     void setPorosidade(double valor);
     void setNumFibras(int valor);
     void setEspacamentoFibras(double valor);
+    void setnumEfetivoFibras(double valor);
+    void setPerimetroTotalFibras(double valor);
     void setAreaTransferenciaTotal(double valor);
 
+    int getNumFibras() const;
     double getEspacamentoFibras() const;
     double getFatorEspacamentoMaximo() const;
     double getFatorEspacamentoMinimo() const;
+    double getNumEfetivoFibras() const;
+    double getPerimetroTotalFibras() const;
     double getEmpacotamento() const;
     double getPorosidade() const;
-    int getNumFibras() const;
     double getAreaTransferenciaTotal() const;
 
 };

@@ -75,26 +75,11 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // - Se l > 0: Condição de subempacotamento
     // - Se l < 0: Condição de superempacotamento
     VC.calcularEspacamentoFibras();
-    double distanciaMediaFibras = VC.getEspacamentoFibras();
-
-    VC.calcularPerimetroTotal();
-
-    /// TODO: Considerar superempacotamento
-    // double anguloSobreposicao = VC.calcularAnguloSobreposicao(raioFibra, distanciaMediaFibras);
-    // double comprimentoAuxiliar = VC.calcularComprimentoAuxiliar(raioFibra, distanciaMediaFibras);
-    // double As = VC.calcularAreaSobreposicao(raioFibra, l, theta, l_);
-    // double x = VC.calcularRazaoAreas(raioFibra, As);
-    // int Ns = VC.calcularNumeroSobreposicoes(numFibras, x);
-    // double Nf = VC.calcularNumeroEfetivoDeFibras(numFibras, Ns, x);
-    // double FE = VC.calcularEmpacotamento(raioFibra, ladoVC, numFibras);
-    // double porosidade = VC.calcularPorosidade(FE);
-    // double phi = VC.calcularAnguloComplementar(theta); //phi
-    // double perimetroTotal = VC.calcularPerimetroTotal(raioFibra, numFibras, phi);
-    ///
-
-    VC.calcularAreaTotalTransferencia();
+    VC.calcularNumeroEfetivoDeFibras();
+    VC.calcularPerimetroTotalFibras();
     VC.calcularEmpacotamento();
     VC.calcularPorosidade();
+    VC.calcularAreaTotalTransferencia();
 
     //// SAIDA DE DADOS ////
     dadosPtr->setEspacamentoFibras(VC.getEspacamentoFibras());
