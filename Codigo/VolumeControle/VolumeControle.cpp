@@ -51,8 +51,55 @@ void VolumeControle::construirModelo() {
     // Na prática, o modelo de cálculo adotado já assume uma distribuição uniforme unidimensional; portanto, não serão
     // implementadas, por enquanto, as alterações necessárias para uma distribuição qualquer.
     //modelo->aplicar();
+    raioFibra = fibra->getDiametro()/2;
 
     ///
+}
+
+// Métodos auxiliares
+/**
+ * @brief Calcula e retorna o ângulo característico de sobreposição das fibras no caso de superempacotamento.
+ * @return double
+ */
+double VolumeControle::calcularAnguloSobreposicao() const {
+    if (espacamentoFibras >= 0) return 0;
+    else return acos((raioFibra + espacamentoFibras/2) / raioFibra);
+}
+
+/**
+ * @brief Calcula e retorna o comprimento auxiliar característico de sobreposição das fibras no caso de superempacotamento.
+ * @return double
+ */
+double VolumeControle::calcularComprimentoAuxiliar() const {
+    if (espacamentoFibras >= 0) return 0;
+    else return sqrt(- (espacamentoFibras*espacamentoFibras/4 + espacamentoFibras*raioFibra));
+}
+
+/**
+ * @brief Calcula e retorna o número efetivo de fibras no caso de superempacotamento.
+ * @return double
+ */
+double VolumeControle::calcularNumeroEfetivoDeFibras() const {
+    double areaSobresposta = 2 * (raioFibra*raioFibra*calcularAnguloSobreposicao() - (raioFibra + espacamentoFibras/2)*calcularComprimentoAuxiliar());
+    double razaoAreas = areaSobresposta / (M_PI * raioFibra*raioFibra);
+    return numFibras - 2 * (numFibras + sqrt(numFibras)) * razaoAreas;
+}
+
+/**
+ * @brief Calcula e retorna o perímetro total não impedido das fibras no V.C.
+ * @return double
+ */
+double VolumeControle::calcularPerimetroTotal() const {
+    return 4 * (M_PI_2 - 2*calcularAnguloSobreposicao()) * raioFibra * numFibras;
+}
+
+
+// Métodos principais
+/**
+ * @brief Calcula o espaçamento entre fibras a partir do número de fibras e dos parâmetros geométricos.
+ */
+void VolumeControle::calcularEspacamentoFibras() {
+    setEspacamentoFibras(sqrt(numFibras) * geometria->getComprimentoCaracteristico() / numFibras - fibra->getDiametro());
 }
 
 /**
@@ -78,21 +125,14 @@ void VolumeControle::calcularNumFibras() {
 }
 
 /**
- * @brief Calcula o espaçamento entre fibras a partir do número de fibras e dos parâmetros geométricos.
- */
-void VolumeControle::calcularEspacamentoFibras() {
-    setEspacamentoFibras(sqrt(numFibras) * geometria->getComprimentoCaracteristico() / numFibras - fibra->getVolume());
-}
-
-/**
  * @brief Calcula a área total de transferência, com base no número de fibras, calculado anteriormente pela própria classe, e na área de superfície de cada fibra.
  */
 void VolumeControle::calcularAreaTotalTransferencia() {
     setAreaTransferenciaTotal(numFibras * fibra->getAreaSuperficial());
 }
 
-/// TODO: Implementar os cálculos para diferentes distribuições
 
+// SETTERS E GETTERS
 /**
  * @brief Define um novo valor para a variável 'empacotamento'.
  * @param valor : Novo fator de empacotamento calculado.
@@ -122,7 +162,7 @@ void VolumeControle::setNumFibras(int valor) {
  * @param valor : Novo espaçamento entre fibras calculado.
  */
 void VolumeControle::setEspacamentoFibras(double valor) {
-    EspacamentoFibras = valor;
+    espacamentoFibras = valor;
 }
 
 /**
@@ -154,7 +194,23 @@ int VolumeControle::getNumFibras() const {
  * @return double
  */
 double VolumeControle::getEspacamentoFibras() const {
-    return EspacamentoFibras;
+    return espacamentoFibras;
+}
+
+/**
+ * @brief Retorna o fator do espaçamento máximo entre as fibras, em relação ao seu raio.
+ * @return double
+ */
+double VolumeControle::getFatorEspacamentoMaximo() const {
+    return FatorEspacamentoMaximoFibras;
+}
+
+/**
+ * @brief Retorna o fator do espaçamento mínimo entre as fibras, em relação ao seu raio.
+ * @return double
+ */
+double VolumeControle::getFatorEspacamentoMinimo() const {
+    return FatorEspacamentoMinimoFibras;
 }
 
 /**

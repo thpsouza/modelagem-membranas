@@ -23,48 +23,52 @@ class DadosEntradaModelo;
  */
 class VolumeControle {
 private:
+    double raioFibra;
     double empacotamento;
     double porosidade;
     int numFibras;
-    double EspacamentoFibras;
+    double espacamentoFibras;
     double areaTransferenciaTotal;
     const FibraBase *fibra;
     const GeometriaBase *geometria;
     const DadosEntradaModelo *entrada;
-    double teste;
+    const double FatorEspacamentoMaximoFibras = 2.00;
+    const double FatorEspacamentoMinimoFibras = -0.1;
 
 public:
     VolumeControle(const GeometriaBase *geometria, const FibraBase *fibra, const DadosEntradaModelo *entrada);
 
     void construirModelo();
+
+    // Metodos auxiliares
+    double calcularAnguloSobreposicao() const;
+    double calcularComprimentoAuxiliar() const;
+    double calcularNumeroEfetivoDeFibras() const;
+    double calcularPerimetroTotal() const;
+
+    // Métodos principais
+    void calcularEspacamentoFibras();
     void calcularEmpacotamento();
     void calcularPorosidade();
     void calcularNumFibras();
-    void calcularEspacamentoFibras();
     void calcularAreaTotalTransferencia();
+    //double calcularCoordenadasFibras();
 
-    // Metodos auxiliares
-    void calcularAnguloSobreposicao();
-    void calcularComprimentoAuxiliar();
-    void calcularCoordenadasFibras();
-    void calcularAreaSobreposicao();
-    void calcularRazaoAreas();
-    void calcularNumeroSobreposicoes();
-    void calcularNumeroEfetivoDeFibras();
-    void calcularAnguloComplementar();
-    void calcularPerimetroTotal();
-
+    // Setters e Getters
     void setEmpacotamento(double valor);
     void setPorosidade(double valor);
     void setNumFibras(int valor);
     void setEspacamentoFibras(double valor);
     void setAreaTransferenciaTotal(double valor);
 
+    double getEspacamentoFibras() const;
+    double getFatorEspacamentoMaximo() const;
+    double getFatorEspacamentoMinimo() const;
     double getEmpacotamento() const;
     double getPorosidade() const;
     int getNumFibras() const;
-    double getEspacamentoFibras() const;
     double getAreaTransferenciaTotal() const;
+
 };
 
 

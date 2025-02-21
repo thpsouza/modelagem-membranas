@@ -28,6 +28,10 @@ void DadosSaidaModelo::setAreaTotalTransferencia(double value) {
     areaTransferenciaTotal = value;
 }
 
+void DadosSaidaModelo::setEspacamentoFibras(double value) {
+    espacamentoFibras = value;
+}
+
 double DadosSaidaModelo::getPorosidade() const {
     return porosidade;
 }
@@ -38,6 +42,10 @@ int DadosSaidaModelo::getNumFibras() const {
 
 double DadosSaidaModelo::getAreaTotalTransferencia() const {
     return areaTransferenciaTotal;
+}
+
+double DadosSaidaModelo::getEspacamentoFibras() const {
+    return espacamentoFibras;
 }
 
 

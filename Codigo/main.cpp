@@ -61,16 +61,19 @@ void testeEntradaSaidaDados() {
     // Volume de controle escolhido:
     DadosEntradaModelo::DadosVC argsVC;
     argsVC.diametroFibra = 300e-6;
-    argsVC.distanciaFibras = 0.0;
-    argsVC.numFibrasVC = 4;
+    //argsVC.distanciaFibras = 0.0;
+    argsVC.numFibrasVC = 1;
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
     argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
-    argsVC.volumeVC = pow(2*argsVC.diametroFibra, 3);//argsModulo.volumeTotalModulo;
+    argsVC.volumeVC =
+        pow(600e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
+            3);//argsModulo.volumeTotalModulo;
 
     // Output
     DadosSaidaModelo dadosSaida = realizarCalculos(argsVC, argsModulo);
-    print("Numero de fibras: ", dadosSaida.getNumFibras(),
-        "\nEspacamento entre fibras: ", argsVC.distanciaFibras, " m"
+    print("Volume definido: ", argsVC.volumeVC, " m^3",
+        "\nNumero de fibras: ", dadosSaida.getNumFibras(),
+        "\nEspacamento entre fibras: ", dadosSaida.getEspacamentoFibras(), " m"
         "\nPorosidade do meio: ", dadosSaida.getPorosidade(),
         "\nArea Total de Transferencia do VC: ", dadosSaida.getAreaTotalTransferencia(), " m^2"
         );

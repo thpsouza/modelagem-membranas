@@ -21,15 +21,19 @@ private:
     double porosidade;
     int numFibras;
     double areaTransferenciaTotal;
+    double espacamentoFibras;
 public:
     DadosSaidaModelo();
 
     void setPorosidade(double value);
     void setNumFibras(int value);
     void setAreaTotalTransferencia(double value);
+    void setEspacamentoFibras(double value);
+
     double getPorosidade() const;
     int getNumFibras() const;
     double getAreaTotalTransferencia() const;
+    double getEspacamentoFibras() const;
 };
 
 

@@ -69,9 +69,15 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     //// CALCULOS ////
     // std::vector<double[2]> coordenadas = VC.calcularCoordenadasFibras(r, l, Ni);
 
-    /// TODO: Calcular distancia media entre fibras (depende da distribuicao e da porosidade)
-    // double distanciaMediaFibras = VC.calcularDistanciaFibras(ladoVC, raioFibra, 1);;
-    ///
+    // Cálculo da distância media entre fibras, l, (depende da distribuição e da porosidade), para saber em que condição
+    // se encontra o sistema.
+    // - Se l = 0: Condição de empacotamento máximo teórico
+    // - Se l > 0: Condição de subempacotamento
+    // - Se l < 0: Condição de superempacotamento
+    VC.calcularEspacamentoFibras();
+    double distanciaMediaFibras = VC.getEspacamentoFibras();
+
+    VC.calcularPerimetroTotal();
 
     /// TODO: Considerar superempacotamento
     // double anguloSobreposicao = VC.calcularAnguloSobreposicao(raioFibra, distanciaMediaFibras);
@@ -91,6 +97,7 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     VC.calcularPorosidade();
 
     //// SAIDA DE DADOS ////
+    dadosPtr->setEspacamentoFibras(VC.getEspacamentoFibras());
     dadosPtr->setAreaTotalTransferencia(VC.getAreaTransferenciaTotal());
     dadosPtr->setPorosidade(VC.getPorosidade());
     dadosPtr->setNumFibras(VC.getNumFibras());
