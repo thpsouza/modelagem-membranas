@@ -75,6 +75,7 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     // - Se l > 0: Condição de subempacotamento
     // - Se l < 0: Condição de superempacotamento
     VC.calcularEspacamentoFibras();
+    VC.validarEspacamentoFibras();
     VC.calcularNumeroEfetivoDeFibras();
     VC.calcularPerimetroTotalFibras();
     VC.calcularEmpacotamento();

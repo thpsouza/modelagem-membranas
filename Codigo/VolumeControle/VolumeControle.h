@@ -34,8 +34,10 @@ private:
     const FibraBase *fibra;
     const GeometriaBase *geometria;
     const DadosEntradaModelo *entrada;
-    const double FatorEspacamentoMaximoFibras = 2.00;
-    const double FatorEspacamentoMinimoFibras = -0.1;
+    double toleranciaEspacamentoMinimo;
+    double toleranciaEspacamentoMaximo;
+    const double fatorEspacamentoMaximo = 2.00;
+    const double fatorEspacamentoMinimo = -0.1;
 
 public:
     VolumeControle(const GeometriaBase *geometria, const FibraBase *fibra, const DadosEntradaModelo *entrada);
@@ -48,6 +50,7 @@ public:
 
     // Métodos principais
     void calcularEspacamentoFibras();
+    void validarEspacamentoFibras() const;
     void calcularNumeroEfetivoDeFibras();
     void calcularPerimetroTotalFibras();
     void calcularEmpacotamento();

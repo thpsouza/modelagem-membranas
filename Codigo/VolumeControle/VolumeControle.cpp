@@ -11,8 +11,13 @@
 
 #include <cmath>
 #include <memory>
+#include <stdexcept>
+#include <sstream>
 #include "../Entrada/DadosEntradaModelo.h"
 #include "VolumeControle.h"
+
+#include <iostream>
+
 #include "Geometrias/GeometriaBase.h"
 #include "Fibras/FibraBase.h"
 #include "Distribuicoes/DistribuicaoBase.h"
@@ -39,13 +44,13 @@ VolumeControle::VolumeControle(const GeometriaBase *geometria,
  * @brief Método para construir o modelo de cálculos para o volume de controle, levando em conta a distribuição de fibras escolhida.
  */
 void VolumeControle::construirModelo() {
-    std::unique_ptr<DistribuicaoBase> modelo;
+    // std::unique_ptr<DistribuicaoBase> modelo;
     /// TODO: Criar as demais distribuicoes
     switch (entrada->getDadosVC().distribuicao) {
         case DadosEntradaModelo::TipoDistribuicao::UniformeEstruturada1D:
-            modelo = std::make_unique<DistribuicaoUniformeEstruturada>();
+            // modelo = std::make_unique<DistribuicaoUniformeEstruturada>();
         case DadosEntradaModelo::TipoDistribuicao::UniformeAlternada1D:
-            modelo = std::make_unique<DistribuicaoUniformeAlternada>();
+            // modelo = std::make_unique<DistribuicaoUniformeAlternada>();
             break;
         default:
             ;
@@ -55,6 +60,8 @@ void VolumeControle::construirModelo() {
     // implementadas, por enquanto, as alterações necessárias para uma distribuição qualquer.
     //modelo->aplicar();
     raioFibra = fibra->getDiametro()/2;
+    toleranciaEspacamentoMinimo = fatorEspacamentoMinimo * raioFibra;
+    toleranciaEspacamentoMaximo = fatorEspacamentoMaximo * raioFibra;
 
     ///
 }
@@ -101,6 +108,33 @@ void VolumeControle::calcularPerimetroTotalFibras() {
  */
 void VolumeControle::calcularEspacamentoFibras() {
     setEspacamentoFibras(sqrt(numFibras) * geometria->getComprimentoCaracteristico() / numFibras - fibra->getDiametro());
+}
+
+/**
+ * @brief Valida o espaçamento entre fibras, garantindo que não seja fora do intervalo aceitável.
+ */
+void VolumeControle::validarEspacamentoFibras() const {
+    if (espacamentoFibras < toleranciaEspacamentoMinimo) {
+        std::stringstream s;
+        s << std::scientific
+        << "\n  - Meio muito empacotado! Reduza o numero de fibras ou aumente o volume do VC."
+        << "\n  - Espacamento entre fibras calculado (" << espacamentoFibras
+        << ") fora do intervalo permitido: [" << toleranciaEspacamentoMinimo << ", " << toleranciaEspacamentoMaximo << "]."
+        << "\n  - (Tolerancia de deformacao da fibra definida como " << std::fixed << static_cast<int>(-100*fatorEspacamentoMinimo)
+        << "% do seu raio.)";
+        throw std::invalid_argument(s.str());
+    }
+    if (espacamentoFibras > toleranciaEspacamentoMaximo) {
+        std::stringstream s;
+        s << std::scientific
+        << "-- ATENCAO --"
+        << "\n  - Meio muito espacado! Aumente o numero de fibras ou reduza o volume do VC."
+        << "\n  - Espacamento entre fibras calculado (" << espacamentoFibras
+        << ") fora do intervalo permitido: [" << toleranciaEspacamentoMinimo << ", " << toleranciaEspacamentoMaximo << "]."
+        << "\n  - (O espacamento maximo entre fibras foi definido como " << std::fixed << static_cast<int>(100*fatorEspacamentoMaximo)
+        << "% de seus raios.)\n";
+        std::cout << "\033[32m" << s.str() <<  "\033[0m" << std::endl;
+    }
 }
 
 /**
@@ -212,7 +246,7 @@ double VolumeControle::getEspacamentoFibras() const {
  * @return double
  */
 double VolumeControle::getFatorEspacamentoMaximo() const {
-    return FatorEspacamentoMaximoFibras;
+    return fatorEspacamentoMaximo;
 }
 
 /**
@@ -220,7 +254,7 @@ double VolumeControle::getFatorEspacamentoMaximo() const {
  * @return double
  */
 double VolumeControle::getFatorEspacamentoMinimo() const {
-    return FatorEspacamentoMinimoFibras;
+    return fatorEspacamentoMinimo;
 }
 
 /**

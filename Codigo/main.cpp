@@ -66,21 +66,22 @@ void testeEntradaSaidaDados() {
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
     argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
     argsVC.volumeVC =
-        pow(300e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
+        pow(650e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
             3);//argsModulo.volumeTotalModulo;
 
     // Output
     // std::cout << std::scientific;
     // std::cout.precision(10)
     DadosSaidaModelo dadosSaida = realizarCalculos(argsVC, argsModulo);
-    print("Volume definido do VC: ", argsVC.volumeVC, " m^3",
-        "\nNumero de fibras: ", dadosSaida.getNumFibras(),
-        "\nEspacamento entre fibras: ", dadosSaida.getEspacamentoFibras(), " m"
-        "\nPorosidade do meio: ", dadosSaida.getPorosidade(),
-        "\nArea Total de Transferencia do VC: ", dadosSaida.getAreaTotalTransferencia(), " m^2"
+    print("CALCULOS:",
+        "\n- Volume definido do VC: ", argsVC.volumeVC, " m^3",
+        "\n- Numero de fibras: ", dadosSaida.getNumFibras(),
+        "\n- Espacamento entre fibras: ", dadosSaida.getEspacamentoFibras(), " m"
+        "\n- Porosidade do meio: ", dadosSaida.getPorosidade(),
+        "\n- Area Total de Transferencia do VC: ", dadosSaida.getAreaTotalTransferencia(), " m^2"
         );
 
-    print("\nExtrapolacao para todo o modulo: ",
+    print("\n- Extrapolacao para todo o modulo: ",
         dadosSaida.getAreaTotalTransferencia() * argsModulo.volumeTotalModulo/argsVC.volumeVC, " m^2");
 }
 
