@@ -79,8 +79,7 @@ double VolumeControle::calcularComprimentoAuxiliar() const {
 }
 
 /**
- * @brief Calcula e retorna o número efetivo de fibras no caso de superempacotamento.
- * @return double
+ * @brief Calcula o número efetivo de fibras no caso de superempacotamento.
  */
 void VolumeControle::calcularNumeroEfetivoDeFibras() {
     double areaSobresposta = 2 * (raioFibra*raioFibra*calcularAnguloSobreposicao() - (raioFibra + espacamentoFibras/2)*calcularComprimentoAuxiliar());
@@ -89,8 +88,7 @@ void VolumeControle::calcularNumeroEfetivoDeFibras() {
 }
 
 /**
- * @brief Calcula e retorna o perímetro total não impedido das fibras no V.C.
- * @return double
+ * @brief Calcula o perímetro total não impedido das fibras no V.C.
  */
 void VolumeControle::calcularPerimetroTotalFibras() {
     setPerimetroTotalFibras(4 * (M_PI_2 - 2*calcularAnguloSobreposicao()) * raioFibra * numFibras);

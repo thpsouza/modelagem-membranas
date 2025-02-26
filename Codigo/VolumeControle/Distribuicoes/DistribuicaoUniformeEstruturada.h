@@ -1,5 +1,5 @@
 /**
- * @file DistribuicaoUniforme.h
+ * @file DistribuicaoUniformeEstruturada.h
  * @author Thiago Souza (thiagosouza@eq.ufrj.com)
  * @brief Arquivo com a classe de distribuição uniforme estruturada de fibras no volume de controle
  * @version 0.1
