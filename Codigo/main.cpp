@@ -66,12 +66,14 @@ void testeEntradaSaidaDados() {
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
     argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
     argsVC.volumeVC =
-        pow(600e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
+        pow(300e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
             3);//argsModulo.volumeTotalModulo;
 
     // Output
+    // std::cout << std::scientific;
+    // std::cout.precision(10)
     DadosSaidaModelo dadosSaida = realizarCalculos(argsVC, argsModulo);
-    print("Volume definido: ", argsVC.volumeVC, " m^3",
+    print("Volume definido do VC: ", argsVC.volumeVC, " m^3",
         "\nNumero de fibras: ", dadosSaida.getNumFibras(),
         "\nEspacamento entre fibras: ", dadosSaida.getEspacamentoFibras(), " m"
         "\nPorosidade do meio: ", dadosSaida.getPorosidade(),

@@ -16,6 +16,7 @@
 #include "Geometrias/GeometriaBase.h"
 #include "Fibras/FibraBase.h"
 #include "Distribuicoes/DistribuicaoBase.h"
+#include "Distribuicoes/DistribuicaoUniformeAlternada.h"
 #include "Distribuicoes/DistribuicaoUniformeEstruturada.h"
 
 /**
@@ -43,6 +44,8 @@ void VolumeControle::construirModelo() {
     switch (entrada->getDadosVC().distribuicao) {
         case DadosEntradaModelo::TipoDistribuicao::UniformeEstruturada1D:
             modelo = std::make_unique<DistribuicaoUniformeEstruturada>();
+        case DadosEntradaModelo::TipoDistribuicao::UniformeAlternada1D:
+            modelo = std::make_unique<DistribuicaoUniformeAlternada>();
             break;
         default:
             ;
@@ -106,7 +109,7 @@ void VolumeControle::calcularEspacamentoFibras() {
  * @brief Calcula o empacotamento a partir do número de fibras, volume das fibras e volume do VC. Definidos na classe de entrada.
  */
 void VolumeControle::calcularEmpacotamento() {
-    setEmpacotamento(numFibras * fibra->getVolume() / geometria->getVolume());
+    setEmpacotamento(numEfetivoFibras * fibra->getVolume() / geometria->getVolume());
 }
 
 /**
@@ -116,19 +119,11 @@ void VolumeControle::calcularPorosidade() {
     setPorosidade(1 - empacotamento);
 }
 
-// /**
-//  * @brief Calcula o número de fibras a partir do volume do V.C., do volume da fibra, e da porosidade,
-//  * calculada previamente pela propria classe.
-//  */
-// void VolumeControle::calcularNumFibras() {
-//     setNumFibras((int) round(geometria->getVolume() * (1 - getPorosidade()) / fibra->getVolume()));
-// }
-
 /**
  * @brief Calcula a área total de transferência, com base no número de fibras, calculado anteriormente pela própria classe, e na área de superfície de cada fibra.
  */
 void VolumeControle::calcularAreaTotalTransferencia() {
-    setAreaTransferenciaTotal(numFibras * fibra->getAreaSuperficial());
+    setAreaTransferenciaTotal(perimetroTotalFibras * fibra->getComprimento());
 }
 
 

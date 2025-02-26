@@ -48,10 +48,10 @@ DadosSaidaModelo *CalculadoraCuboPerfeitoDadosSaida::calcular() {
     ///
 
     // Variáveis principais
-    double volumeVC = entrada->getDadosVC().volumeVC;
-    double ladoVC = cbrt(volumeVC);
-    double raioFibra = entrada->getDadosVC().diametroFibra/2;
-    int numFibras = entrada->getDadosVC().numFibrasVC;
+    const double volumeVC = entrada->getDadosVC().volumeVC;
+    const double ladoVC = cbrt(volumeVC);
+    const double raioFibra = entrada->getDadosVC().diametroFibra/2;
+    const int numFibras = entrada->getDadosVC().numFibrasVC;
 
     // Geometria do volume de controle
     CuboPerfeito cubo {ladoVC, volumeVC};
