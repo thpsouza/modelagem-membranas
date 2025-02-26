@@ -66,7 +66,7 @@ void testeEntradaSaidaDados() {
     argsVC.geometria = DadosEntradaModelo::CuboPerfeito;
     argsVC.distribuicao = DadosEntradaModelo::UniformeEstruturada1D;
     argsVC.volumeVC =
-        pow(650e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
+        pow(250e-6, //sqrt(argsVC.numFibrasVC)*(argsVC.diametroFibra+argsVC.distanciaFibras)
             3);//argsModulo.volumeTotalModulo;
 
     // Output
@@ -82,15 +82,17 @@ void testeEntradaSaidaDados() {
         );
 
     print("\n- Extrapolacao para todo o modulo: ",
-        dadosSaida.getAreaTotalTransferencia() * argsModulo.volumeTotalModulo/argsVC.volumeVC, " m^2");
+        dadosSaida.getAreaTotalTransferencia() * argsModulo.volumeTotalModulo/argsVC.volumeVC, " m^2", "\n");
 }
 
 
 int main(int argc, char* argv[]) {
+    system("");
     if (argc == 3) {
         //analisarDados(argv[1], atof(argv[2]));
     } else {
         testeEntradaSaidaDados();
     }
+    system("pause");
     return 0;
 }
